@@ -31,7 +31,8 @@ Module Controllers can be used as normal Controllers or HMVC Controllers and the
 DBV
 ************************
 
-DBV is a database versioning tool
+DBV is a database versioning tool.
+To learn more about DBV please follow the link: https://www.sitepoint.com/database-versioning-dbv/
 
 PHP version 5.6 or newer is recommended.
 
