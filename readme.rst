@@ -2,7 +2,9 @@
 Fashion and Design
 *******************
 
-This project is based on the Human Computer Interaction concepts where we will review a website and redesign it to make it better and easy to use and efficient
+This project is based on the Human Computer Interaction concepts where we will review a website and redesign it to make it better and easy to use and efficient.
+
+The website to be reviewed, redesigned and coded will be Kikoromeo.
 
 ************
 What is HCI
