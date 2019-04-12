@@ -37,3 +37,4 @@ application/sessions/
 .env
 .vscode
 uploads/
+readme.rst
