@@ -497,7 +497,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="border-box">
                           <a href="#">
-                            <img src="<?=base_url();?>assets/website/assets/img/client-logo/1.png" alt="clients">
+                            <img src="<?=base_url();?>assets/website/assets/Images/eventcover1.png" alt="clients">
                           </a>
                       </div><!-- /.border-box -->
                   </div><!-- /.col-md-3 -->
@@ -505,7 +505,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="border-box">
                           <a href="#">
-                            <img src="<?=base_url();?>assets/website/assets/img/client-logo/2.png" alt="clients">
+                            <img src="<?=base_url();?>assets/website/assets/Images/eventscover2.png" alt="clients">
                           </a>
                       </div><!-- /.border-box -->
                   </div><!-- /.col-md-3 -->
@@ -513,7 +513,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="border-box">
                           <a href="#">
-                            <img src="<?=base_url();?>assets/website/assets/img/client-logo/4.png" alt="clients">
+                            <img src="<?=base_url();?>assets/website/assets/Images/eventcover1.png" alt="clients">
                           </a>
                       </div><!-- /.border-box -->
                   </div><!-- /.col-md-3 -->
@@ -521,7 +521,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="border-box">
                           <a href="#">
-                            <img src="<?=base_url();?>assets/website/assets/img/client-logo/5.png" alt="clients">
+                            <img src="<?=base_url();?>assets/website/assets/Images/eventscover2.png" alt="clients">
                           </a>
                       </div><!-- /.border-box -->
                   </div><!-- /.col-md-3 -->
