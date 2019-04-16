@@ -93,7 +93,7 @@
 
                 
         <!--header start-->
-        <header id="header" class="tt-nav nav-border-bottom">
+        <header id="header" class="tt-nav nav-border-bottom" >
 
             <div class="header-sticky light-header ">
 
@@ -133,7 +133,7 @@
 
                         <!--mega menu start-->
                         <ul class="menuzord-menu pull-right">
-                            <li class="active"><a href="javascript:void(0)">Home</a>
+                            <li class="active"><a href="<?=base_url()?>website/home">Home</a>
 <!--
                                 <div class="megamenu">
                                     <div class="megamenu-row">
@@ -187,7 +187,7 @@
                             </li>
 
 
-                            <li><a href="javascript:void(0)">Collections</a>
+                            <li><a href="<?=base_url()?>website/collections">Collections</a>
                                 <ul class="dropdown">
                                     <li><a href="#">MENSWEAR</a>
                                         <ul class="dropdown">
