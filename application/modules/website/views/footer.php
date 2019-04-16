@@ -54,7 +54,7 @@
         <script src="<?=base_url()?>assets/website/assets/js/jquery-2.1.3.min.js"></script>
         <script src="<?=base_url()?>assets/website/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?=base_url()?>assets/website/assets/materialize/js/materialize.min.js"></script>
-        <script src="<?=base_url()?>assets/website/ssets/js/menuzord.js"></script>
+        <script src="<?=base_url()?>assets/website/assets/js/menuzord.js"></script>
         <script src="<?=base_url()?>assets/website/assets/js/bootstrap-tabcollapse.min.js"></script>
         <script src="<?=base_url()?>assets/website/assets/js/jquery.easing.min.js"></script>
         <script src="<?=base_url()?>assets/website/assets/js/jquery.sticky.min.js"></script>
@@ -69,8 +69,8 @@
         <script src="<?=base_url()?>assets/website/assets/js/scripts.js"></script>
 
         <!-- RS5.0 Core JS Files -->
-        <script src="assets/revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script src="assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="<?=base_url()?>assets/website/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script src="<?=base_url()?>assets/website/assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
 
         <!-- RS5.0 Init  -->
         <script type="text/javascript">

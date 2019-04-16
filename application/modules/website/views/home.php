@@ -1,5 +1,5 @@
  <!-- start revolution slider 5.0 -->
- <section class="rev_slider_wrapper">
+ <section class="rev_slider_wrapper" style="margin-top:3px;">
          <div class="rev_slider materialize-slider" >
           <ul>
 
@@ -356,7 +356,7 @@
                             <div role="tabpanel" class="tab-pane fade in active" id="tab-5">
                                 <h2>Brand Vision</h2>
 
-                                <img class="alignright" src="assets/img/working_man.png" alt="">
+                                <img class="alignright" src="<?=base_url();?>assets/website/assets/img/working_man.png" alt="">
 
                                 <p>“KikoRomeo mission is to bring different peoples together, using fashion as a medium, in order to build understanding between races and cultures. We are passionate about the arts and use our language and fashion skills to mentor and inspire people to be open-minded and to earn a living from creativity. The beautiful things we create, embolden the wearer, opening new paths and giving them confidence to live at their full potential”.</p>
 
@@ -365,7 +365,7 @@
                             <div role="tabpanel" class="tab-pane fade" id="tab-6">
                                 <h2>Fashion DNA</h2>
 
-                                <img class="alignright" src="assets/img/busy_man.png" alt="">
+                                <img class="alignright" src="<?=base_url();?>assets/website/assets/img/busy_man.png" alt="">
 
                                 <p>KikoRomeo is passionate about sustainability. Our items are beautifully crafted by artisans in East Africa, many of whom we have worked with us for over two decades. Our products are works of art and are treasured as such by our clients, who repeatedly tell us that they still wear the same creation ten years later. We bring out the love for beauty in the craftsperson and open doors to the wearer, who is admired globally, making them feel comfortable and ready to represent their company and the African continent. Our fabrics are mainly from natural fibres including cottons, linens and silk. We work with weavers and textile designers to enhance the whole value chain, making KikoRomeo’s DNA singularly unique. Our silhouettes are effortlessly elegant, with attention to the details. We are colourful, fun and classy.</p>
                                 
@@ -373,14 +373,14 @@
                             <div role="tabpanel" class="tab-pane fade" id="tab-7">
                                 <h2>Inspirations</h2>
 
-                                <img class="alignright" src="assets/img/mission.png" alt="">
+                                <img class="alignright" src="<?=base_url();?>assets/website/assets/img/mission.png" alt="">
 
                                 <p>KikoRomeo continues to question what we can wear to look great, when not wearing business attire. Now located in an art centre, the mother and daughter design duo draw from the inspiration of the fine artists around them. Looking at the textures in paints, the accidental merging of colours and mixed media, to create an originality and richness in the textiles. Paying attention to the details, fascination with traditional Kenyan culture as well as punk culture and hip-hop merge in an eclectic and vibrant mix of embroidered symbols, straps and graffiti.</p>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="tab-8">
                                 <h2>Customer Profile</h2>
 
-                                <img class="alignright" src="assets/img/business.png" alt="">
+                                <img class="alignright" src="<?=base_url();?>assets/website/assets/img/business.png" alt="">
 
                                <p>The KikoRomeo man likes to feel comfortable, but stylish, and can even substitute a classical suit for these original       pieces. He likes to look distinctive and values quality.
                                    The KikoRomeo woman is bold and not afraid to stand out in the crowd. With structured silhouettes and attention to detail, combined with impeccable cut. The designs are timeless, and pave the way for interesting conversations about the sophistication of things made in Africa. Our clients have a deep appreciation for the arts and enjoy our show music and backdrops as much as the clothes.</p>
@@ -388,7 +388,7 @@
                             <div role="tabpanel" class="tab-pane fade" id="tab-9">
                                 <h2>Awards</h2>
                                 
-                                <img class="alignright mt-20" src="assets/img/data.png" alt="">
+                                <img class="alignright mt-20" src="<?=base_url();?>assets/website/assets/img/data.png" alt="">
 
                                 <p>KikoRomeo is a Kenyan heritage brand, based in Nairobi with over two decades in the fashion business. Recent achievements include dressing the actresses from the Kenyan movie “Rafiki” at the Cannes Film Festival as well as musicians Mr Eazi and Blinky Bill. KikoRomeo is no stranger to the red carpet having famously dressed Dorothy Nyon’go to accompany Lupita her daughter, for the BAFTA Awards. Over the years KikoRomeo has won East African Designer of the Year at the Swahili Fashion Awards 2014, Icon of Hope at AFDW Nigeria in 2015 as well as head creative Ann McCreath being listed by Arise magazine in the “100 Women Changing Africa”, and African Woman’s ‘Fashion Power Players”. Ann has been quoted severally in the Business of Fashion and continues to make a mark by mentoring the next generation of designers including refugees in Kenya. Iona has been celebrated in her own right, for her sustainable fashion brand Kikoti, including being featured in ID magazine. However the duo see their most important award as the praise they get from clients and fans, who constantly encourage them, by showing just how much appreciation they have for KikoRomeo.</p>
                             </div>
@@ -497,7 +497,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="border-box">
                           <a href="#">
-                            <img src="assets/img/client-logo/1.png" alt="clients">
+                            <img src="<?=base_url();?>assets/website/assets/img/client-logo/1.png" alt="clients">
                           </a>
                       </div><!-- /.border-box -->
                   </div><!-- /.col-md-3 -->
@@ -505,7 +505,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="border-box">
                           <a href="#">
-                            <img src="assets/img/client-logo/2.png" alt="clients">
+                            <img src="<?=base_url();?>assets/website/assets/img/client-logo/2.png" alt="clients">
                           </a>
                       </div><!-- /.border-box -->
                   </div><!-- /.col-md-3 -->
@@ -513,7 +513,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="border-box">
                           <a href="#">
-                            <img src="assets/img/client-logo/4.png" alt="clients">
+                            <img src="<?=base_url();?>assets/website/assets/img/client-logo/4.png" alt="clients">
                           </a>
                       </div><!-- /.border-box -->
                   </div><!-- /.col-md-3 -->
@@ -521,7 +521,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="border-box">
                           <a href="#">
-                            <img src="assets/img/client-logo/5.png" alt="clients">
+                            <img src="<?=base_url();?>assets/website/assets/img/client-logo/5.png" alt="clients">
                           </a>
                       </div><!-- /.border-box -->
                   </div><!-- /.col-md-3 -->
