@@ -5,6 +5,13 @@
             parent::__construct();
             //Load your models here
         }
+        function home()
+        {
+            $data['title'] = "Kikoromeo";
+            $this->load->view('header',$data);
+            $this->load->view('home');
+            $this->load->view('footer');
+        }
 
         //Function that loads the collections page
         function collections()
