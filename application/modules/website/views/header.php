@@ -189,9 +189,9 @@
 
                             <li><a href="<?=base_url()?>website/collections">Collections</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">MENSWEAR</a>
-                                        <ul class="dropdown">
-<!--
+                                    <li><a href="<?=base_url();?>website/collections">MENSWEAR</a>
+                                        <!-- <ul class="dropdown">
+
                                             <li><a href="#">Slider Revolution</a>
                                                 <ul class="dropdown">
                                                     <li><a href="slider-revoulation-fullscreen.html">Full Screen</a></li>
@@ -214,8 +214,8 @@
                                                     <li><a href="text-rotator-5.html">Rotate Text 5</a></li>
                                                 </ul>
                                             </li>
--->
-<!--
+
+
                                             <li><a href="#">Hero Unit</a>
                                                 <ul class="dropdown">
                                                     <li><a href="hero-static.html">Hero Static</a></li>
@@ -223,40 +223,40 @@
                                                     <li><a href="hero-static-right.html">Hero Static Right</a></li>
                                                 </ul>
                                             </li>
--->
+
                                             <li><a href="hero-cloud.html">Animate Cloud</a></li>
                                             <li><a href="hero-html-video.html">HTML5 Video</a> </li>
-                                        </ul>
+                                        </ul> -->
                                     </li>
-                                    <li><a href="#">WOMENSWEAR</a>
-                                        <ul class="dropdown">
+                                    <li><a href="<?=base_url();?>website/collections">WOMENSWEAR</a>
+                                        <!-- <ul class="dropdown">
                                             <li><a href="menu-transparent.html">Transparent</a></li>
                                             <li><a href="menu-semi-transparent.html">Semi Transparent</a></li>
-<!--
+
                                             <li><a href="menu-center.html">Menu Center</a></li>
                                             <li><a href="menu-bottom.html">Bottom Position</a></li>
                                             <li><a href="menu-floating.html">Floating Menu</a></li>
                                             <li><a href="agency-index.html" target="_blank">Full Screen Menu</a></li>
--->
-                                        </ul>
+
+                                        </ul> -->
                                     </li>
-                                    <li><a href="#">VINTAGE</a>
-                                        <ul class="dropdown">
+                                    <li><a href="<?=base_url();?>website/collections">VINTAGE</a>
+                                        <!-- <ul class="dropdown">
                                             <li><a href="menu-light.html">Menu Light</a></li>
                                             <li><a href="menu-topbar.html">Menu Topbar</a></li>
-<!--
+
                                             <li><a href="menu-box.html">Menu Box</a></li>
                                             <li><a href="menu-border-box.html">Menu Border Box</a></li>
                                             <li><a href="menu-dark.html">Menu Dark</a></li>
                                             <li><a href="menu-topbar-alt.html">Menu Brand Color</a></li>
--->
-                                        </ul>
+
+                                        </ul> -->
                                     </li>
-                                    <li><a href="#">KIDS</a>
-                                        <ul class="dropdown">
+                                    <li><a href="<?=base_url();?>website/collections">KIDS</a>
+                                        <!-- <ul class="dropdown">
                                             <li><a href="page-title.html"> Default Title</a></li>
                                             <li><a href="page-title-bg.html"> Background Title</a></li>
-<!--
+
                                             <li><a href="page-title-fixed-bg.html"> Background Fixed</a></li>
                                             <li><a href="page-title-center.html"> Center Title</a></li>
                                             <li><a href="page-title-dark.html"> Dark Title</a></li>
@@ -265,8 +265,8 @@
                                             <li><a href="page-title-pattern-bg.html"> Pattern Title</a></li>
                                             <li><a href="page-title-right.html"> Right Title</a></li>
                                             <li><a href="page-title-mini.html"> Mini Title</a></li>
--->
-                                        </ul>
+
+                                        </ul> -->
                                     </li>
                                    
                                 </ul>
@@ -274,7 +274,7 @@
                              <li><a href="javascript:void(0)">Events</a>
                                 <ul class="dropdown">
                                     <li><a href="#">FIMA2018</a>
-                                        <ul class="dropdown">
+                                        <!-- <ul class="dropdown">
                                             <li><a href="#">Slider Revolution</a>
                                                 <ul class="dropdown">
                                                     <li><a href="slider-revoulation-fullscreen.html">Full Screen</a></li>
@@ -284,13 +284,13 @@
                                             </li>
                                            
                                             <li><a href="hero-html-video.html">HTML5 Video</a> </li>
-                                        </ul>
+                                        </ul> -->
                                     </li>
                                     <li><a href="#">LAGOS LFW 2018</a>
-                                        <ul class="dropdown">
+                                        <!-- <ul class="dropdown">
                                             <li><a href="menu-transparent.html">Transparent</a></li>
                                             
-                                        </ul>
+                                        </ul> -->
                                     </li>
                                     
                                 </ul>
