@@ -8,7 +8,7 @@
         <meta name="keywords" content="material design, card style, material template, portfolio, corporate, business, creative, agency">
         <meta name="author" content="trendytheme.net">
 
-        <title>kikoromeo</title>
+        <title><?=$title;?></title>
 
         <!--  favicon -->
         <link rel="shortcut icon" href="assets/img/ico/favicon.png">
