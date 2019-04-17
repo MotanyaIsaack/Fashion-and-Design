@@ -133,7 +133,13 @@
 
                         <!--mega menu start-->
                         <ul class="menuzord-menu pull-right">
-                            <li class="active"><a href="<?=base_url()?>website/home">Home</a>
+                            <li 
+                                <?php
+                                    if($this->uri->uri_string() == 'website/home' || $this->uri->uri_string() == ''){
+                                        echo 'class="active"';
+                                    }
+                                ?> 
+                            ><a href="<?=base_url()?>website/home">Home</a>
 <!--
                                 <div class="megamenu">
                                     <div class="megamenu-row">
@@ -187,7 +193,13 @@
                             </li>
 
 
-                            <li><a href="<?=base_url()?>website/collections">Collections</a>
+                            <li
+                            <?php
+                                if($this->uri->uri_string() == 'website/collections'){
+                                    echo 'class="active"';
+                                }
+                            ?> 
+                            ><a href="<?=base_url()?>website/collections">Collections</a>
                                 <ul class="dropdown">
                                     <li><a href="#">MENSWEAR</a>
                                        
@@ -201,7 +213,13 @@
                                    
                                 </ul>
                             </li>
-                             <li><a href="javascript:void(0)">Events</a>
+                             <li
+                                <?php
+                                    if($this->uri->uri_string() == 'website/events'){
+                                        echo 'class="active"';
+                                    }
+                                ?> 
+                            ><a href="javascript:void(0)">Events</a>
                                 <ul class="dropdown">
                                     <li><a href="#">FIMA2018</a>
                                         
