@@ -43,7 +43,7 @@
             <main id="main-container">
 
                 <!-- Page Content -->
-                <div class="bg-image" style="background-image: url('images/kikoRomeo3.jpg');">
+                <div class="bg-image" style="background-image: url('<?=base_url();?>assets/admin/images/kikoRomeo3.jpg');">
                     <div class="row mx-0 bg-black-op">
                         <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
                             <div class="p-30 invisible" data-toggle="appear">
@@ -120,7 +120,7 @@
                                           <!--   <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="#" data-toggle="modal" data-target="#modal-terms">
                                                 <i class="fa fa-book text-muted mr-5"></i> Read Terms
                                             </a> -->
-                                            <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="Adminlogin.php">
+                                            <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="<?=base_url();?>admin/index">
                                                 <i class="fa fa-user text-muted mr-5"></i> Sign In
                                             </a>
                                         </div>

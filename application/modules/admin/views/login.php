@@ -103,7 +103,7 @@
                                             <i class="si si-login mr-10"></i> Sign In
                                         </button>
                                         <div class="mt-30">
-                                            <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="Adminsignup.php">
+                                            <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="<?=base_url();?>admin/signup">
                                                 <i class="fa fa-plus mr-5"></i> Create Account
                                             </a>
                                             <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="op_auth_reminder2.html">
