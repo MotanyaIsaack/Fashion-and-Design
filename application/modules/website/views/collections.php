@@ -19,7 +19,7 @@
         <div class="container">
 
             <div class="text-center mb-50">
-                <h2 class="section-title">Collections</h2>
+                <h2 class="section-title">Our Collections</h2>
                 <p class="section-sub">As Kikoromeo we offer inter-season or pre-season line of ready-to-wear clothing.</p>
             </div>
 
