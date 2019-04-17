@@ -41,7 +41,7 @@
         <!-- Preloader -->
         <div id="preloader">
           <div class="preloader-position"> 
-            <img src="<?=base_url()?>assets/website/assets/img/logo-colored.png" alt="logo" >
+            <img src="<?=base_url()?>assets/website/assets/Images/sitelogo.png" alt="logo" >
             <div class="progress">
               <div class="indeterminate"></div>
             </div>
