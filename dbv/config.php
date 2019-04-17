@@ -8,7 +8,7 @@ define('DB_HOST', 'localhost');
 define('DB_PORT', 3306);
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'hci');
+define('DB_NAME', 'fashion_and_design');
 
 /**
  * Authentication data for access to DBV itself
