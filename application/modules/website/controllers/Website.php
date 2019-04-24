@@ -38,6 +38,7 @@
             $data['title'] = $event_name;
             $this->load->view('header',$data);
             $this->load->view('view-event');
+        }
         //Function that loads the collections page
         function subcollections()
         {
