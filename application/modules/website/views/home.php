@@ -468,19 +468,19 @@
 
                       <div class="carousel-item">
                           <div class="content">
-                              <h2 class="white-text line-height-40">"Fashion is like eating, you shouldn't stick to the same menu"
+                              <h2 class="white-text line-height-40">"Fashion is part of the daily air and it changes all the time, with all the events. You can even see the approaching of a revolution in clothes. You can see and feel everything in clothes."
                               <div class="testimonial-meta font-20 text-extrabold white-text">
-                                 Kenzo Takada
+                                 Diana Vreeland
                               </div>
                           </div><!-- /.content -->
                       </div><!-- /.carousel-item -->
 
                       <div class="carousel-item">
                           <div class="content">
-                              <h2 class="white-text line-height-40">"Fashion is part of the daily air and it changes all the time, with all the events. You can even see the approaching of a revolution in clothes. You can see and feel everything in clothes."</h2>
+                              <h2 class="white-text line-height-40">"Fashion is like eating, you shouldn't stick to the same menu"</h2>
 
                               <div class="testimonial-meta font-20 text-extrabold white-text">
-                                 Diana Vreeland
+                                 Kenzo Takada
                               </div>
                           </div><!-- /.content -->
                       </div><!-- /.carousel-item -->
@@ -498,7 +498,8 @@
 
               <div class="text-center mb-80">
                   <h2 class="section-title text-uppercase">Events</h2>
-                  <p class="section-sub">Quisque non erat mi. Etiam congue et augue sed tempus. Aenean sed ipsum luctus, scelerisque ipsum nec, iaculis justo. Sed at vestibulum purus, sit amet viverra diam. Nulla ac nisi rhoncus,</p>
+                  <p class="section-sub">An event shouldn't be just an experiential thing, it should be an emotional thing and that is why at Kikoromeo
+                  we strive to bring you the best of the fashion world on a single digital platform so that you are always up to date with the latest trends.</p>
               </div>
 
               <div class="clients-grid gutter">
@@ -522,7 +523,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="border-box">
                           <a href="#">
-                            <img src="<?=base_url();?>assets/website/assets/Images/eventcover1.png" alt="clients">
+                            <img src="<?=base_url();?>assets/website/assets/Images/lfw.jpg" alt="clients">
                           </a>
                       </div><!-- /.border-box -->
                   </div><!-- /.col-md-3 -->
@@ -530,7 +531,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="border-box">
                           <a href="#">
-                            <img src="<?=base_url();?>assets/website/assets/Images/eventscover2.png" alt="clients">
+                            <img src="<?=base_url();?>assets/website/assets/Images/nfw.jpg" alt="clients">
                           </a>
                       </div><!-- /.border-box -->
                   </div><!-- /.col-md-3 -->
