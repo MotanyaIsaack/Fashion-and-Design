@@ -202,13 +202,13 @@
                                 }
                             ?>><a href="<?=base_url()?>website/collections">Collections</a>
                             <ul class="dropdown">
-                                <li><a href="#">MENSWEAR</a>
+                                <li><a href="<?=base_url()?>website/collections">MENSWEAR</a>
 
                                 </li>
-                                <li><a href="#">VINTAGE</a>
+                                <li><a href="<?=base_url()?>website/collections">VINTAGE</a>
 
                                 </li>
-                                <li><a href="#">KIDS</a>
+                                <li><a href="<?=base_url()?>website/collections">KIDS</a>
 
                                 </li>
 

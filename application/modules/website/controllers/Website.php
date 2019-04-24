@@ -20,6 +20,7 @@
             $this->load->view('header',$data);
             $this->load->view('collections');
             $this->load->view('footer');
+        
         }
 
         //Displays events landing page
@@ -37,6 +38,12 @@
             $data['title'] = $event_name;
             $this->load->view('header',$data);
             $this->load->view('view-event');
+        //Function that loads the collections page
+        function subcollections()
+        {
+            $data['title'] = "SubCollections";
+            $this->load->view('header',$data);
+            $this->load->view('subcollections');
             $this->load->view('footer');
         }
 
