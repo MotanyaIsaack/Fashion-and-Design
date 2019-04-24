@@ -21,6 +21,25 @@
             $this->load->view('collections');
             $this->load->view('footer');
         }
+
+        //Displays events landing page
+        function events()
+        {
+            $data['title'] = "Events";
+            $this->load->view('header',$data);
+            $this->load->view('events');
+            $this->load->view('footer');
+        }
+
+        //Displays all events
+        function event($event_name)
+        {
+            $data['title'] = $event_name;
+            $this->load->view('header',$data);
+            $this->load->view('view-event');
+            $this->load->view('footer');
+        }
+
     }
 
 ?>
