@@ -39,11 +39,11 @@
 
                         <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img    style="height:380px; class="activator" src="<?= base_url();?>assets/website/assets/Images/SS-2015.jpg" alt="image">
+                            <img style="height:380px"; class="activator" src="<?= base_url();?>assets/website/assets/Images/SS-2015.jpg" alt="image">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator">The SS 2015 Collection</span>
-                            <p><a href="#">View Collection</a></p>
+                            <p><a href="<?=base_url()?>website/subcollections">View Collection</a></p>
                         </div>
                         <!-- <div class="card-reveal">
                             <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="card-content">
                             <span class="card-title activator">The AW 15/16 Collection</span>
-                            <p><a href="#">View Collection</a></p>
+                            <p><a href="<?=base_url()?>website/subcollections">View Collection</a></p>
                         </div>
                         <!-- <div class="card-reveal">
                             <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="card-content">
                             <span class="card-title activator">The Vintage Collection</span>
-                            <p><a href="#">View Collection</a></p>
+                            <p><a href="<?=base_url()?>website/subcollections">View Collection</a></p>
                         </div>
                         <!-- <div class="card-reveal">
                             <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
@@ -100,7 +100,7 @@
                         </div>
                         <div class="card-content">
                             <span class="card-title activator">The Kids Collection</span>
-                            <p><a href="#">View Collection</a></p>
+                            <p><a href="<?=base_url()?>website/subcollections">View Collection</a></p>
                         </div>
                         <!-- <div class="card-reveal">
                             <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>

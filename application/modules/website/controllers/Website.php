@@ -20,7 +20,17 @@
             $this->load->view('header',$data);
             $this->load->view('collections');
             $this->load->view('footer');
+        
         }
+        //Function that loads the collections page
+        function subcollections()
+        {
+            $data['title'] = "SubCollections";
+            $this->load->view('header',$data);
+            $this->load->view('subcollections');
+            $this->load->view('footer');
+        }
+
     }
 
 ?>
