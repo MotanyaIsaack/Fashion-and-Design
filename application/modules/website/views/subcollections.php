@@ -49,7 +49,7 @@
                         <div class="col-md-8">
                             <span class="text-medium text-uppercase"><a href="#" class=" brand-color">MENSWEAR</a></span>
                             <h2 class="mb-30 font-35">The SS 2015 Collection</h2>
-                            <p>The SS 2015 Collection, an immersive exhibition dedicated
+                            <p class="font-17">The SS 2015 Collection, an immersive exhibition dedicated
                              to the three creative houses of Chanel, just landed at Shanghai's West Bund Art Center
                               for a six-week stint. The traveling exhibition has already made stopovers in Seoul,
                                Hong Kong, and London—and though the contents and intent remain the same,
@@ -62,9 +62,9 @@
 
                         <div class="col-md-4 quick-overview">
                             <ul class="portfolio-meta">
-                                <li><span> Collection </span> The SS2015 COllection</li>
-                                <li><span> Created by </span> Kikoromeo</li>
-                                <li><span> Completed on </span> 17 Oct 2016</li>
+                                <li class="font-17"><span> Collection </span> The SS2015 Collection</li>
+                                <li class="font-17"><span> Created by </span> Kikoromeo</li>
+                                <li class="font-17"><span> Completed on </span> 17 Oct 2016</li>
                                 <!-- <li><span> Skills </span> HTML5 / PHP / CSS3</li> -->
                                 <!-- <li><span> Share </span> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> <a href="#"><i class="fa fa-pinterest"></i></a></li> -->
                             </ul>
