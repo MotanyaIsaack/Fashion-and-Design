@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2019 at 04:53 PM
+-- Generation Time: Apr 27, 2019 at 10:37 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -25,26 +25,43 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `collections`
+-- Table structure for table `collection_category`
 --
 
-CREATE TABLE `collections` (
-  `collection_id` int(11) NOT NULL,
-  `collection_name` varchar(255) NOT NULL,
-  `collection_folder` varchar(255) NOT NULL,
-  `welcome_img_id` int(11) NOT NULL
+CREATE TABLE `collection_category` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `collection_category`
+--
+
+INSERT INTO `collection_category` (`category_id`, `category_name`) VALUES
+(1, 'menswear'),
+(2, 'womenswear'),
+(3, 'vintage'),
+(4, 'kids');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `collections`
+-- Indexes for table `collection_category`
 --
-ALTER TABLE `collections`
-  ADD PRIMARY KEY (`collection_id`),
-  ADD KEY `welcome_img_id` (`welcome_img_id`);
+ALTER TABLE `collection_category`
+  ADD PRIMARY KEY (`category_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `collection_category`
+--
+ALTER TABLE `collection_category`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

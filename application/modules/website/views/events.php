@@ -43,7 +43,58 @@
                     </div><!-- /.card -->
                 </div><!-- /.portfolio-item -->
 
+                <div class="portfolio-item" data-groups='["all", "past"]'>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img style="height:320px;" class="activator"
+                                src="<?=events_url("LAGOS LFW 2018/lagos1.png");?>" alt="image">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator">LAGOS LFW 2018
+                                <i class="material-icons right">more_vert</i>
+                            </span>
+                            <p><a href="<?=base_url();?>website/event/Fima">View Event</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title">LAGOS LFW 2018
+                                <i class="material-icons right">&#xE5CD;</i>
+                            </span>
+                            <p>
+                                It was a new generation takeover as 22-year-old Iona McCreath took to the runway with
+                                the latest SS2019 KIKOROMEO collection on Thursday 25th October night at Day 1 of Lagos
+                                Fashion Week. Iona, who has apprenticed in her mother’s fashion business since birth,
+                                took the bow as she presented the brand’s latest collection.
+                            </p>
+                            <a href="<?=base_url()?>website/event/Fima" class="readmore">Learn more</a>
+                        </div>
+                    </div><!-- /.card -->
+                </div><!-- /.portfolio-item -->
 
+                <div class="portfolio-item" data-groups='["all", "past"]'>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img style="height:320px;" class="activator" src="<?=events_url("FIMA 2018/fima3.png");?>"
+                                alt="image">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator">NFW 2018
+                                <i class="material-icons right">more_vert</i>
+                            </span>
+                            <p><a href="<?=base_url();?>website/event/Fima">View Event</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title">NFW 2018
+                                <i class="material-icons right">&#xE5CD;</i>
+                            </span>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime, ipsa asperiores
+                                excepturi aperiam eos distinctio, odio accusamus enim omnis pariatur aliquid at eligendi
+                                saepe repudiandae nesciunt cupiditate nihil voluptatibus quae.
+                            </p>
+                            <a href="<?=base_url()?>website/event/Fima" class="readmore">Learn more</a>
+                        </div>
+                    </div><!-- /.card -->
+                </div><!-- /.portfolio-item -->
 
                 <div class="portfolio-item" data-groups='["all", "upcoming"]'>
                     <div class="hide">None at the moment. But follow us, we'll keep you posted :)</div>
