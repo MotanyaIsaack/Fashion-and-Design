@@ -39,7 +39,7 @@
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img style="height:380px" ; class="activator"
-                                    src="<?= base_url();?>assets/website/assets/Images/SS-2015.jpg" alt="image">
+                                    src="<?=base_url();?>assets/website/assets/Images/SS-2015.jpg" alt="image">
                             </div>
                             <div class="card-content">
                                 <span class="card-title activator">The SS 2015 Collection</span>
@@ -56,97 +56,75 @@
 
                     <div class="portfolio-item" data-groups='["all", "womenswear"]'>
                         <div class="card">
-                            <<<<<<< HEAD <div class="card-image waves-effect waves-block waves-light">
+                            <div class="card-image waves-effect waves-block waves-light">
                                 <img style="height:380px;" class="activator"
-                                    src="<?= base_url();?>assets/website/assets/Images/Kikoromeo-runway.jpg"
-                                    alt="image">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator">The AW 15/16 Collection</span>
-                            <p><a href="#">View Collection</a></p>
-                        </div>
-                        <!-- <div class="card-reveal">
-=======
+                                    src="<?=base_url();?>assets/website/assets/Images/Kikoromeo-runway.jpg" alt="image">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator">The AW 15/16 Collection</span>
+                                <p><a href="#">View Collection</a></p>
+                            </div>
+                            <!-- <div class="card-reveal">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img style="height:380px;" class="activator" src="<?= base_url();?>assets/website/assets/Images/Kikoromeo-runway.jpg" alt="image">
+                            <img style="height:380px;" class="activator" src="<?=base_url();?>assets/website/assets/Images/Kikoromeo-runway.jpg" alt="image">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator">The AW 15/16 Collection</span>
                             <p><a href="<?=base_url()?>website/subcollections">View Collection</a></p>
-                        </div>
-                        <!-- <div class="card-reveal">
->>>>>>> c58562d3a0b4c57d84213cb5e6245447ceb829ee
-                            <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
-                            <p><a href="#">Website</a></p>
-                            <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services for functional e-markets. Credibly parallel task multifunctional methods.</p>
-                            <a href="#" class="readmore">View full project</a>
-                        </div> -->
-                    </div><!-- /.card -->
-                </div><!-- /.portfolio-item -->
+                        </div>-->
+                        </div><!-- /.card -->
+                    </div><!-- /.portfolio-item -->
 
-                <div class="portfolio-item" data-groups='["all", "vintage"]'>
-                    <div class="card">
-                        <<<<<<< HEAD <div class="card-image waves-effect waves-block waves-light">
-                            <img style="height:380px;" class="activator"
-                                src="<?= base_url();?>assets/website/assets/Images/vintage.jpg" alt="image">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator">The Vintage Collection</span>
-                        <p><a href="#">View Collection</a></p>
-                    </div>
-                    <!-- <div class="card-reveal">
-=======
+                    <div class="portfolio-item" data-groups='["all", "vintage"]'>
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img style="height:380px;" class="activator"
+                                    src="<?=base_url();?>assets/website/assets/Images/vintage.jpg" alt="image">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator">The Vintage Collection</span>
+                                <p><a href="#">View Collection</a></p>
+                            </div>
+                            <!-- <div class="card-reveal">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img style="height:380px;" class="activator" src="<?= base_url();?>assets/website/assets/Images/vintage.jpg" alt="image">
+                            <img style="height:380px;" class="activator" src="<?=base_url();?>assets/website/assets/Images/vintage.jpg" alt="image">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator">The Vintage Collection</span>
                             <p><a href="<?=base_url()?>website/subcollections">View Collection</a></p>
                         </div>
-                        <!-- <div class="card-reveal">
->>>>>>> c58562d3a0b4c57d84213cb5e6245447ceb829ee
-                            <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
-                            <p><a href="#">Material Design</a></p>
-                            <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services for functional e-markets. Credibly parallel task multifunctional methods.</p>
-                            <a href="#" class="readmore">View full project</a>
-                        </div> -->
-                </div><!-- /.card -->
-            </div><!-- /.portfolio-item -->
+                        -->
+                        </div><!-- /.card -->
+                    </div><!-- /.portfolio-item -->
 
-            <div class="portfolio-item" data-groups='["all", "kids"]'>
-                <div class="card">
-                    <<<<<<< HEAD <div class="card-image waves-effect waves-block waves-light">
-                        <img style="height:380px;" class="activator"
-                            src="<?= base_url();?>assets/website/assets/Images/kids.jpg" alt="image">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator">The Kids Collection</span>
-                    <p><a href="#">View Collection</a></p>
-                </div>
-                <!-- <div class="card-reveal">
-=======
+                    <div class="portfolio-item" data-groups='["all", "kids"]'>
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img style="height:380px;" class="activator"
+                                    src="<?=base_url();?>assets/website/assets/Images/kids.jpg" alt="image">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator">The Kids Collection</span>
+                                <p><a href="#">View Collection</a></p>
+                            </div>
+                            <!-- <div class="card-reveal">
+
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img style="height:380px;" class="activator" src="<?= base_url();?>assets/website/assets/Images/kids.jpg" alt="image">
+                            <img style="height:380px;" class="activator" src="<?=base_url();?>assets/website/assets/Images/kids.jpg" alt="image">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator">The Kids Collection</span>
                             <p><a href="<?=base_url()?>website/subcollections">View Collection</a></p>
                         </div>
-                        <!-- <div class="card-reveal">
->>>>>>> c58562d3a0b4c57d84213cb5e6245447ceb829ee
-                            <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
-                            <p><a href="#">UX Design</a></p>
-                            <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services for functional e-markets. Credibly parallel task multifunctional methods.</p>
-                            <a href="#" class="readmore">View full project</a>
-                        </div> -->
-            </div><!-- /.card -->
-        </div><!-- /.portfolio-item -->
-        </div><!-- /.portfolio -->
-        <!-- <div class="load-more-button text-center">
+                    -->
+                        </div><!-- /.card -->
+                    </div><!-- /.portfolio-item -->
+                </div><!-- /.portfolio -->
+                <!-- <div class="load-more-button text-center">
                     <a class="waves-effect waves-light btn btn-large pink"> <i class="fa fa-spinner left"></i> Load More</a>
                 </div> -->
 
-        </div><!-- portfolio-container -->
+            </div><!-- portfolio-container -->
 
         </div><!-- /.container -->
     </section>
