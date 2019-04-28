@@ -45,6 +45,7 @@
     <link href="<?=base_url();?>assets/website/assets/css/shortcodes/shortcodes.css" rel="stylesheet">
     <!-- Style CSS -->
     <link href="<?=base_url();?>assets/website/style.css" rel="stylesheet">
+    <link href="<?=website_assets_url("css/carousel-edit.css");?>" rel="stylesheet">
 
 
     <!-- RS5.0 Main Stylesheet -->
@@ -122,10 +123,10 @@
                                     <label for="search" class="">Search Here...</label>
                                 </div>
                                 <button class="btn pink search-button waves-effect waves-light" type="submit"><i class="material-icons">&#xE8B6;</i></button>
-                                
+
                             </form>
                         </div>
-                    </div> /.search-wrapper 
+                    </div> /.search-wrapper
 -->
 
                 <div id="materialize-menu" class="menuzord">
@@ -139,10 +140,10 @@
                     <!--mega menu start-->
                     <ul class="menuzord-menu pull-right">
                         <li <?php
-                                    if($this->uri->uri_string() == 'website/home' || $this->uri->uri_string() == ''){
-                                        echo 'class="active"';
-                                    }
-                                ?>><a href="<?=base_url()?>website/home">Home</a>
+if ($this->uri->uri_string() == 'website/home' || $this->uri->uri_string() == '') {
+    echo 'class="active"';
+}
+?>><a href="<?=base_url()?>website/home">Home</a>
                             <!--
                                 <div class="megamenu">
                                     <div class="megamenu-row">
@@ -197,10 +198,10 @@
 
 
                         <li <?php
-                                if($this->uri->uri_string() == 'website/collections'){
-                                    echo 'class="active"';
-                                }
-                            ?>><a href="<?=base_url()?>website/collections">Collections</a>
+if ($this->uri->uri_string() == 'website/collections') {
+    echo 'class="active"';
+}
+?>><a href="<?=base_url()?>website/collections">Collections</a>
                             <ul class="dropdown">
                                 <li><a href="<?=base_url()?>website/collections">MENSWEAR</a>
 
@@ -215,10 +216,10 @@
                             </ul>
                         </li>
                         <li <?php
-                                    if($this->uri->uri_string() == 'website/events'){
-                                        echo 'class="active"';
-                                    }
-                                ?>><a href="<?= base_url();?>website/events">Events</a></li>
+if ($this->uri->uri_string() == 'website/events') {
+    echo 'class="active"';
+}
+?>><a href="<?=base_url();?>website/events">Events</a></li>
 
                         <li><a href="javascript:void(0)">Contact</a>
                             <!--
