@@ -1,6 +1,67 @@
 <footer class="footer footer-four">
     <div class="primary-footer brand-bg text-center">
         <div class="container">
+        <section class="section-padding">
+          
+          <div class="container">
+
+              <div class="text-center mb-80">
+                  <h2 class="section-title text-uppercase">Drop us a line</h2>
+               
+              </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <form name="contact-form" id="contactForm" action="sendemail.php" method="POST">
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="input-field">
+                            <input type="text" name="name" class="validate" id="name">
+                            <label for="name">Name</label>
+                          </div>
+
+                        </div><!-- /.col-md-6 -->
+
+                        <div class="col-md-6">
+                          <div class="input-field">
+                            <label class="sr-only" for="email">Email</label>
+                            <input id="email" type="email" name="email" class="validate" >
+                            <label for="email" data-error="wrong" data-success="right">Email</label>
+                          </div>
+                        </div><!-- /.col-md-6 -->
+                      </div><!-- /.row -->
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="input-field">
+                            <input id="phone" type="tel" name="phone" class="validate" >
+                            <label for="phone">Phone Number</label>
+                          </div>
+                        </div><!-- /.col-md-6 -->
+
+                        <div class="col-md-6">
+                          <div class="input-field">
+                            <input id="website" type="text" name="website" class="validate" >
+                            <label for="website">Your Website</label>
+                          </div>
+                        </div><!-- /.col-md-6 -->
+                      </div><!-- /.row -->
+
+                      <div class="input-field">
+                        <textarea name="message" id="message" class="materialize-textarea" ></textarea>
+                        <label for="message">Message</label>
+                      </div>
+
+                      <button type="submit" name="submit" class="waves-effect waves-light btn submit-button pink mt-30">Send Message</button>
+                    </form>
+                </div><!-- /.col-md-8 -->
+
+               
+            </div><!-- /.row -->
+          </div>
+        </section>
+        <!-- contact-form-section End -->
 
             <a href="#top" class="page-scroll btn-floating btn-large pink back-top waves-effect waves-light"
                 data-section="#top">
@@ -124,6 +185,7 @@ jQuery(document).ready(function() {
 });
 </script>
 
+ <script src="<?=base_url()?>assets/website/assets/js/modal.js"></script>
 
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems! The following part can be removed on Server for On Demand Loading) -->
 
@@ -144,7 +206,7 @@ jQuery(document).ready(function() {
     src="<?=base_url()?>assets/website/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
 <script type="text/javascript"
     src="<?=base_url()?>assets/website/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-
+   
 </body>
 
 </html>
