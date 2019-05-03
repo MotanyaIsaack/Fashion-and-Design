@@ -44,3 +44,12 @@
 .card-title a:hover, .card-title span:hover {
     color: #2196f3 !important;
 }
+
+.owl-carousel .owl-stage {
+    display: flex;
+}
+
+.owl-carousel .owl-item img {
+    width: auto;
+    height: 100%;
+}

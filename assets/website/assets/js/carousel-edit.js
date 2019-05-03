@@ -11,7 +11,7 @@ $(function () {
         margin: 5,
         loop: true,
         items: 2,
-        // autoWidth:true,
+        touchDrag: true,
         mouseDrag: true,
         nav: true,
         navText: [left_arrow,right_arrow],

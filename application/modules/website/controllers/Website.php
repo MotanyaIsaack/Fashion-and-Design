@@ -5,6 +5,7 @@ class Website extends MX_Controller
     {
         parent::__construct();
         //Load your models here
+        $this->load->model('website/website_model');
     }
 
     public function home()
@@ -29,20 +30,31 @@ class Website extends MX_Controller
     public function events()
     {
         $data['title'] = "Events";
+        $data['query'] = $this->website_model->getEvents();
+
         $this->load->view('header', $data);
         $this->load->view('events');
         $this->load->view('footer');
     }
 
     //Displays all events
-    public function event($event_name)
+    public function event($id)
     {
-        $data['title'] = $event_name;
+        $event_data = $this->website_model->getEventData($id);
+
+        $whole_name = explode(",", $event_data['event_name']);
+        $short_name = $whole_name[0];
+        $full_name = $whole_name[1];
+
+        $data['title'] = $short_name;
+        $data['full_name'] = $full_name;
+        $data['row'] = $event_data;
         $this->load->view('header', $data);
         $this->load->view('view-event');
         $this->load->view('footer');
 
     }
+    
     //Function that loads the collections page
     public function subcollections()
     {
@@ -51,4 +63,14 @@ class Website extends MX_Controller
         $this->load->view('subcollections');
         $this->load->view('footer');
     }
+
+    //Test page
+    public function test()
+    {
+        $data['title'] = "Test";
+        $this->load->view('header', $data);
+        $this->load->view('test');
+        $this->load->view('footer');
+    }
+
 }
