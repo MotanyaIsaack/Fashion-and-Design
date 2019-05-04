@@ -2,8 +2,9 @@
     <div class="container">
 
         <div class="text-center mb-50">
-            <h2 class="section-title">Our Events</h2>
-            <p class="section-sub">As Kikoromeo we live to celebrate fashion.</p>
+            <h2 class="section-title">Our Collections</h2>
+            <p class="section-sub">As Kikoromeo we offer inter-season or pre-season line of ready-to-wear clothing.
+            </p>
         </div>
 
         <div class="portfolio-container">
@@ -13,43 +14,20 @@
                 <li class="waves-effect waves-light" data-group="upcoming">UPCOMING</li>
             </ul>
 
+            <form action="#" class="col-s12">
+                <div class="row">
+                    <div class="input-field col-s4">
+                        <input type="text" name="event" id="event" class="validate">
+                        <label for="event">Search for event</label>
+                        <span class="helper-text">Enter the name, year, location e.t.c</span>
+                    </div>
+                </div>
+            </form>
+
             <div class="portfolio portfolio-with-title col-3 gutter mtb-50">
+                <?php events_cards();?>
+            </div><!-- /.portfolio -->
+        </div><!-- portfolio-container -->
 
-                <div class="portfolio-item" data-groups='["all", "past"]'>
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img style="height:320px;" class="activator" src="<?=events_url("FIMA 2018/fima1.png");?>"
-                                alt="image">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator">FIMA 2018
-                                <i class="material-icons right">more_vert</i>
-                            </span>
-                            <p><a href="<?=base_url();?>website/event/Fima">View Event</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title">FIMA 2018
-                                <i class="material-icons right">&#xE5CD;</i>
-                            </span>
-                            <p>
-                                KikoRomeo showed its latest collection “Desert Rhapsody” at FIMA (Festival
-                                International de la Mode Africaine) by Alphadi, in Dakhla, Western Sahara on 23rd
-                                November 2018. This was the first time FIMA had been held outside Niger, and
-                                celebrated a coming together of artists, musicians and designers from around Africa
-                                and beyond.
-                            </p>
-                            <a href="<?=base_url()?>website/event/Fima" class="readmore">Learn more</a>
-                        </div>
-                    </div><!-- /.card -->
-                </div><!-- /.portfolio-item -->
-
-
-
-                <div class="portfolio-item" data-groups='["all", "upcoming"]'>
-                    <div class="hide">None at the moment. But follow us, we'll keep you posted :)</div>
-                </div><!-- /.portfolio-item -->
-
-            </div><!-- portfolio-container -->
-
-        </div><!-- /.container -->
+    </div><!-- /.container -->
 </section>

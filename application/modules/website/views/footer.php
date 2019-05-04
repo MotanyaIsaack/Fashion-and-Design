@@ -181,11 +181,13 @@ jQuery(document).ready(function() {
             levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
         }
     });
-    $('.slider').slider();
+
 });
 </script>
 
  <script src="<?=base_url()?>assets/website/assets/js/modal.js"></script>
+<!-- Custom JS -->
+<script src="<?=website_assets_url('js/carousel-edit.js');?>"></script>
 
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems! The following part can be removed on Server for On Demand Loading) -->
 
