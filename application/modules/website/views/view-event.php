@@ -28,7 +28,7 @@ function showOverview($overview_header, $overview_content)
         <div class="row mb-80">
             <div class="col-md-8">
                 <h2 class="mb-30 font-35 text-uppercase"><?=$full_name?></h2>
-                <p class="font-17"><?=$row['event_info']?></p>
+                <p class="font-17"><?=$row['item_info']?></p>
             </div>
             <div class="col-md-4 quick-overview">
                 <ul class="portfolio-meta">

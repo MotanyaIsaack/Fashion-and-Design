@@ -18,15 +18,19 @@ class Website_Model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('event');
-        $this->db->join('image', 'event.landing_img_id = image.img_id');
+        $this->db->join('event_collection_info', 'event.event_id = event_collection_info.item_id');
+        $this->db->join('image', 'event_collection_info.landing_img_id = image.img_id');
         return $this->db->get();
     }
 
     //Show individual event data
     public function getEventData($id)
     {
+        $this->db->select('*');
+        $this->db->from('event');
+        $this->db->join('event_collection_info', 'event.event_id = event_collection_info.item_id');
         $this->db->where('event_id', $id);
-        $query = $this->db->get('event');
+        $query = $this->db->get();
         return $query->row_array();
     }
 

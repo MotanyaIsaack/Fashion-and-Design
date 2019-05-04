@@ -10,18 +10,18 @@ function showCards($query)
 {
     foreach ($query->result_array() as $row) {
         //Get the event details
-        $id = $row['event_id'];
+        $id = $row['item_id'];
         $img = $row['img_name'];
-        $whole_name = explode(",", $row['event_name']);
+        $whole_name = explode(",", $row['item_name']);
         $name = $whole_name[0];
         $location = $row['location'];
-        $event_summary = $row['event_summary'];
+        $event_summary = $row['item_summary'];
 
         echo '
             <div class="portfolio-item" data-groups=\'["all", "past"]\'>
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img style="height:450px;" class="activator"
+                        <img class="activator"
                             src="' . events_url($name . "/" . $img) . '" alt="image">
                     </div>
                     <div class="card-content">

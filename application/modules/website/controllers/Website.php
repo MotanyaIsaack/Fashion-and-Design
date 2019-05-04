@@ -42,7 +42,7 @@ class Website extends MX_Controller
     {
         $event_data = $this->website_model->getEventData($id);
 
-        $whole_name = explode(",", $event_data['event_name']);
+        $whole_name = explode(",", $event_data['item_name']);
         $short_name = $whole_name[0];
         $full_name = $whole_name[1];
 
@@ -54,7 +54,7 @@ class Website extends MX_Controller
         $this->load->view('footer');
 
     }
-    
+
     //Function that loads the collections page
     public function subcollections()
     {
