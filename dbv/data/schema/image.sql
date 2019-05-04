@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2019 at 10:39 AM
+-- Generation Time: May 04, 2019 at 11:28 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -30,8 +30,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `image` (
   `img_id` int(11) NOT NULL,
-  `img_src` varchar(255) NOT NULL
+  `img_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `image`
+--
+
+INSERT INTO `image` (`img_id`, `img_name`) VALUES
+(1, 'fima1.png');
 
 --
 -- Indexes for dumped tables
@@ -51,7 +58,7 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

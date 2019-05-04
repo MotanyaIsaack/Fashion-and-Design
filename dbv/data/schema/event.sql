@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2019 at 10:38 AM
+-- Generation Time: May 04, 2019 at 11:27 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -30,11 +30,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `event` (
   `event_id` int(11) NOT NULL,
-  `event_folder` varchar(255) NOT NULL,
-  `event_date` date NOT NULL,
-  `event_info` text NOT NULL,
-  `welcome_img_url` int(11) NOT NULL
+  `date` date NOT NULL,
+  `location` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`event_id`, `date`, `location`) VALUES
+(1, '2018-11-23', 'Dakhla, Western Sahara');
 
 --
 -- Indexes for dumped tables
@@ -44,18 +49,7 @@ CREATE TABLE `event` (
 -- Indexes for table `event`
 --
 ALTER TABLE `event`
-  ADD PRIMARY KEY (`event_id`),
-  ADD KEY `welcome_img_url` (`welcome_img_url`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `event`
---
-ALTER TABLE `event`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT;
+  ADD PRIMARY KEY (`event_id`);
 
 --
 -- Constraints for dumped tables
@@ -65,7 +59,7 @@ ALTER TABLE `event`
 -- Constraints for table `event`
 --
 ALTER TABLE `event`
-  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`welcome_img_url`) REFERENCES `image` (`img_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event_collection_info` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
