@@ -53,6 +53,7 @@
     <!-- RS5.0 Layers and Navigation Styles -->
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/website/assets/revolution/css/layers.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/website/assets/revolution/css/navigation.css">
+   
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
