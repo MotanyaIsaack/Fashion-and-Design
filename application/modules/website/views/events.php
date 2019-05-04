@@ -2,8 +2,9 @@
     <div class="container">
 
         <div class="text-center mb-50">
-            <h2 class="section-title">Our Events</h2>
-            <p class="section-sub">As Kikoromeo we live to celebrate fashion.</p>
+            <h2 class="section-title">Our Collections</h2>
+            <p class="section-sub">As Kikoromeo we offer inter-season or pre-season line of ready-to-wear clothing.
+            </p>
         </div>
 
         <div class="portfolio-container">
@@ -12,7 +13,6 @@
                 <li class="waves-effect waves-light" data-group="past">PAST</li>
                 <li class="waves-effect waves-light" data-group="upcoming">UPCOMING</li>
             </ul>
-
 
             <form action="#" class="col-s12">
                 <div class="row">
@@ -24,12 +24,9 @@
                 </div>
             </form>
 
-            <?php events_cards();?>
-
-            <div class="portfolio-item" data-groups='["all", "upcoming"]'>
-                <div class="hide">None at the moment. But follow us, we'll keep you posted :)</div>
-            </div><!-- /.portfolio-item -->
-
+            <div class="portfolio portfolio-with-title col-3 gutter mtb-50">
+                <?php events_cards();?>
+            </div><!-- /.portfolio -->
         </div><!-- portfolio-container -->
 
     </div><!-- /.container -->
