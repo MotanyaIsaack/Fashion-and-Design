@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2019 at 11:27 AM
+-- Generation Time: May 05, 2019 at 09:02 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -39,7 +39,8 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`event_id`, `date`, `location`) VALUES
-(1, '2018-11-23', 'Dakhla, Western Sahara');
+(1, '2018-11-23', 'Dakhla, Western Sahara'),
+(2, '2018-10-25', 'Lagos, Nigeria');
 
 --
 -- Indexes for dumped tables
