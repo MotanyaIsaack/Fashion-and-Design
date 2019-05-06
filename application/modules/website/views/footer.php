@@ -2,18 +2,16 @@
     <div class="primary-footer brand-bg text-center">
         <div class="container">
         <section class="section-padding">
-          
+
           <div class="container">
 
               <div class="text-center mb-80">
                   <h2 class="section-title text-uppercase">Drop us a line</h2>
-               
               </div>
 
             <div class="row">
-                <div class="col-md-8">
-                    <form name="contact-form" id="contactForm" action="sendemail.php" method="POST">
-
+                <div class="col-md-7">
+                    <form id="contact-form" class="white" style="padding:2em; padding-bottom:5em" id="contactForm" action="<?=base_url()?>website/sendmail" method="POST">
                       <div class="row">
                         <div class="col-md-6">
                           <div class="input-field">
@@ -25,9 +23,9 @@
 
                         <div class="col-md-6">
                           <div class="input-field">
-                            <label class="sr-only" for="email">Email</label>
-                            <input id="email" type="email" name="email" class="validate" >
-                            <label for="email" data-error="wrong" data-success="right">Email</label>
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email" class="validate" required>
+                            <span class="helper-text" data-error="wrong" data-success="right"></span>
                           </div>
                         </div><!-- /.col-md-6 -->
                       </div><!-- /.row -->
@@ -37,6 +35,7 @@
                           <div class="input-field">
                             <input id="phone" type="tel" name="phone" class="validate" >
                             <label for="phone">Phone Number</label>
+                            <small class="helper-text left" data-error="wrong" data-success="right">Optional</small>
                           </div>
                         </div><!-- /.col-md-6 -->
 
@@ -44,6 +43,7 @@
                           <div class="input-field">
                             <input id="website" type="text" name="website" class="validate" >
                             <label for="website">Your Website</label>
+                            <small class="helper-text left" data-error="wrong" data-success="right">Optional</small>
                           </div>
                         </div><!-- /.col-md-6 -->
                       </div><!-- /.row -->
@@ -53,11 +53,13 @@
                         <label for="message">Message</label>
                       </div>
 
-                      <button type="submit" name="submit" class="waves-effect waves-light btn submit-button pink mt-30">Send Message</button>
+                    <div class="p-2">
+                        <button type="submit" name="submit" class="waves-effect waves-light btn submit-button pink mt-25 left">Send Message</button>
+                    </div>
                     </form>
                 </div><!-- /.col-md-8 -->
 
-               
+
             </div><!-- /.row -->
           </div>
         </section>
@@ -188,6 +190,7 @@ jQuery(document).ready(function() {
  <script src="<?=base_url()?>assets/website/assets/js/modal.js"></script>
 <!-- Custom JS -->
 <script src="<?=website_assets_url('js/carousel-edit.js');?>"></script>
+<script src="<?=website_assets_url('js/website.js');?>"></script>
 
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems! The following part can be removed on Server for On Demand Loading) -->
 
@@ -208,7 +211,7 @@ jQuery(document).ready(function() {
     src="<?=base_url()?>assets/website/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
 <script type="text/javascript"
     src="<?=base_url()?>assets/website/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-   
+
 </body>
 
 </html>
