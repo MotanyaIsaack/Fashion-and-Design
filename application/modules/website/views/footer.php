@@ -26,7 +26,7 @@
   <div class="text-center">
                  
                   <i class="material-icons" style="float:right;" onClick="dismissModal()">close</i>
-                   <h2 class="section-title text-uppercase">Drop us a line</h2>
+                   <h2 class="section-title text-uppercase" style="font-weight:100px;">Drop us a line</h2>
               </div>
 
             <div class="row" >
@@ -92,13 +92,17 @@
                     <a  onclick="callmodal()" class="page-scroll btn-floating btn-large pink back-top waves-effect waves-light tt-animate btt" data-section="#top">
                       <i class="material-icons">call</i>
                     </a>
+                    
 
                     <div class="row">
                         <div class="col-md-3 widget clearfix">
-                            <h2 class="white-text">About materialize</h2>
-                            <p>Eleifend auctor condimentum luctus ac aenean bibendum erat facilisi hac dignissim himenaeos per hendrerit adipiscing varius lectus imperdiet cubilia dignissim dictumst.</p>
-
-                            <ul class="social-link tt-animate ltr">
+                            <<ul class="social-link tt-animate ltr">
+                           
+                            <h2 class="white-text" >About Kikoromeo</h2>
+                            <p>EKikoRomeo, meaning “Adam’s Apple” in Kiswahili, 
+                      is now co-designed by mother-daughter duo 
+                      Ann and Iona McCreath from Nairobi, Kenya. 
+                      The heritage lifestyle brand was founded in 1996 .</p>
                               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                              
@@ -110,22 +114,33 @@
                         </div><!-- /.col-md-3 -->
 
                         <div class="col-md-3 widget">
-                            <h2 class="white-text">Imporant links</h2>
+                            <h2 class="white-text" style="margin-top:15px;">Imporant links</h2>
 
                             <ul class="footer-list">
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Terms &amp; Condition</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Collections</a></li>
+                               
+                                <li><a href="#">Events</a></li>
                                 <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Terms &amp; Condition</a></li>
                             </ul>
                         </div><!-- /.col-md-3 -->
 
                        
-
+                           
 
                         <div class="col-md-3 widget">
-                            <h2 class="white-text">News Letter Widget</h2>
+                            <h2 class="white-text" style="margin-top:15px;">Location</h2>
+                           
+                           
+                            <p>Old Mutual Building<br>Momabasa,Kenya<br>Address:2393-00348<br>Telephone:0763372892</p>
+                            
+                            
+                           
+                           
+                        </div><!-- /.col-md-3 -->
+                        <div class="col-md-3 widget">
+                            <h2 class="white-text" style="margin-top:15px;">News Letter Widget</h2>
                            
                             <form>
                               <div class="form-group clearfix">
@@ -134,8 +149,9 @@
                                 <button type="submit" class="tt-animate ltr"><i class="fa fa-long-arrow-right"></i></button>
                               </div>
                             </form>
-
-                            <img class="retina" src="<?=base_url()?>assets/website/assets/Images/sitelogo.png" alt="" />
+                            
+                            <img src="<?=base_url()?>assets/website/assets/Images/sitelogo.png" alt="logo">
+                           
                            
                         </div><!-- /.col-md-3 -->
                     </div><!-- /.row -->
