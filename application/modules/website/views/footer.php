@@ -1,69 +1,79 @@
 <footer class="footer footer-four">
     <div class="primary-footer brand-bg text-center">
         <div class="container">
-        <section class="section-padding">
+            <section class="section-padding">
 
-          <div class="container">
+                <div class="container">
 
-              <div class="text-center mb-80">
-                  <h2 class="section-title text-uppercase">Drop us a line</h2>
-              </div>
-
-            <div class="row">
-                <div class="col-md-7">
-                    <form id="contact-form" class="white" style="padding:2em; padding-bottom:5em" id="contactForm" action="<?=base_url()?>website/sendmail" method="POST">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="input-field">
-                            <input type="text" name="name" class="validate" id="name">
-                            <label for="name">Name</label>
-                          </div>
-
-                        </div><!-- /.col-md-6 -->
-
-                        <div class="col-md-6">
-                          <div class="input-field">
-                            <label for="email">Email</label>
-                            <input id="email" type="email" name="email" class="validate" required>
-                            <span class="helper-text" data-error="wrong" data-success="right"></span>
-                          </div>
-                        </div><!-- /.col-md-6 -->
-                      </div><!-- /.row -->
-
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="input-field">
-                            <input id="phone" type="tel" name="phone" class="validate" >
-                            <label for="phone">Phone Number</label>
-                            <small class="helper-text left" data-error="wrong" data-success="right">Optional</small>
-                          </div>
-                        </div><!-- /.col-md-6 -->
-
-                        <div class="col-md-6">
-                          <div class="input-field">
-                            <input id="website" type="text" name="website" class="validate" >
-                            <label for="website">Your Website</label>
-                            <small class="helper-text left" data-error="wrong" data-success="right">Optional</small>
-                          </div>
-                        </div><!-- /.col-md-6 -->
-                      </div><!-- /.row -->
-
-                      <div class="input-field">
-                        <textarea name="message" id="message" class="materialize-textarea" ></textarea>
-                        <label for="message">Message</label>
-                      </div>
-
-                    <div class="p-2">
-                        <button type="submit" name="submit" class="waves-effect waves-light btn submit-button pink mt-25 left">Send Message</button>
+                    <div class="text-center mb-80">
+                        <h2 class="section-title text-uppercase">Drop us a line</h2>
                     </div>
-                    </form>
-                </div><!-- /.col-md-8 -->
+
+                    <div class="row">
+                        <div class="col-md-7">
+                            <form id="contact-form" class="white" style="padding:2em; padding-bottom:5em"
+                                id="contactForm" action="<?=base_url()?>website/send_mail" method="POST">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-field">
+                                            <input type="text" name="sender_name" class="validate" id="name">
+                                            <label for="name">Name</label>
+                                        </div>
+
+                                    </div><!-- /.col-md-6 -->
+
+                                    <div class="col-md-6">
+                                        <div class="input-field">
+                                            <label for="email">Email</label>
+                                            <input id="email" type="email" name="email" class="validate" required>
+                                            <span class="helper-text" data-error="wrong" data-success="right"></span>
+                                        </div>
+                                    </div><!-- /.col-md-6 -->
+                                </div><!-- /.row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-field">
+                                            <input id="phone" type="tel" name="phone" class="validate">
+                                            <label for="phone">Phone Number</label>
+                                            <small class="helper-text left" data-error="wrong"
+                                                data-success="right">Optional</small>
+                                        </div>
+                                    </div><!-- /.col-md-6 -->
+
+                                    <div class="col-md-6">
+                                        <div class="input-field">
+                                            <input id="website" type="text" name="website" class="validate">
+                                            <label for="website">Your Website</label>
+                                            <small class="helper-text left" data-error="wrong"
+                                                data-success="right">Optional</small>
+                                        </div>
+                                    </div><!-- /.col-md-6 -->
+                                </div><!-- /.row -->
+
+                                <div class="input-field">
+                                    <input type="text" name="subject" id="subject" required>
+                                    <label for="subject">Subject</label>
+                                </div>
+
+                                <div class="input-field">
+                                    <textarea name="message" id="message" class="materialize-textarea"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+
+                                <div class="p-2">
+                                    <button type="submit" name="submit"
+                                        class="waves-effect waves-light btn submit-button pink mt-25 left">Send
+                                        Message</button>
+                                </div>
+                            </form>
+                        </div><!-- /.col-md-8 -->
 
 
-            </div><!-- /.row -->
-          </div>
-        </section>
-        <!-- contact-form-section End -->
+                    </div><!-- /.row -->
+                </div>
+            </section>
+            <!-- contact-form-section End -->
 
             <a href="#top" class="page-scroll btn-floating btn-large pink back-top waves-effect waves-light"
                 data-section="#top">
@@ -187,7 +197,7 @@ jQuery(document).ready(function() {
 });
 </script>
 
- <script src="<?=base_url()?>assets/website/assets/js/modal.js"></script>
+<script src="<?=base_url()?>assets/website/assets/js/modal.js"></script>
 <!-- Custom JS -->
 <script src="<?=website_assets_url('js/carousel-edit.js');?>"></script>
 <script src="<?=website_assets_url('js/website.js');?>"></script>

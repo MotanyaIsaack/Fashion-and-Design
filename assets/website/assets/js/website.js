@@ -1,5 +1,12 @@
 $("#contact-form").submit(function (e) {
+    e.preventDefault();
+    let form = $(this),
+        url = form.attr('action'),
+        form_data = getFormData(form);
 
+    ajax_form_submit(url,form_data).then(data => {
+        console.log(data)
+    })
 })
 
 /**
@@ -15,10 +22,10 @@ function ajax_form_submit(url,form_data = null) {
         method: 'POST',
         data: form_data,
         beforeSend: function () {
-            disable_btn(btn);
+            disableBtn(btn);
         },
         success: function () {
-            enable_btn(btn);
+            enableBtn(btn);
         },
         error: function (xhr,textStatus,errorThrown) {
             console.error(xhr.responseText);
@@ -31,11 +38,22 @@ function ajax_form_submit(url,form_data = null) {
     return promise;
 }
 
+function disableBtn(btn) {
+    btn.attr('disabled',true);
+    btn.html('Please wait...');
+}
+
+function enableBtn(btn) {
+    btn.attr('disabled',false);
+    btn.html('Save');
+}
+
+
 /**
  * Gets the data for each from element with attribute 'name'
  * @param {Object} form 
  */
-function get_form_data(form) {
+function getFormData(form) {
     let data = {};
 
     //Get elements with a _name_ attribute
@@ -46,4 +64,23 @@ function get_form_data(form) {
         data[name] = value;
     });
     return data;
+}
+
+
+/**
+ * Displays notification that slides down from the top of the page
+ * @param {string} msg
+ * @param {string} type
+ * @returns {undefined}
+ */
+function displayAlert(msg,type) {
+    let target = $("#page-feedback");
+    let class_ = getClass(target);
+
+    target.removeClass('d-none');
+    target.removeClass(class_);
+    target.addClass('alert-' + type);
+
+    target.html(msg);
+    target.slideDown().delay(6000).slideUp();
 }
