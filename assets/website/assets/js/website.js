@@ -1,13 +1,19 @@
-$("#contact-form").submit(function (e) {
+$(document).on("submit","#contact-form",function (e) {
     e.preventDefault();
-    let form = $(this),
+    let form = $('#contact-form'),
         url = form.attr('action'),
         form_data = getFormData(form);
 
+    console.log(url,form_data)
     ajax_form_submit(url,form_data).then(data => {
-        console.log(data)
+        let type = data.status ? "success" : "danger"
+        displayAlert(data.msg,type)
     })
 })
+
+let form = document.getElementById('contact-form'),
+    url = form.attr('action'),
+    form_data = getFormData(form);
 
 /**
 * To send asynchronous HTTP requests
