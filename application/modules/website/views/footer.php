@@ -1,110 +1,235 @@
 <footer class="footer footer-four">
     <div class="primary-footer brand-bg text-center">
         <div class="container">
-            <section class="section-padding">
+            <section>
 
                 <div class="container">
+                    <!-- <div class="fixed-action-btn">
+  <a class="btn-floating btn-large red">
+    <i class="large material-icons">mode_edit</i>
+  </a>
+  <ul>
 
-                    <div class="text-center mb-80">
-                        <h2 class="section-title text-uppercase">Drop us a line</h2>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-7">
-                            <form id="contact-form" class="white" style="padding:2em; padding-bottom:5em"
-                                id="contactForm" action="<?=base_url()?>website/send_mail" method="POST">
-                                <div class="row">
-                                    <div class="col-md-6">
+  </ul>
+</div> -->
+                    <!-- Modal Trigger -->
+
+
+
+
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <div class="text-center">
+
+                                <i class="material-icons" style="float:right;" onClick="dismissModal()">close</i>
+                                <h2 class="section-title text-uppercase">Drop us a line</h2>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="contact-form" class="white" style="padding:2em; padding-bottom:5em"
+                                        id="contactForm" action="<?=base_url()?>website/sendmail" method="POST">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <input type="text" name="name" class="validate" id="name">
+                                                    <label for="name">Name</label>
+                                                </div>
+
+                                            </div><!-- /.col-md-6 -->
+
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <label for="email">Email</label>
+                                                    <input id="email" type="email" name="email" class="validate"
+                                                        required>
+                                                    <span class="helper-text" data-error="wrong"
+                                                        data-success="right"></span>
+                                                </div>
+                                            </div><!-- /.col-md-6 -->
+                                        </div><!-- /.row -->
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <input id="phone" type="tel" name="phone" class="validate">
+                                                    <label for="phone">Phone Number</label>
+                                                    <small class="helper-text left" data-error="wrong"
+                                                        data-success="right">Optional</small>
+                                                </div>
+                                            </div><!-- /.col-md-6 -->
+
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <input id="website" type="text" name="website" class="validate">
+                                                    <label for="website">Your Website</label>
+                                                    <small class="helper-text left" data-error="wrong"
+                                                        data-success="right">Optional</small>
+                                                </div>
+                                            </div><!-- /.col-md-6 -->
+                                        </div><!-- /.row -->
+
                                         <div class="input-field">
-                                            <input type="text" name="sender_name" class="validate" id="name">
-                                            <label for="name">Name</label>
+                                            <textarea name="message" id="message"
+                                                class="materialize-textarea"></textarea>
+                                            <label for="message">Message</label>
                                         </div>
 
-                                    </div><!-- /.col-md-6 -->
-
-                                    <div class="col-md-6">
-                                        <div class="input-field">
-                                            <label for="email">Email</label>
-                                            <input id="email" type="email" name="email" class="validate" required>
-                                            <span class="helper-text" data-error="wrong" data-success="right"></span>
+                                        <div class="p-2">
+                                            <button type="submit" name="submit"
+                                                class="waves-effect waves-light btn submit-button pink mt-25 left">Send
+                                                Message</button>
                                         </div>
-                                    </div><!-- /.col-md-6 -->
-                                </div><!-- /.row -->
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-field">
-                                            <input id="phone" type="tel" name="phone" class="validate">
-                                            <label for="phone">Phone Number</label>
-                                            <small class="helper-text left" data-error="wrong"
-                                                data-success="right">Optional</small>
-                                        </div>
-                                    </div><!-- /.col-md-6 -->
+                                        <div class="row">
+                                            <div class="col-md-7">
+                                                <form id="contact-form" class="white"
+                                                    style="padding:2em; padding-bottom:5em" id="contactForm"
+                                                    action="<?=base_url()?>website/send_mail" method="POST">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-field">
+                                                                <input type="text" name="sender_name" class="validate"
+                                                                    id="name">
+                                                                <label for="name">Name</label>
+                                                            </div>
 
-                                    <div class="col-md-6">
-                                        <div class="input-field">
-                                            <input id="website" type="text" name="website" class="validate">
-                                            <label for="website">Your Website</label>
-                                            <small class="helper-text left" data-error="wrong"
-                                                data-success="right">Optional</small>
-                                        </div>
-                                    </div><!-- /.col-md-6 -->
-                                </div><!-- /.row -->
+                                                        </div><!-- /.col-md-6 -->
 
-                                <div class="input-field">
-                                    <input type="text" name="subject" id="subject" required>
-                                    <label for="subject">Subject</label>
+                                                        <div class="col-md-6">
+                                                            <div class="input-field">
+                                                                <label for="email">Email</label>
+                                                                <input id="email" type="email" name="email"
+                                                                    class="validate" required>
+                                                                <span class="helper-text" data-error="wrong"
+                                                                    data-success="right"></span>
+                                                            </div>
+                                                        </div><!-- /.col-md-6 -->
+                                                    </div><!-- /.row -->
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-field">
+                                                                <input id="phone" type="tel" name="phone"
+                                                                    class="validate">
+                                                                <label for="phone">Phone Number</label>
+                                                                <small class="helper-text left" data-error="wrong"
+                                                                    data-success="right">Optional</small>
+                                                            </div>
+                                                        </div><!-- /.col-md-6 -->
+
+                                                        <div class="col-md-6">
+                                                            <div class="input-field">
+                                                                <input id="website" type="text" name="website"
+                                                                    class="validate">
+                                                                <label for="website">Your Website</label>
+                                                                <small class="helper-text left" data-error="wrong"
+                                                                    data-success="right">Optional</small>
+                                                            </div>
+                                                        </div><!-- /.col-md-6 -->
+                                                    </div><!-- /.row -->
+
+                                                    <div class="input-field">
+                                                        <input type="text" name="subject" id="subject" required>
+                                                        <label for="subject">Subject</label>
+                                                    </div>
+
+                                                    <div class="input-field">
+                                                        <textarea name="message" id="message"
+                                                            class="materialize-textarea"></textarea>
+                                                        <label for="message">Message</label>
+                                                    </div>
+
+                                                    <div class="p-2">
+                                                        <button type="submit" name="submit"
+                                                            class="waves-effect waves-light btn submit-button pink mt-25 left">Send
+                                                            Message</button>
+                                                    </div>
+                                                </form>
+                                            </div><!-- /.col-md-8 -->
+
+
+                                        </div><!-- /.row -->
                                 </div>
-
-                                <div class="input-field">
-                                    <textarea name="message" id="message" class="materialize-textarea"></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-
-                                <div class="p-2">
-                                    <button type="submit" name="submit"
-                                        class="waves-effect waves-light btn submit-button pink mt-25 left">Send
-                                        Message</button>
-                                </div>
-                            </form>
-                        </div><!-- /.col-md-8 -->
-
-
-                    </div><!-- /.row -->
-                </div>
             </section>
             <!-- contact-form-section End -->
 
-            <a href="#top" class="page-scroll btn-floating btn-large pink back-top waves-effect waves-light"
-                data-section="#top">
-                <i class="material-icons">&#xE316;</i>
-            </a>
+            <!--footer 1 start -->
+            <footer class="footer footer-one">
+                <div class="primary-footer brand-bg">
+                    <div class="container">
+                        <a onclick="callmodal()"
+                            class="page-scroll btn-floating btn-large pink back-top waves-effect waves-light tt-animate btt"
+                            data-section="#top">
+                            <i class="material-icons">call</i>
+                        </a>
 
-            <ul class="social-link tt-animate ltr mt-20">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <!--                    <li><a href="#"><i class="fa fa-tumblr"></i></a></li>-->
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                <!--                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <!--                    <li><a href="#"><i class="fa fa-rss"></i></a></li>-->
-            </ul>
+                        <div class="row">
+                            <div class="col-md-3 widget clearfix">
+                                <h2 class="white-text">About materialize</h2>
+                                <p>Eleifend auctor condimentum luctus ac aenean bibendum erat facilisi hac dignissim
+                                    himenaeos per hendrerit adipiscing varius lectus imperdiet cubilia dignissim
+                                    dictumst.</p>
 
-            <hr class="mt-15">
+                                <ul class="social-link tt-animate ltr">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="footer-logo">
-                        <img src="<?=base_url()?>assets/website/assets/Images/sitelogo.png" alt="">
-                    </div>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 
-                    <span class="copy-text">Copyright &copy; 2019 <a href="#">Kikoromeo</a> &nbsp; | &nbsp; All Rights
-                        Reserved &nbsp; | &nbsp; Designed By <a href="#">PowerTeam</a>
-                    </span>
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div><!-- /.primary-footer -->
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+
+                                </ul>
+                            </div><!-- /.col-md-3 -->
+
+                            <div class="col-md-3 widget">
+                                <h2 class="white-text">Imporant links</h2>
+
+                                <ul class="footer-list">
+                                    <li><a href="#">About us</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Terms &amp; Condition</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div><!-- /.col-md-3 -->
+
+
+
+
+                            <div class="col-md-3 widget">
+                                <h2 class="white-text">News Letter Widget</h2>
+
+                                <form>
+                                    <div class="form-group clearfix">
+                                        <label class="sr-only" for="subscribe">Email address</label>
+                                        <input type="email" class="form-control" id="subscribe"
+                                            placeholder="Email address">
+                                        <button type="submit" class="tt-animate ltr"><i
+                                                class="fa fa-long-arrow-right"></i></button>
+                                    </div>
+                                </form>
+
+                                <img class="retina" src="<?=base_url()?>assets/website/assets/Images/sitelogo.png"
+                                    alt="" />
+
+                            </div><!-- /.col-md-3 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container -->
+                </div><!-- /.primary-footer -->
+
+                <div class="secondary-footer brand-bg darken-2">
+                    <div class="container">
+                        <span class="copy-text">Copyright &copy; 2019 <a href="#">Kikoromeo</a> &nbsp; | &nbsp; All
+                            Rights Reserved &nbsp; | &nbsp; Designed By <a href="#">PowerTeam</a></span>
+                    </div><!-- /.container -->
+                </div><!-- /.secondary-footer -->
+            </footer>
+            <!--footer 1 end-->
+
+
 </footer>
 
 
