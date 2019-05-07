@@ -46,6 +46,7 @@
     <!-- Style CSS -->
     <link href="<?=base_url();?>assets/website/style.css" rel="stylesheet">
     <link href="<?=website_assets_url("css/carousel-edit.css");?>" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
     <!-- RS5.0 Main Stylesheet -->
@@ -53,6 +54,7 @@
     <!-- RS5.0 Layers and Navigation Styles -->
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/website/assets/revolution/css/layers.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/website/assets/revolution/css/navigation.css">
+    <script src="<?=base_url()?>assets/website/assets/js/modal.js"></script>
    
 
 
