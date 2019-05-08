@@ -16,7 +16,7 @@
                             <a class="img-link mr-5" href="be_pages_generic_profile.html">
                                 <img class="img-avatar img-avatar32" src="<?=base_url();?>assets/admin/assets/media/avatars/avatar15.jpg" alt="">
                             </a>
-                            <a class="align-middle link-effect text-primary-dark font-w600" href="be_pages_generic_profile.html">John Smith</a>
+                            <a class="align-middle link-effect text-primary-dark font-w600" href="be_pages_generic_profile.html">R.Odiero</a>
                         </div>
                         <!-- END User Info -->
                     </div>
@@ -45,7 +45,6 @@
                    
                   
 
-                    
 
                     
 
@@ -120,7 +119,7 @@
                             </a>
                             <ul class="list-inline mt-10">
                                 <li class="list-inline-item">
-                                    <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="be_pages_generic_profile.html">R. Odiero</a>
+                                    <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="<?=base_url();?>admin/profile">R.Odiero</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
@@ -142,8 +141,19 @@
                     <!-- Side Navigation -->
                     <div class="content-side content-side-full">
                         <ul class="nav-main">
-                            <li>
-                                <a href="<?=base_url();?>admin/ourstory"><i class="si si-cup"></i><span class="sidebar-mini-hide">Our Story</span></a>
+                            <li class="open">
+                            
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-cup"></i><span class="sidebar-mini-hide">Our Story</span></a>
+                                <ul>
+                                    <li class="open">
+                                        <a  href="<?=base_url();?>admin/ourstory"><span class="sidebar-mini-hide">View Story</span></a>
+                                        
+                                            <li>
+                                                <a href="<?=base_url();?>admin/editOurStory"><span class="sidebar-mini-hide">Edit Our Story</span></a>
+                                            </li>
+                                </li>
+                                </ul>
+                               
                             </li>
                             <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><span class="sidebar-mini-hide">Collections</span></a>
@@ -161,8 +171,20 @@
                                         
                                     </li>
                                 </ul>
-                                    <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="be_pages_dashboard.html"><span class="sidebar-mini-hide">Events</span></a>
+                                    <li class="open" >
+                                <a class="nav-submenu" data-toggle="nav-submenu" href=""><span class="sidebar-mini-hide">Events</span></a>
+                             <ul>
+                                    <li class="open">
+                                        <a  href="<?=base_url();?>admin/events"><span class="sidebar-mini-hide">Add Events</span></a>
+                                        
+                                            <li>
+                                                <a class="active" href="<?=base_url();?>admin/viewEvents"><span class="sidebar-mini-hide">View Events</span></a>
+                                            </li>
+                                            
+                                            
+                                        
+                                    </li>
+                                </ul>
                             </li>
                                    
                             </li>

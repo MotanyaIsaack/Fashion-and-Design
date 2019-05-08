@@ -32,4 +32,31 @@ class Admin extends MY_Controller {
 		$this->load->view('footer');
 
 	}
+	public function editOurStory()
+	{
+		$this->load->view('head');
+		$this->load->view('navigation');
+		$this->load->view('header');
+		$this->load->view('editOurstory');
+		$this->load->view('footer');
+
+	}
+	public function events()
+	{
+		$this->load->view('head');
+		$this->load->view('navigation');
+		$this->load->view('header');
+		$this->load->view('events');
+		$this->load->view('footer');
+
+	}
+	public function viewEvents()
+	{
+		$this->load->view('head');
+		$this->load->view('navigation');
+		$this->load->view('header');
+		$this->load->view('viewEvents');
+		$this->load->view('footer');
+
+	}
 }
