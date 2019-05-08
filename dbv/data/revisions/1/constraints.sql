@@ -11,3 +11,9 @@ ALTER TABLE `event_collection_info` CHANGE `overview_content` `overview_content`
 ALTER TABLE `event_collection_info` CHANGE `item_id` `item_id` INT(11) NULL;
 
 ALTER TABLE `event_collection_info` CHANGE `item_summary` `item_summary` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL;
+
+ALTER TABLE `collection` ADD `collection_name` VARCHAR(255) NOT NULL AFTER `category_id`, ADD `collection_details` VARCHAR(255) NOT NULL AFTER `collection_name`, ADD `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `collection_details`;
+
+ALTER TABLE `collection` CHANGE `date` `date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE `collection` CHANGE `collection_id` `collection_id` INT(11) NOT NULL AUTO_INCREMENT;
