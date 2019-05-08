@@ -159,14 +159,12 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><span class="sidebar-mini-hide">Collections</span></a>
                                 <ul>
                                     <li class="open">
-                                        <a  href="#"><span class="sidebar-mini-hide">Men</span></a>
+                                        <a  href="<?=base_url();?>admin/Addcollection"><span class="sidebar-mini-hide">Add Collection</span></a>
                                         
                                             <li>
-                                                <a class="active" href="be_pages_dashboard2.html"><span class="sidebar-mini-hide">Women</span></a>
+                                                <a class="active" href="<?=base_url();?>admin/viewcollection"><span class="sidebar-mini-hide">View collection</span></a>
                                             </li>
-                                            <li>
-                                                <a href="be_pages_dashboard3.html"><span class="sidebar-mini-hide">Vintage</span></a>
-                                            </li>
+                                            
                                             
                                         
                                     </li>

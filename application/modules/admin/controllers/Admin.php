@@ -161,5 +161,23 @@ class Admin extends MY_Controller {
 			$this->session->set_flashdata("message","Event Succesfully Deleted");
 			redirect('admin/viewEvents');
 		}
-	}
+	
+		public function Addcollection()
+		{
+			$this->load->view('head');
+			$this->load->view('navigation');
+			$this->load->view('header');
+			$this->load->view('Addcollection');
+			$this->load->view('footer');
+	
+		}
+		public function viewcollection()
+		{
+			$this->load->view('head');
+			$this->load->view('navigation');
+			$this->load->view('header');
+			$this->load->view('viewcollection');
+			$this->load->view('footer');
+	
+		}}
 }
