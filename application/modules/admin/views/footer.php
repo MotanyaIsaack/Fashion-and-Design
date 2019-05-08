@@ -24,5 +24,25 @@
         <!-- Page JS Code -->
         <script src="<?=base_url();?>assets/admin/assets/js/pages/be_pages_dashboard.min.js"></script>
 
+        <!-- <script src="<?=base_url();?>assets/admin/assets/js/core/jquery.min.js"></script> -->
+    
+        <!-- Page JS Plugins -->
+        <script src="<?=base_url();?>assets/admin/assets/js/plugins/summernote/summernote-bs4.min.js"></script>
+        <script src="<?=base_url();?>assets/admin/assets/js/plugins/ckeditor/ckeditor.js"></script>
+        <script src="<?=base_url();?>assets/admin/assets/js/plugins/simplemde/simplemde.min.js"></script>
+        <script src="<?=base_url();?>assets/admin/assets/js/pages/be_forms_plugins.min.js"></script>
+        <script src="<?=base_url();?>assets/admin/assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <script>
+        jQuery(function()
+        {
+            Codebase.helpers(['datepicker']);
+        });
+        </script>
+        <!-- Page JS Helpers (Summernote + CKEditor + SimpleMDE plugins) -->
+        <script>
+            jQuery(function () {
+                Codebase.helpers(['summernote', 'ckeditor', 'simplemde']);
+            });
+        </script>
     </body>
 </html>
