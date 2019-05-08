@@ -38,7 +38,7 @@ class Website_Model extends CI_Model
     {
         //Form data
         $name = $this->input->post('name');
-        $from = $this->input->post('from');
+        $from = $this->input->post('email');
         $to = "testmailer79@gmail.com";
         $subject = $this->input->post('subject');
         $message = $this->input->post('message');
@@ -58,10 +58,10 @@ class Website_Model extends CI_Model
         $mail->SetFrom($from, $name);
         $mail->Subject = $subject;
         $mail->Body = $message;
-        $mail->AddAddress($to);
+        $mail->AddAddress($from);
 
         $mail_sent = $mail->Send();
-        $msg = $mail_sent ? "Your email was sent. Thanks for your feedback." . $name : "There was an error sending your email. Check your connection and try again";
+        $msg = $mail_sent ? "Your email was sent. Thanks for your feedback," . $name : "There was an error sending your email. Check your connection and try again";
 
         echo json_encode(['status' => $mail_sent, 'msg' => $msg]);
     }
