@@ -64,6 +64,11 @@ class Website extends MX_Controller
         $this->load->view('footer');
     }
 
+    public function send_mail()
+    {
+        $this->website_model->sendMail();
+    }
+
     //Test page
     public function test()
     {

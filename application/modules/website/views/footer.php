@@ -98,7 +98,7 @@
                         <div class="col-md-3 widget clearfix">
                             <<ul class="social-link tt-animate ltr">
                            
-                            <h2 class="white-text" >About Kikoromeo</h2>
+                            <h2 class="white-text">About Kikoromeo</h2>
                             <p>EKikoRomeo, meaning “Adam’s Apple” in Kiswahili, 
                       is now co-designed by mother-daughter duo 
                       Ann and Iona McCreath from Nairobi, Kenya. 
@@ -150,7 +150,7 @@
                               </div>
                             </form>
                             
-                            <img src="<?=base_url()?>assets/website/assets/Images/sitelogo.png" alt="logo">
+                            
                            
                            
                         </div><!-- /.col-md-3 -->
