@@ -32,8 +32,10 @@ function showCards($query)
                                 <span class="text-capitalize grey-text">' . $location . '</span>
                             </a>
                             <i class="material-icons right">more_vert</i>
-                            <p class="blue text-white activator">Event summary</p>
                         </span>
+                    </div>
+                    <div class="card-action blue white-text activator">
+                        Event summary
                     </div>
                     <div class="card-reveal">
                         <span class="card-title">' . $full_name . '

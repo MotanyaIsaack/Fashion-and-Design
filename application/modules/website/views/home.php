@@ -468,7 +468,7 @@
 
                       <div class="carousel-item">
                           <div class="content">
-                              <h2 class="white-text line-height-40">"Fashion is part of the daily air and it changes all the time, with all the events. You can even see the approaching of a revolution in clothes. You can see and feel everything in clothes."
+                              <h2 class="white-text line-height-40">"Fashion is part of the daily air and it changes all the time, with all the events. You can even see the approaching of a revolution in clothes. You can see and feel everything in clothes."</h2>
                               <div class="testimonial-meta font-20 text-extrabold white-text">
                                  Diana Vreeland
                               </div>
