@@ -43,16 +43,16 @@
             }
             
             $this->db->trans_complete();
-
+            
             if ($this->db->trans_status() === FALSE)
             {
                 // generate an error... or use the log_message() function to log your error
                 return "Event Not Added Succesfully.";
-
+                
             }else{
                 return "Event Added Succesfully.";
             }
-
+            
         }
         //Function that adds an event details
         public function add_event_details($data){
@@ -91,5 +91,71 @@
                 return false;
             }
         }
+        //Function that fetches all the categories
+        function get_categories(){
+            $this->db->trans_start();
+            $this->db->from('collection_category');
+            $categories = $this->db->get()->result_array();
+            $this->db->trans_complete();
+
+            if ($this->db->trans_status() === FALSE)
+            {
+                // generate an error... or use the log_message() function to log your error
+                return "Category Fetch Not Succesful.";
+
+            }else{
+                return $categories;
+            }
+        }
+
+        //Function that adds a collection
+        public function add_collection($data){
+            $this->db->trans_start();
+            $collectionResults = $this->db->get_where('collection',$data);
+            if ($collectionResults->num_rows() == 0) {
+                $this->db->insert('collection',$data);
+            }else{
+                return "Collection Exists";
+            }
+            
+            $this->db->trans_complete();
+            
+            if ($this->db->trans_status() === FALSE)
+            {
+                // generate an error... or use the log_message() function to log your error
+                return "Collection Not Added Succesfully.";
+                
+            }else{
+                return "Collection Added Succesfully.";
+            }
+            
+        }
+         //Function that fetches all the collections
+         function get_collections(){
+            $this->db->trans_start();
+            $this->db->from('collection');
+            $this->db->join('collection_category','collection_category.category_id = collection.category_id');
+            $collections = $this->db->get()->result_array();
+            $this->db->trans_complete();
+
+            if ($this->db->trans_status() === FALSE)
+            {
+                // generate an error... or use the log_message() function to log your error
+                return "Collections Fetch Not Succesful.";
+
+            }else{
+                return $collections;
+            }
+        }
+        //Function delete collections
+        function delete_collection($data){
+            $query = $this->db->delete('collection',$data);
+            if ($query === TRUE) {
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
+    
 ?>

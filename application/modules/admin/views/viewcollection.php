@@ -1,74 +1,70 @@
-<div style="margin-top: 80px;">
-<h2> View collections<h2>
-<h3> (Category Name) Images<h3>
-<div class="row items-push js-gallery">
-                        <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                            <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                                <img class="img-fluid options-item" src="<?=base_url();?>assets/admin/assets/media/photos/photo16.jpg" alt="">
-                                <div class="options-overlay bg-black-op-75">
-                                    <div class="options-overlay-content">
-                                        <h3 class="h4 text-white mb-5">Image</h3>
-                                        <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="<?=base_url();?>assets/admin/assets/media/photos/photo16@2x.jpg">
-                                            <i class="fa fa-search-plus"></i> View
-                                        </a>
-                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-trash-o"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </div>
+<div class="block">
+    <div class="block-header block-header-default" style="margin-top:70px;">
+        <h2 class="block-title">View Collections</h2>
+        <?php
+                    if($this->session->flashdata('message'))
+                    {
+                        echo '
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>'.$this->session->flashdata("message").'
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                            <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                                <img class="img-fluid options-item" src="<?=base_url();?>assets/admin/assets/media/photos/photo15.jpg" alt="">
-                                <div class="options-overlay bg-black-op-75">
-                                    <div class="options-overlay-content">
-                                        <h3 class="h4 text-white mb-5">Image</h3>
-                                        <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="<?=base_url();?>assets/admin/assets/media/photos/photo15@2x.jpg">
-                                            <i class="fa fa-search-plus"></i> View
-                                        </a>
-                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-trash-o"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                            <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                                <img class="img-fluid options-item" src="<?=base_url();?>assets/admin/assets/media/photos/photo14.jpg" alt="">
-                                <div class="options-overlay bg-black-op-75">
-                                    <div class="options-overlay-content">
-                                        <h3 class="h4 text-white mb-5">Image</h3>
-                                        <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="<?=base_url();?>assets/admin/assets/media/photos/photo14@2x.jpg">
-                                            <i class="fa fa-search-plus"></i> View
-                                        </a>
-                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-trash-o"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                            <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                                <img class="img-fluid options-item" src="<?=base_url();?>assets/admin/assets/media/photos/photo13.jpg" alt="">
-                                <div class="options-overlay bg-black-op-75">
-                                    <div class="options-overlay-content">
-                                        <h3 class="h4 text-white mb-5">Image</h3>
-                                        <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="<?=base_url();?>assets/admin/assets/media/photos/photo13@2x.jpg">
-                                            <i class="fa fa-search-plus"></i> View
-                                        </a>
-                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-trash-o"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                    </div>
-                    </div>
-                      <script src="<?=base_url();?>assets/admin/assets/js/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-        <!-- Page JS Helpers (Magnific Popup plugin) -->
-        <script>jQuery(function () {
-                                    Codebase.helpers('magnific-popup');
-                                });</script>
-
+                        ';
+                    }
+        ?>
+        <div class="block-options">
+            <div class="block-options-item">
+            
+            </div>
+        </div>
+    </div>
+    
+    <div class="block-content">
+        <div class="table-responsive">
+        <table class="table table-striped table-vcenter">
+            <thead>
+                <tr>
+                    <!-- <th class="text-center" style="width: 100px;"><i class="si si-user"></i></th> -->
+                    <th style="width: 30%;">Collection ID</th>
+                    <th style="width: 15%;">Category Name</th>
+                    <th style="width: 15%;">Colection Name</th>
+                    <th style="width: 15%;">Collection Details</th>
+                    <th style="width: 15%;">Date Created</th>
+                    <th class="text-center" style="width: 100px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <!-- <td class="text-center">
+                        <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar12.jpg" alt="">
+                    </td> -->
+                    <?php
+                        // print_r($events);
+                        foreach ($collections as $collection) {
+                            # code...
+                            echo "<tr>";
+                            echo "<td class='font-w600'>" . $collection['collection_id'] . "</td>";
+                            echo "<td>" . $collection['category_name'] . "</td>";
+                            echo "<td>" . $collection['collection_name'] . "</td>";
+                            echo "<td>" . $collection['collection_details'] . "</td>";
+                            echo "<td>" . $collection['date'] . "</td>";
+                            echo "<td class='text-center'>";
+                            echo "<div class='btn-group'>";
+                                echo '<button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">';
+                                echo '<a href="'.base_url().'admin/deleteCollection/'.$collection['collection_id'].'"><i class="fa fa-times"></i></a>';
+                                echo '</button>';
+                            echo "</div>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                            
+                    ?>
+                    
+                
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

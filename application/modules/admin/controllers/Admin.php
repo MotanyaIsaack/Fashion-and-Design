@@ -69,6 +69,27 @@ class Admin extends MY_Controller {
 
 	}
 
+	public function Addcollection()
+	{
+		$data['categoryid'] = $this->admin_model->get_categories();
+		$this->load->view('head');
+		$this->load->view('navigation');
+		$this->load->view('header');
+		$this->load->view('Addcollection',$data);
+		$this->load->view('footer');
+
+	}
+	public function viewcollection()
+	{
+		$data['collections'] = $this->admin_model->get_collections();
+		$this->load->view('head');
+		$this->load->view('navigation');
+		$this->load->view('header');
+		$this->load->view('viewcollection',$data);
+		$this->load->view('footer');
+
+	}
+
 	public function addEvent(){
 		$from = $this->input->post('from');
 		$to = $this->input->post('to');
@@ -162,22 +183,58 @@ class Admin extends MY_Controller {
 			redirect('admin/viewEvents');
 		}
 	
-		public function Addcollection()
-		{
-			$this->load->view('head');
-			$this->load->view('navigation');
-			$this->load->view('header');
-			$this->load->view('Addcollection');
-			$this->load->view('footer');
-	
+	}
+	//Function that adds the collections
+	public function add_collection(){
+		$category_id = $this->input->post('category_id');
+		$collection_name = $this->input->post('collection_name');
+		$collection_details = $this->input->post('collection_details');
+
+		$data = array(
+			'category_id' => $category_id,
+			'collection_name' => $collection_name,
+			'collection_details' => $collection_details
+		);
+		$result = $this->admin_model->add_collection($data);
+
+		switch ($result) {
+			case 'Collection Added Succesfully.':
+				# code...
+				$this->session->set_flashdata("message","Collection Succesfully Added");
+				redirect('admin/addCollection');
+				break;
+			case 'Collection Not Added Succesfully.':
+				# code...
+				$this->session->set_flashdata("message","Collection Not Succesfully Added");
+				redirect('admin/addCollection');
+				break;
+			case 'Collection Exists':
+				# code...
+				$this->session->set_flashdata("message","Collection Already Exists");
+				redirect('admin/addCollection');
+				break;
+			
+			default:
+				# code...
+				$this->session->set_flashdata("message","An Error Occurred");
+				redirect('admin/addCollection');
+				break;
 		}
-		public function viewcollection()
-		{
-			$this->load->view('head');
-			$this->load->view('navigation');
-			$this->load->view('header');
-			$this->load->view('viewcollection');
-			$this->load->view('footer');
+	}
+	//Function that deletes collections
+	public function deleteCollection($collection_id){
+		
+		$data = array(
+			'collection_id' => $collection_id
+		);
+		$result = $this->admin_model->delete_collection($data);
+		if ($result === TRUE) {
+			$this->session->set_flashdata("message","Collection Succesfully Deleted");
+			redirect('admin/viewcollection');
+		}else{
+			$this->session->set_flashdata("message","Collection Succesfully Deleted");
+			redirect('admin/viewcollection');
+		}
 	
-		}}
+	}
 }
