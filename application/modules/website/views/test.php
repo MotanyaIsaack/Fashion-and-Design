@@ -24,6 +24,11 @@
     </div><!-- /.container -->
 </section>
 
+<form action="<?=base_url();?>website/upload_event_image" method="post" enctype="multipart/form-data">
+    <input type="file" name="userfile" id="userfile" required>
+    <input type="text" name="event_name" id="event_name" placeholder="Name" required>
+    <button type="submit">Send</button>
+</form>
 <?php
 function card_test()
 {

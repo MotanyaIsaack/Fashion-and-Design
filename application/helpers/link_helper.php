@@ -33,3 +33,5 @@ function eLog($data)
     $handle = fopen($file, 'w') or die('cannot oppen file');
     fwrite($handle, $data);
 }
+
+

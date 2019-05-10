@@ -55,6 +55,12 @@ class Website extends MX_Controller
 
     }
 
+    //Test upload --> see views/test.php
+    public function upload_event_image()
+    {
+        $this->website_model->uploadImage("events", $_POST['event_name']);
+    }
+
     //Function that loads the collections page
     public function subcollections()
     {

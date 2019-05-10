@@ -10,7 +10,7 @@ function showCards($query)
 {
     foreach ($query->result_array() as $row) {
         //Get the event details
-        $id = $row['item_id'];
+        $id = $row['event_id'];
         $img = $row['img_name'];
         $whole_name = explode(",", $row['item_name']);
         $name = $whole_name[0];
@@ -31,7 +31,11 @@ function showCards($query)
                                 ' . $name . '<br>
                                 <span class="text-capitalize grey-text">' . $location . '</span>
                             </a>
+<<<<<<< HEAD
                             <i class="material-icons right">more_vert</i>
+=======
+                            <i class="material-icons right">info_outline</i>
+>>>>>>> temp
                         </span>
                     </div>
                     <div class="card-action blue white-text activator">
@@ -44,6 +48,9 @@ function showCards($query)
                         <p>' . $event_summary . '</p>
                         <a href="' . base_url('website/event/' . $id) . '" class="readmore">Learn more</a>
                     </div>
+                    <!--<div class="card-action blue white-text activator">
+                        <span class="card-action-text">Event summary</span>
+                    </div>-->
                 </div><!-- /.card -->
             </div><!-- /.portfolio-item -->
             ';
