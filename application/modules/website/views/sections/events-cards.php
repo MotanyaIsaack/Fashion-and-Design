@@ -10,7 +10,7 @@ function showCards($query)
 {
     foreach ($query->result_array() as $row) {
         //Get the event details
-        $id = $row['item_id'];
+        $id = $row['event_id'];
         $img = $row['img_name'];
         $whole_name = explode(",", $row['item_name']);
         $name = $whole_name[0];

@@ -2,14 +2,14 @@
 
 class Website_Model extends CI_Model
 {
-    private $path;
     private $msg;
     private $log = array();
+    private $image_path;
 
     public function __construct()
     {
         parent::__construct();
-        $this->path = "./assets/website/assets/Images/events/";
+        $this->image_path = "./assets/website/assets/Images/";
     }
 
     /* Events page */
@@ -18,7 +18,8 @@ class Website_Model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('event');
-        $this->db->join('event_collection_info', 'event.event_id = event_collection_info.item_id');
+        $this->db->join('event_collection_bridge', 'event.event_id = event_collection_bridge.event_id');
+        $this->db->join('event_collection_info', 'event_collection_bridge.item_info_id = event_collection_info.info_id');
         $this->db->join('image', 'event_collection_info.landing_img_id = image.img_id');
         return $this->db->get();
     }
@@ -28,8 +29,9 @@ class Website_Model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('event');
-        $this->db->join('event_collection_info', 'event.event_id = event_collection_info.item_id');
-        $this->db->where('event_id', $id);
+        $this->db->join('event_collection_bridge', 'event.event_id = event_collection_bridge.event_id');
+        $this->db->join('event_collection_info', 'event_collection_bridge.item_info_id = event_collection_info.info_id');
+        $this->db->where('event.event_id', $id);
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -66,11 +68,40 @@ class Website_Model extends CI_Model
         echo json_encode(['status' => $mail_sent, 'msg' => $msg]);
     }
 
-    //Rename directory
-    public function renameFolder($old_name, $new_name)
+    /* File handling */
+
+    public function uploadImage($folder, $item_name)
     {
-        $old = $this->path . $old_name . "/";
-        $new = $this->path . $new_name . "/";
+        $path = $this->image_path . $folder . "/" . $item_name . "/";
+        $config['upload_path'] = $path;
+        $config['allowed_types'] = 'jpg|png|jpeg';
+
+        $this->load->library('upload', $config);
+
+        if (!file_exists($path)) {
+            mkdir($path);
+        }
+
+        if (!$this->upload->do_upload('userfile')) {
+            $error = array('error' => $this->upload->display_errors());
+            print_r($error);
+        } else {
+            $data = array('upload_data' => $this->upload->data());
+            print_r($data);
+        }
+    }
+
+    /**
+     * Rename directory
+     * @param {string} $old_name
+     * @param {string} $new_name
+     * @param {string} $folder Either event or collection --> Determines the path
+     */
+    public function renameFolder($old_name, $new_name, $folder)
+    {
+        $path = $this->image_path . $folder . "/";
+        $old = $path . $old_name . "/";
+        $new = $path . $new_name . "/";
         $renamed = false;
 
         //Check whether the directory
