@@ -31,8 +31,7 @@ function showCards($query)
                                 ' . $name . '<br>
                                 <span class="text-capitalize grey-text">' . $location . '</span>
                             </a>
-                            <i class="material-icons right">more_vert</i>
-                            <p class="blue text-white activator">Event summary</p>
+                            <i class="material-icons right">info_outline</i>
                         </span>
                     </div>
                     <div class="card-reveal">
@@ -42,6 +41,9 @@ function showCards($query)
                         <p>' . $event_summary . '</p>
                         <a href="' . base_url('website/event/' . $id) . '" class="readmore">Learn more</a>
                     </div>
+                    <!--<div class="card-action blue white-text activator">
+                        <span class="card-action-text">Event summary</span>
+                    </div>-->
                 </div><!-- /.card -->
             </div><!-- /.portfolio-item -->
             ';
