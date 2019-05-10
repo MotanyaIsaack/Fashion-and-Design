@@ -18,6 +18,8 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 application/sessions/
 application/config/database.php
+
+dbv/config.php
 # IDE Files
 #-------------------------
 /nbproject/

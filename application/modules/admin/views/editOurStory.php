@@ -19,7 +19,7 @@
 <form action="be_forms_editors.html" method="post" onsubmit="return false;">
                 <div class="block">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Our Story</h3>
+                            <h3 class="block-title">Edit Our Story</h3>
                             <div class="block-options">
                                 <button type="button" class="btn-block-option">
                                     <i class="si si-wrench"></i>
@@ -37,7 +37,7 @@
                         </div>
                 </div>
                 
-                 <button type="submit" class="btn btn-alt-primary" style="float: right;">Submit</button>
+                 <button type="submit" class="btn btn-alt-primary" style="float: right;">Update</button>
 </form>
 </div>
 
