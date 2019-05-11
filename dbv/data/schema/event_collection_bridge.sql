@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2019 at 02:20 PM
+-- Generation Time: May 11, 2019 at 04:09 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `event_collection_bridge` (
-  `item_info_id` int(11) NOT NULL,
+  `info_id` int(11) NOT NULL,
   `event_id` int(11) DEFAULT NULL,
   `collection_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -38,9 +38,9 @@ CREATE TABLE `event_collection_bridge` (
 -- Dumping data for table `event_collection_bridge`
 --
 
-INSERT INTO `event_collection_bridge` (`item_info_id`, `event_id`, `collection_id`) VALUES
+INSERT INTO `event_collection_bridge` (`info_id`, `event_id`, `collection_id`) VALUES
 (1, 1, NULL),
-(2, 1, NULL);
+(2, 2, NULL);
 
 --
 -- Indexes for dumped tables
@@ -50,7 +50,7 @@ INSERT INTO `event_collection_bridge` (`item_info_id`, `event_id`, `collection_i
 -- Indexes for table `event_collection_bridge`
 --
 ALTER TABLE `event_collection_bridge`
-  ADD UNIQUE KEY `item_info_id` (`item_info_id`),
+  ADD UNIQUE KEY `item_info_id` (`info_id`),
   ADD KEY `event_id` (`event_id`),
   ADD KEY `collection_id` (`collection_id`);
 
@@ -64,7 +64,7 @@ ALTER TABLE `event_collection_bridge`
 ALTER TABLE `event_collection_bridge`
   ADD CONSTRAINT `FK_collection_bridge` FOREIGN KEY (`collection_id`) REFERENCES `collection` (`collection_id`),
   ADD CONSTRAINT `FK_event_bridge` FOREIGN KEY (`event_id`) REFERENCES `event` (`event_id`),
-  ADD CONSTRAINT `FK_info_bridge` FOREIGN KEY (`item_info_id`) REFERENCES `event_collection_info` (`info_id`);
+  ADD CONSTRAINT `FK_info_bridge` FOREIGN KEY (`info_id`) REFERENCES `event_collection_info` (`info_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

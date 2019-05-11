@@ -18,6 +18,20 @@ $(document).on("submit","#contactForm",function (e) {
 })
 
 /**
+ * Filter through the cards
+ */
+
+$("#event_search #event").keyup(function () {
+    let value = $(this).val().toLowerCase();
+
+    $(".portfolio *").filter(function () {
+        let text = $(this).text();
+        console.log(text);
+        $(this).toggle(text.toLowerCase().includes(value));
+    })
+});
+
+/**
 * To send asynchronous HTTP requests
 * @param {string} url Url to which the request is sent
 * @param {Object} data The POST data which will be sent along with the request

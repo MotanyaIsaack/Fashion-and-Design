@@ -14,7 +14,7 @@
                 <li class="waves-effect waves-light" data-group="upcoming">UPCOMING</li>
             </ul>
 
-            <form action="#" class="col-s12">
+            <form action="#" class="col-s12" id="event_search">
                 <div class="row">
                     <div class="input-field col-s4">
                         <input type="text" name="event" id="event" class="validate">

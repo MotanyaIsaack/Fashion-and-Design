@@ -1,22 +1,15 @@
+function callmodal() {
+  $('.modal').modal({
+    preventScrolling: true
+  });
+}
 
-        
-  
-  // $(document).ready(function(){
-  //   $('.modal').modal();
+function dismissModal() {
+  $('.modal').modal('hide');
+}
 
-  //   console.log("kjhn");
+$(document).ready(function () {
+  $('.fixed-action-btn').floatingActionButton();
+});
 
-  // });
 
-  function callmodal(){
-    console.log("kjhn");
-    $('.modal').modal();
-  }
-  $(document).ready(function(){
-    $('.fixed-action-btn').floatingActionButton();
-  }); 
-
-  function dismissModal(){
-    $('.modal').modal('hide');
-  }
-          

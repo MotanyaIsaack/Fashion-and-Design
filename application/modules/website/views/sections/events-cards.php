@@ -1,22 +1,22 @@
 <?php
 
-if ($query->num_rows() > 0) {
-    showCards($query);
+if (count($events) > 0) {
+    showCards($events);
 } else {
     echo "<p>No events to show<p>";
 }
 
-function showCards($query)
+function showCards($events)
 {
-    foreach ($query->result_array() as $row) {
+    foreach ($events as $event) {
         //Get the event details
-        $id = $row['event_id'];
-        $img = $row['img_name'];
-        $whole_name = explode(",", $row['item_name']);
+        $id = $event['event_id'];
+        $img = $event['img_name'];
+        $whole_name = explode(",", $event['item_name']);
         $name = $whole_name[0];
         $full_name = $whole_name[1];
-        $location = $row['location'];
-        $event_summary = $row['item_summary'];
+        $location = $event['location'];
+        $event_summary = $event['item_summary'];
 
         echo '
             <div class="portfolio-item" data-groups=\'["all", "past"]\'>
@@ -31,15 +31,8 @@ function showCards($query)
                                 ' . $name . '<br>
                                 <span class="text-capitalize grey-text">' . $location . '</span>
                             </a>
-<<<<<<< HEAD
-                            <i class="material-icons right">more_vert</i>
-=======
                             <i class="material-icons right">info_outline</i>
->>>>>>> temp
                         </span>
-                    </div>
-                    <div class="card-action blue white-text activator">
-                        Event summary
                     </div>
                     <div class="card-reveal">
                         <span class="card-title">' . $full_name . '
@@ -48,9 +41,6 @@ function showCards($query)
                         <p>' . $event_summary . '</p>
                         <a href="' . base_url('website/event/' . $id) . '" class="readmore">Learn more</a>
                     </div>
-                    <!--<div class="card-action blue white-text activator">
-                        <span class="card-action-text">Event summary</span>
-                    </div>-->
                 </div><!-- /.card -->
             </div><!-- /.portfolio-item -->
             ';

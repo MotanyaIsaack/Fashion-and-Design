@@ -16,13 +16,13 @@
 }
 
 .owl-prev {
-    top: 40%;
-    margin-left: -20px;
+    top: 40% !important;
+    margin-left: -20px !important;
 }
 
 .owl-next {
-    top: 40%;
-    right: -25px;
+    top: 40% !important;
+    right: -25px !important;
 }
 
 .btn-clear {
@@ -73,3 +73,10 @@
     padding: 10px !important;
 }
 
+.modal{
+   padding: 0px !important;
+}
+
+.modal-content .section-title{
+    padding-top: 15px !important;
+}

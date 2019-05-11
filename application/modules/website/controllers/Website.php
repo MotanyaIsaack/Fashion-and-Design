@@ -30,7 +30,7 @@ class Website extends MX_Controller
     public function events()
     {
         $data['title'] = "Events";
-        $data['query'] = $this->website_model->getEvents();
+        $data['events'] = $this->website_model->getEvents();
 
         $this->load->view('header', $data);
         $this->load->view('events');

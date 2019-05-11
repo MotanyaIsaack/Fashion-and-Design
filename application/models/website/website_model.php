@@ -19,9 +19,9 @@ class Website_Model extends CI_Model
         $this->db->select('*');
         $this->db->from('event');
         $this->db->join('event_collection_bridge', 'event.event_id = event_collection_bridge.event_id');
-        $this->db->join('event_collection_info', 'event_collection_bridge.item_info_id = event_collection_info.info_id');
+        $this->db->join('event_collection_info', 'event_collection_bridge.info_id = event_collection_info.info_id');
         $this->db->join('image', 'event_collection_info.landing_img_id = image.img_id');
-        return $this->db->get();
+        return $this->db->get()->result_array();
     }
 
     //Show individual event data
@@ -30,7 +30,7 @@ class Website_Model extends CI_Model
         $this->db->select('*');
         $this->db->from('event');
         $this->db->join('event_collection_bridge', 'event.event_id = event_collection_bridge.event_id');
-        $this->db->join('event_collection_info', 'event_collection_bridge.item_info_id = event_collection_info.info_id');
+        $this->db->join('event_collection_info', 'event_collection_bridge.info_id = event_collection_info.info_id');
         $this->db->where('event.event_id', $id);
         $query = $this->db->get();
         return $query->row_array();

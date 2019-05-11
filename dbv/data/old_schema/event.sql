@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2019 at 02:18 PM
+-- Generation Time: May 05, 2019 at 09:02 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -19,40 +19,48 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hci`
+-- Database: `fashion_and_design`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `collection`
+-- Table structure for table `event`
 --
 
-CREATE TABLE `collection` (
-  `collection_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL
+CREATE TABLE `event` (
+  `event_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `location` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`event_id`, `date`, `location`) VALUES
+(1, '2018-11-23', 'Dakhla, Western Sahara'),
+(2, '2018-10-25', 'Lagos, Nigeria');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `collection`
+-- Indexes for table `event`
 --
-ALTER TABLE `collection`
-  ADD PRIMARY KEY (`collection_id`),
-  ADD KEY `category_id` (`category_id`);
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`event_id`);
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `collection`
+-- Constraints for table `event`
 --
-ALTER TABLE `collection`
-  ADD CONSTRAINT `FK_category_collection` FOREIGN KEY (`category_id`) REFERENCES `collection_category` (`category_id`);
+ALTER TABLE `event`
+  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event_collection_info` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
