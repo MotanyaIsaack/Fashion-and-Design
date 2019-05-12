@@ -20,7 +20,6 @@ class Website_Model extends CI_Model
         $this->db->from('event');
         $this->db->join('event_collection_bridge', 'event.event_id = event_collection_bridge.event_id');
         $this->db->join('event_collection_info', 'event_collection_bridge.info_id = event_collection_info.info_id');
-        $this->db->join('image', 'event_collection_info.landing_img_id = image.img_id');
         return $this->db->get()->result_array();
     }
 
@@ -81,14 +80,7 @@ class Website_Model extends CI_Model
         if (!file_exists($path)) {
             mkdir($path);
         }
-
-        if (!$this->upload->do_upload('userfile')) {
-            $error = array('error' => $this->upload->display_errors());
-            print_r($error);
-        } else {
-            $data = array('upload_data' => $this->upload->data());
-            print_r($data);
-        }
+        return $this->upload->do_upload('image');
     }
 
     /**

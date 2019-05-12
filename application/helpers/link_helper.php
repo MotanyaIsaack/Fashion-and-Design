@@ -17,6 +17,11 @@ function website_assets_url($asset)
     return base_url() . "assets/website/assets/" . $asset;
 }
 
+function images_url($image)
+{
+    return base_url() . "assets/website/assets/Images/" . $image;
+}
+
 function events_url($event)
 {
     return base_url() . "assets/website/assets/Images/events/" . $event;
@@ -33,5 +38,3 @@ function eLog($data)
     $handle = fopen($file, 'w') or die('cannot oppen file');
     fwrite($handle, $data);
 }
-
-

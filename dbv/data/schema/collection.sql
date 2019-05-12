@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2019 at 02:18 PM
+-- Generation Time: May 12, 2019 at 06:55 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -34,6 +34,13 @@ CREATE TABLE `collection` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `collection`
+--
+
+INSERT INTO `collection` (`collection_id`, `category_id`) VALUES
+(2, 4);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -45,6 +52,16 @@ ALTER TABLE `collection`
   ADD KEY `category_id` (`category_id`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `collection`
+--
+ALTER TABLE `collection`
+  MODIFY `collection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -52,7 +69,7 @@ ALTER TABLE `collection`
 -- Constraints for table `collection`
 --
 ALTER TABLE `collection`
-  ADD CONSTRAINT `FK_category_collection` FOREIGN KEY (`category_id`) REFERENCES `collection_category` (`category_id`);
+  ADD CONSTRAINT `FK_category_collection` FOREIGN KEY (`category_id`) REFERENCES `collection_category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

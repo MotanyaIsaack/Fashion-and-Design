@@ -11,7 +11,7 @@ function showCards($events)
     foreach ($events as $event) {
         //Get the event details
         $id = $event['event_id'];
-        $img = $event['img_name'];
+        $img = $event['landing_page_image'];
         $whole_name = explode(",", $event['item_name']);
         $name = $whole_name[0];
         $full_name = $whole_name[1];
