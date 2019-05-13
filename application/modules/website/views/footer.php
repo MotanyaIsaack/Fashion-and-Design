@@ -2,96 +2,97 @@
 
 <footer class="footer footer-four">
     <div class="primary-footer brand-bg text-center">
-        <div class="container">
-        <section >
+      
+      
+        <!--footer 1 start -->
+        <footer class="footer footer-one">
+            <div class="primary-footer brand-bg">
+                <div class="container">
+                    <a  onclick="callmodal()" class="page-scroll btn-floating btn-large pink back-top waves-effect waves-light tt-animate btt"  data-section="#top">
+                      <i class="material-icons">call</i>
+                    </a>
+                    
 
-          <div class="container">
-          <!-- <div class="fixed-action-btn">
-  <a class="btn-floating btn-large red">
-    <i class="large material-icons">mode_edit</i>
-  </a>
-  <ul>
-    
-    
-  </ul>
-</div> -->
-<!-- Modal Trigger -->
+                    <div class="row">
+                        <div class="col-md-3 widget clearfix">
+                        <<ul class="social-link tt-animate ltr">
+                          <h2 class="white-text"z>About Kikoromeo</h2>
+                            <p>EKikoRomeo, meaning “Adam’s Apple” in Kiswahili, 
+                      is now co-designed by mother-daughter duo 
+                      Ann and Iona McCreath from Nairobi, Kenya. 
+                      The heritage lifestyle brand was founded in 1996 .</p>
+                              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                             
+                              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                           
+                              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            
+                            </ul>
+                        </div><!-- /.col-md-3 -->
 
+                        <div class="col-md-3 widget">
+                            <h2 class="white-text" style="margin-top:15px;">Imporant links</h2>
 
-          
+                            <ul class="footer-list">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Collections</a></li>
+                               
+                                <li><a href="#">Events</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Terms &amp; Condition</a></li>
+                            </ul>
+                        </div><!-- /.col-md-3 -->
 
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-  <div class="modal-content">
-  <div class="text-center">
-                 
-                  <i class="material-icons" style="float:right;" onClick="dismissModal()">close</i>
-                   <h2 class="section-title text-uppercase" style="font-weight:100px;">Drop us a line</h2>
-              </div>
+                       
+                           
 
-            <div class="row" >
-                <div class="col-md-12">
-                    <form id="contact-form" class="white" style="padding:2em; padding-bottom:5em" id="contactForm" action="<?=base_url()?>website/sendmail" method="POST">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="input-field">
-                            <input type="text" name="name" class="validate" id="name">
-                            <label for="name">Name</label>
-                          </div>
+                        <div class="col-md-3 widget">
+                            <h2 class="white-text" style="margin-top:15px;">Location</h2>
+                           
+                           
+                            <p>Old Mutual Building<br>Momabasa,Kenya<br>Address:2393-00348<br>Telephone:0763372892</p>
+                            
+                            
+                           
+                           
+                        </div><!-- /.col-md-3 -->
+                        <div class="col-md-3 widget">
+                            <h2 class="white-text" style="margin-top:15px;">News Letter Widget</h2>
+                           
+                            <form>
+                              <div class="form-group clearfix">
+                                <label class="sr-only" for="subscribe">Email address</label>
+                                <input type="email" class="form-control" id="subscribe" placeholder="Email address">
+                                <button type="submit" class="tt-animate ltr"><i class="fa fa-long-arrow-right"></i></button>
+                              </div>
+                            </form>
+                            
+                            
+                           
+                           
+                        </div><!-- /.col-md-3 -->
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.primary-footer -->
 
-                        </div><!-- /.col-md-6 -->
+            <div class="secondary-footer brand-bg darken-2">
+                <div class="container">
+                    <span class="copy-text">Copyright &copy; 2019 <a href="#">Kikoromeo</a> &nbsp;  | &nbsp;  All Rights Reserved &nbsp;  | &nbsp;  Designed By <a href="#">PowerTeam</a></span>
+                </div><!-- /.container -->
+            </div><!-- /.secondary-footer -->
+        </footer>
+        <!--footer 1 end-->
 
-                        <div class="col-md-6">
-                          <div class="input-field">
-                            <label for="email">Email</label>
-                            <input id="email" type="email" name="email" class="validate" required>
-                            <span class="helper-text" data-error="wrong" data-success="right"></span>
-                          </div>
-                        </div><!-- /.col-md-6 -->
-                      </div><!-- /.row -->
-
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="input-field">
-                            <input id="phone" type="tel" name="phone" class="validate" >
-                            <label for="phone">Phone Number</label>
-                            <small class="helper-text left" data-error="wrong" data-success="right">Optional</small>
-                          </div>
-                        </div><!-- /.col-md-6 -->
-
-                        <div class="col-md-6">
-                          <div class="input-field">
-                            <input id="website" type="text" name="website" class="validate" >
-                            <label for="website">Your Website</label>
-                            <small class="helper-text left" data-error="wrong" data-success="right">Optional</small>
-                          </div>
-                        </div><!-- /.col-md-6 -->
-                      </div><!-- /.row -->
-
-                      <div class="input-field">
-                        <textarea name="message" id="message" class="materialize-textarea" ></textarea>
-                        <label for="message">Message</label>
-                      </div>
-
-                    <div class="p-2">
-                        <button type="submit"  name="submit" class="waves-effect waves-light btn submit-button pink mt-25 left">Send Message</button>
-                    </div>
-                    </form>
-                </div><!-- /.col-md-8 -->
-
-
-            </div><!-- /.row -->
-          </div>
-        </section>
-        <!-- contact-form-section End -->
-                    <!-- Modal Trigger -->
-
-
-
-
-                    <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
+            
+</footer>
+<style>
+.modal-backdrop{
+  background-color:white;
+}
+</style>
+<div id="modal1" class="modal" >
+                        <div class="modal-content"  >
                             <div class="text-center">
 
                                 <i class="material-icons" style="float:right;" onClick="dismissModal()">close</i>
@@ -165,98 +166,12 @@
                                                     </div>
                                                 </form>
                                             </div><!-- /.col-md-8 -->
-
+                                </div>
 
                                         </div><!-- /.row -->
 
             </section>
             <!-- contact-form-section End -->
-
-            <!--footer 1 start -->
-        <footer class="footer footer-one">
-            <div class="primary-footer brand-bg">
-                <div class="container">
-                    <a  onclick="callmodal()" class="page-scroll btn-floating btn-large pink back-top waves-effect waves-light tt-animate btt" data-section="#top">
-                      <i class="material-icons">call</i>
-                    </a>
-                    
-
-                    <div class="row">
-                        <div class="col-md-3 widget clearfix">
-                            <<ul class="social-link tt-animate ltr">
-                           
-                            <h2 class="white-text">About Kikoromeo</h2>
-                            <p>EKikoRomeo, meaning “Adam’s Apple” in Kiswahili, 
-                      is now co-designed by mother-daughter duo 
-                      Ann and Iona McCreath from Nairobi, Kenya. 
-                      The heritage lifestyle brand was founded in 1996 .</p>
-                              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                             
-                              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                           
-                              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            
-                            </ul>
-                        </div><!-- /.col-md-3 -->
-
-                        <div class="col-md-3 widget">
-                            <h2 class="white-text" style="margin-top:15px;">Imporant links</h2>
-
-                            <ul class="footer-list">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Collections</a></li>
-                               
-                                <li><a href="#">Events</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Terms &amp; Condition</a></li>
-                            </ul>
-                        </div><!-- /.col-md-3 -->
-
-                       
-                           
-
-                        <div class="col-md-3 widget">
-                            <h2 class="white-text" style="margin-top:15px;">Location</h2>
-                           
-                           
-                            <p>Old Mutual Building<br>Momabasa,Kenya<br>Address:2393-00348<br>Telephone:0763372892</p>
-                            
-                            
-                           
-                           
-                        </div><!-- /.col-md-3 -->
-                        <div class="col-md-3 widget">
-                            <h2 class="white-text" style="margin-top:15px;">News Letter Widget</h2>
-                           
-                            <form>
-                              <div class="form-group clearfix">
-                                <label class="sr-only" for="subscribe">Email address</label>
-                                <input type="email" class="form-control" id="subscribe" placeholder="Email address">
-                                <button type="submit" class="tt-animate ltr"><i class="fa fa-long-arrow-right"></i></button>
-                              </div>
-                            </form>
-                            
-                            
-                           
-                           
-                        </div><!-- /.col-md-3 -->
-                    </div><!-- /.row -->
-                </div><!-- /.container -->
-            </div><!-- /.primary-footer -->
-
-            <div class="secondary-footer brand-bg darken-2">
-                <div class="container">
-                    <span class="copy-text">Copyright &copy; 2019 <a href="#">Kikoromeo</a> &nbsp;  | &nbsp;  All Rights Reserved &nbsp;  | &nbsp;  Designed By <a href="#">PowerTeam</a></span>
-                </div><!-- /.container -->
-            </div><!-- /.secondary-footer -->
-        </footer>
-        <!--footer 1 end-->
-
-            
-</footer>
-
-
 
 <!-- Preloader -->
 <div id="preloader">
