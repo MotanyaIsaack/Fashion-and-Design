@@ -237,4 +237,26 @@ class Admin extends MY_Controller {
 		}
 	
 	}
+	public function registration(){
+		$this->form_validation->set_rules('signup-username', 'Username', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('signup-email', 'Email', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('signup-password', 'Password', 'trim|required|xss_clean');
+		if ($this->form_validation->run() == FALSE) {
+		$this->load->view('signup');
+		} else {
+		$data = array(
+		'user_name' => $this->input->post('signup-username'),
+		'user_email' => $this->input->post('signup-email'),
+		'user_password' => $this->input->post('signup-password')
+		);
+		$result = $this->login_database->registration_insert($data);
+		if ($result == TRUE) {
+		$data['message_display'] = 'Registration Successfully !';
+		$this->load->view('login', $data);
+		} else {
+		$data['message_display'] = 'Username already exist!';
+		$this->load->view('signup', $data);
+		}
+		}
+		}
 }

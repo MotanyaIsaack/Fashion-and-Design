@@ -54,8 +54,7 @@
                         </div>  
                 </div>
             </div>
-        </form>
-                               
+        </form>                         
     <script src="<?=base_url();?>assets/admin/assets/js/pages/be_forms_plugins.min.js"></script>
     <script src="<?=base_url();?>assets/admin/assets/js/plugins/dropzonejs/dropzone.min.js"></script>
     <script>

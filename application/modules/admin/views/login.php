@@ -24,7 +24,7 @@
                             <div class="content content-full">
                                 <!-- Header -->
                                 <div class="px-30 py-10">
-                                  <!--   <a class="link-effect font-w700" href="index.html">
+                                <!--   <a class="link-effect font-w700" href="index.html">
                                         <i class="si si-fire"></i>
                                         <span class="font-size-xl text-primary-dark">code</span><span class="font-size-xl">base</span>
                                     </a> -->
