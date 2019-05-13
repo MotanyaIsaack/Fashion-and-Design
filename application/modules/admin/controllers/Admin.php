@@ -207,7 +207,7 @@ class Admin extends MY_Controller
             case 'Collection Added Succesfully.':
                 # code...
                 $this->session->set_flashdata("message", "Collection Succesfully Added");
-                redirect('admin/file_upload?folder=collections&id='.$_SESSION['item_id'].'&name='.$_SESSION['item_name']);
+                redirect('admin/file_upload?folder=collections&id=' . $_SESSION['item_id'] . '&name=' . $_SESSION['item_name']);
                 break;
             case 'Collection Not Added Succesfully.':
                 # code...
@@ -259,7 +259,7 @@ class Admin extends MY_Controller
 
     public function file_upload()
     {
-        $data['landing_image'] = $this->admin_model->getEventLandingImg($_SESSION['folder'], $_SESSION['item_id']);
+        $data['landing_image'] = $this->admin_model->getEventLandingImg($_GET['folder'], $_GET['id']);
         $this->load->view('head');
         $this->load->view('navigation');
         $this->load->view('header');

@@ -14,17 +14,16 @@ $_SESSION['item_id'] = $_GET['id'];
     </form>
     <form action="<?=base_url('admin/update_landing_img');?>" method="post">
         <!--Hidden fields-->
-        <label for="folder">Folder</label>
-        <input class="form-control" type="text" name="folder" id="folder" value="<?=$_SESSION['folder']?>"
+        <label for="folder" class="d-none">Folder</label>
+        <input class="form-control" type="hidden" name="folder" id="folder" value="<?=$_SESSION['folder']?>"
             readonly>
-        <label for="item_name">Name</label>
-        <input class="form-control" type="text" name="item_name" id="item_name"
+        <label for="item_name" class="d-none">Name</label>
+        <input class="form-control" type="hidden" name="item_name" id="item_name"
             value="<?=$_SESSION['item_name']?>" readonly>
         <!--Hidden fields-->
-        <label for="current_landing_image">Current landing page image</label>
-        <input class="form-control" type="text" name="curent_landing_image" id="current_landing_image"
-            value="<?=$landing_img?>" readonly>
-        <label for="image_name">Update landing page image</label>
+        <span class="p-2">Current landing page image:</span>
+        <span id="current_landing_image"><?=$landing_img?></span>
+        <!-- <label for="image_name">Update landing page image</label> -->
         <select class="form-control" name="image_name" id="image_name">
 
         </select>
