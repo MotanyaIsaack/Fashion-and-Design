@@ -7,6 +7,7 @@ class Admin extends MY_Controller {
 		parent::__construct();
 		$this->load->library('encryption');
 		$this->load->model('admin/admin_model');
+		$this->load->library('session');
 	}
 
   	public function index()
@@ -238,25 +239,26 @@ class Admin extends MY_Controller {
 	
 	}
 	public function registration(){
-		$this->form_validation->set_rules('signup-username', 'Username', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('signup-email', 'Email', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('signup-password', 'Password', 'trim|required|xss_clean');
-		if ($this->form_validation->run() == FALSE) {
-		$this->load->view('signup');
-		} else {
+		
 		$data = array(
-		'user_name' => $this->input->post('signup-username'),
-		'user_email' => $this->input->post('signup-email'),
-		'user_password' => $this->input->post('signup-password')
+		'username' => $this->input->post('signup-username'),
+		'email' => $this->input->post('signup-email'),
+		'password' => $this->input->post('signup-password')
 		);
-		$result = $this->login_database->registration_insert($data);
-		if ($result == TRUE) {
-		$data['message_display'] = 'Registration Successfully !';
-		$this->load->view('login', $data);
+		$parameter = array(
+			'username' => $this->input->post('signup-username'),
+			'email' => $this->input->post('signup-email')
+		);
+
+		$result = $this->admin_model->registration_insert($data,$parameter);
+		if ($result === TRUE) {
+			
+			$this->session->set_flashdata('message', 'Registration Successful');
+		redirect('admin/index');
 		} else {
-		$data['message_display'] = 'Username already exist!';
-		$this->load->view('signup', $data);
+			$this->session->set_flashdata('message', 'Username already exists');
+		redirect('admin/signup');
 		}
-		}
+		
 		}
 }

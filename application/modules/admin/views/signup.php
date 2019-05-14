@@ -36,6 +36,7 @@
                                 <!-- Sign Up Form -->
                                 <!-- jQuery Validation functionality is initialized with .js-validation-signup class in js/pages/op_auth_signup.min.js which was auto compiled from _es6/pages/op_auth_signup.js -->
                                 <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                                <div id="infoMessage"><?php echo $this->session->flashdata('message');?></div>
                                 <form class="js-validation-signup px-30" action="<?=base_url();?>admin/registration" method="post">
                                     <div class="form-group row">
                                         <div class="col-12">

@@ -157,22 +157,22 @@
             }
         }
         
-            public function registration_insert($data) {
+            public function registration_insert($data,$parameter) {
 
                 // Query to check whether username already exist or not
-                $this->db->select('*');
-                $this->db->from('user');
-                $this->db->where('username','$signup-username');
-                $this->db->limit(1);
-                $query = $this->db->get();
+                $query = $this->db->get_where('user',$parameter);
                 if ($query->num_rows() == 0) {
-                
                 // Query to insert data in database
-                $this->db->insert('user', $data);
-                if ($this->db->affected_rows() > 0) {
+                // die("Username doesnt exist");
+                $uquery = $this->db->insert('user', $data);
+                $afftectedRows = $this->db->affected_rows();
+                if ($afftectedRows > 0) {
                 return true;
+                }else{
+                    return false;
                 }
                 } else {
+                    // die("Username exists");
                 return false;
                 }
                 }
