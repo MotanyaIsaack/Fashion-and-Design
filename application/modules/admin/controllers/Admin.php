@@ -11,6 +11,8 @@ class Admin extends MY_Controller {
 	}
 public function index()
 	{
+
+		$this->load->view('head');
 		$this->load->view('head');
 		$this->load->view('login');
 		
@@ -31,12 +33,20 @@ public function index()
 	}
 	public function ourstory()
 	{
+		$sess_id = $this->session->userdata('username');
+
+if(!empty($sess_id))
+ {       
 		$this->load->view('head');
 		$this->load->view('navigation');
 		$this->load->view('header');
 		$this->load->view('ourstory');
 		$this->load->view('footer');
 
+   }else{
+
+        redirect('admin/index');
+}
 	}
 	public function editOurStory()
 	{
@@ -255,7 +265,7 @@ public function index()
 			$this->session->set_flashdata('message', 'Registration Successful');
 		redirect('admin/index');
 		} else {
-			$this->session->set_flashdata('message', 'Username already exists');
+			$this->session->set_flashdata('message', 'Username  already exists');
 		redirect('admin/signup');
 		}
 		
@@ -273,7 +283,10 @@ public function index()
 		$row = $query->num_rows();
 		if($row)
 		{
-		redirect('admin/events');
+		session_start();
+		$this->session->set_userdata('username',$username);
+        $this->session->set_userdata('logged_in', TRUE);
+		redirect('admin/ourstory');
 		}
 		else
 		{
@@ -285,6 +298,12 @@ public function index()
 		}
 		
 		}
+		public function logout()
+    {
+		$this->session->unset_userdata('username');
+		$this->session->set_userdata('logged_in', FALSE);
+        redirect('admin/index');
+    }
 
 			}
 
