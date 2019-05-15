@@ -37,8 +37,8 @@
                                 <!-- Sign In Form -->
                                 <!-- jQuery Validation functionality is initialized with .js-validation-signin class in js/pages/op_auth_signin.min.js which was auto compiled from _es6/pages/op_auth_signin.js -->
                                 <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                                
-                                <form class="js-validation-signin px-30" action="be_pages_auth_all.html" method="post">
+                                <div id="infoMessage"><?php echo $this->session->flashdata('message');?></div>
+                                <form class="js-validation-signin px-30" action="<?=base_url();?>admin/login" method="post">
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <div class="form-material floating">
@@ -64,10 +64,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-sm btn-hero btn-alt-primary">
+                                    
+                                
+                                        <input type="submit" name="login" class="btn btn-sm btn-hero btn-alt-primary">
                                         
-                                            <i class="si si-login mr-10"></i> Sign In
-                                        </button>
+                                        
                                         <div class="mt-30">
                                             <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="<?=base_url();?>admin/signup">
                                                 <i class="fa fa-plus mr-5"></i> Create Account

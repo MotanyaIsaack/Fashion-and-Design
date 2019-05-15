@@ -9,8 +9,7 @@ class Admin extends MY_Controller {
 		$this->load->model('admin/admin_model');
 		$this->load->library('session');
 	}
-
-  	public function index()
+public function index()
 	{
 		$this->load->view('head');
 		$this->load->view('login');
@@ -261,4 +260,31 @@ class Admin extends MY_Controller {
 		}
 		
 		}
-}
+		public function login()
+		{
+		
+		if($this->input->post('login'))
+		{
+		$username=$this->input->post('login-username');
+		$password=$this->input->post('login-password');
+		
+		$query=$this->db->query("select * from user where username='".$username."' and password='$password'");
+
+		$row = $query->num_rows();
+		if($row)
+		{
+		redirect('admin/events');
+		}
+		else
+		{
+			$this->session->set_flashdata('message', 'Invalid Credentials');
+		
+		redirect('admin/index');
+
+		} 
+		}
+		
+		}
+
+			}
+
