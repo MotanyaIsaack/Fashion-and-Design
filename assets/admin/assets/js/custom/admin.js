@@ -164,5 +164,9 @@ $(document).ready(function () {
             }
         });
     }
+
+    let image_name = $('#current_landing_image').text()
+    console.log(image_name)
+    $("#" + image_name).siblings('img').hide();
 })
 

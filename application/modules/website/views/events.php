@@ -2,8 +2,8 @@
     <div class="container">
 
         <div class="text-center mb-50">
-            <h2 class="section-title">Our Collections</h2>
-            <p class="section-sub">As Kikoromeo we offer inter-season or pre-season line of ready-to-wear clothing.
+            <h2 class="section-title">Our Events</h2>
+            <p class="section-sub">As Kikoromeo we loe to celebrate fashion.
             </p>
         </div>
 
@@ -25,7 +25,7 @@
             </form>
 
             <div class="portfolio portfolio-with-title col-3 gutter mtb-50">
-                <?php events_cards();?>
+                <?php cards();?>
             </div><!-- /.portfolio -->
         </div><!-- portfolio-container -->
 

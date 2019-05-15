@@ -1,8 +1,8 @@
 <?php
 $event_short_name = $title;
 
-$rel_path = "assets/website/assets/Images/events/" . $event_short_name;
-$abs_path = events_url($event_short_name);
+$rel_path = "assets/website/assets/Images/" . $folder . "/" . $event_short_name;
+$abs_path = images_url($folder . "/" . $event_short_name);
 
 if (file_exists($rel_path)) {
     $handle = opendir($rel_path);

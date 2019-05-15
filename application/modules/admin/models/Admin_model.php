@@ -241,7 +241,7 @@ class Admin_model extends CI_Model
                 //This condition will ignore a single dot and double dot file
                 if ('.' != $file && '..' != $file) {
                     $output .= '
-                    <div class="col-md-4">
+                    <div class="col-md-4" >
                     <img src="' . images_url($folder . '/' . $item_name . '/' . $file) . '" class="img-thumbnail" width="150" height="300" style="height:175px;" />
                     <button type="button" class="btn btn-outline-danger btn-sm remove_image" id="' . $file . '">Remove</button>
                         <p>' . $file . '</p>

@@ -1,15 +1,15 @@
 <?php
 
-function events_carousel()
+function carousel()
 {
     $CI = &get_instance();
-    $CI->load->view('website/sections/events-carousel');
+    $CI->load->view('website/sections/carousel');
 }
 
-function events_cards()
+function cards()
 {
     $CI = &get_instance();
-    $CI->load->view('website/sections/events-cards');
+    $CI->load->view('website/sections/cards');
 }
 
 function website_assets_url($asset)
