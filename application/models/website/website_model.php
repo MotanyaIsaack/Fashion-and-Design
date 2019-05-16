@@ -49,7 +49,8 @@ class Website_Model extends CI_Model
     public function getCollectionData($id)
     {
         $this->db->select('*');
-        $this->db->from('collection');
+        $this->db->from('collection_category');
+        $this->db->join('collection', 'collection.category_id = collection_category.category_id');
         $this->db->join('event_collection_bridge', 'collection.collection_id = event_collection_bridge.collection_id');
         $this->db->join('event_collection_info', 'event_collection_bridge.info_id = event_collection_info.info_id');
         $this->db->where('collection.collection_id', $id);

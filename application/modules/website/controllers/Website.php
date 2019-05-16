@@ -52,7 +52,7 @@ class Website extends MX_Controller
         $data['row'] = $event_data;
         $data['folder'] = "events";
         $this->load->view('header', $data);
-        $this->load->view('view-item');
+        $this->load->view('view-event');
         $this->load->view('footer');
 
     }
@@ -76,7 +76,7 @@ class Website extends MX_Controller
         $data['full_name'] = $full_name;
         $data['row'] = $collection_data;
         $this->load->view('header', $data);
-        $this->load->view('view-item');
+        $this->load->view('view-subcollection');
         $this->load->view('footer');
     }
 

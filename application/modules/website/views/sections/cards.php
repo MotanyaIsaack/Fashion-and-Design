@@ -11,6 +11,9 @@ function showCards($folder, $cards)
     foreach ($cards as $card_item) {
         //Get the event details
         $id = ($folder == "events") ? $card_item['event_id'] : $card_item['collection_id'];
+        $filter = ($folder == "collections") ? $card_item['category_name'] : "past";
+        $display = ($folder == "collections") ? "hide" : "";
+
         $img = $card_item['landing_page_image'];
         $whole_name = explode(",", $card_item['item_name']);
         $name = $whole_name[0];
@@ -18,8 +21,7 @@ function showCards($folder, $cards)
         $location = isset($card_item['location']) ? $card_item['location'] : null;
         $item_summary = $card_item['item_summary'];
         $url = ($folder == "events") ? 'website/event/' : 'website/subcollections/';
-        $filter = ($folder == "collections") ? $card_item['category_name'] : "past";
-        $display = ($folder == "collections") ? "hide" : "";
+
         echo '
             <div class="portfolio-item" data-groups=\'["all", "' . $filter . '"]\'>
                 <div class="card">
