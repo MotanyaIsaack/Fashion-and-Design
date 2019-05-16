@@ -68,7 +68,12 @@
     }
 }
 
-.card-action{
+.collection .card-content{
+    height: 35px !important;
+    padding: 20px !important;
+}
+
+.collection .card-action {
     height: 50px !important;
     padding: 10px !important;
 }
@@ -83,4 +88,8 @@
 
 .landing_image{
     border: 2px solid #5cb85c;
+}
+
+.display-4{
+    font-size: 1.7em !important;
 }

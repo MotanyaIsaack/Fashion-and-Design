@@ -1,26 +1,42 @@
 <?php
 
 if (count($cards) > 0) {
-    showCards($folder, $cards);
-} else {
-    echo "<p>No " . $folder . " to show<p>";
+    switch ($folder) {
+        case "events":
+            showEventCards($folder, $cards);
+            break;
+        case "collections":
+            showCollectionCards($folder, $cards);
+            break;
+        default:
+            displayNone($folder);
+            break;
+    }
 }
 
-function showCards($folder, $cards)
+function displayNone($folder)
 {
-    foreach ($cards as $card_item) {
-        //Get the event details
-        $id = ($folder == "events") ? $card_item['event_id'] : $card_item['collection_id'];
-        $filter = ($folder == "collections") ? $card_item['category_name'] : "past";
-        $display = ($folder == "collections") ? "hide" : "";
+    echo '
+        <center class="display-4">No ' . $folder . ' to show. Our homepage isn\'t empty though :)
+            <p><a href="' . base_url('website/home') . '" class="blue-text">Go to homepage?</a></p>
+        <center>
+    ';
+}
 
-        $img = $card_item['landing_page_image'];
-        $whole_name = explode(",", $card_item['item_name']);
+function showEventCards($folder, $cards)
+{
+    foreach ($cards as $event) {
+        //Get the event details
+        $id = $event['event_id'];
+        $url = 'website/event/';
+        $filter = (true == false) ? "upcoming" : "past";
+
+        $img = $event['landing_page_image'];
+        $whole_name = explode(",", $event['item_name']);
         $name = $whole_name[0];
         $full_name = $whole_name[1];
-        $location = isset($card_item['location']) ? $card_item['location'] : null;
-        $item_summary = $card_item['item_summary'];
-        $url = ($folder == "events") ? 'website/event/' : 'website/subcollections/';
+        $location = $event['location'];
+        $item_summary = $event['item_summary'];
 
         echo '
             <div class="portfolio-item" data-groups=\'["all", "' . $filter . '"]\'>
@@ -35,10 +51,58 @@ function showCards($folder, $cards)
                                 ' . $name . '<br>
                                 <span class="text-capitalize grey-text">' . $location . '</span>
                             </a>
-                            <i class="material-icons right ' . $display . '">info_outline</i>
+                            <i class="material-icons right">info_outline</i>
                         </span>
                     </div>
-                    <div class="card-reveal ' . $display . '">
+                    <div class="card-reveal">
+                        <span class="card-title">' . $full_name . '
+                            <i class="material-icons right">&#xE5CD;</i>
+                        </span>
+                        <p>' . $item_summary . '</p>
+                        <a href="' . base_url($url . $id) . '" class="readmore">Learn more</a>
+                    </div>
+                </div><!-- /.card -->
+            </div><!-- /.portfolio-item -->
+            ';
+    }
+}
+
+function showCollectionCards($folder, $cards)
+{
+    foreach ($cards as $collection) {
+        //Get the event details
+        $id = $collection['collection_id'];
+        $url = 'website/subcollections/';
+        $filter = $collection['category_name'];
+
+        $img = $collection['landing_page_image'];
+        $whole_name = explode(",", $collection['item_name']);
+        $name = $whole_name[0];
+        $full_name = $whole_name[1];
+        $location = null;
+        $item_summary = $collection['item_summary'];
+        $collection_url = base_url($url . $id);
+
+        echo '
+            <div class="portfolio-item" data-groups=\'["all", "' . $filter . '"]\'>
+                <div class="card collection">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <a href="' . $collection_url . '">
+                        <img class="activator" src="' . images_url($folder . '/' . $name . "/" . $img) . '" alt="image" height="470px">
+                        </a>
+                    </div>
+                    <a href="' . $collection_url . '" class="grey-text text-darken-2">
+                        <div class="card-content activator">
+                            <span class="card-title">
+                                ' . $name . '
+                            <i class="material-icons right hide">info_outline</i>
+                            </span>
+                        </div>
+                    </a>
+                    <div class="card-action">
+                        <a href="' . $collection_url . '" class="blue-text">View collection</a>
+                    </div>
+                    <div class="card-reveal hide">
                         <span class="card-title">' . $full_name . '
                             <i class="material-icons right">&#xE5CD;</i>
                         </span>
