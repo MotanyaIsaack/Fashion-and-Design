@@ -17,10 +17,7 @@ function showOverview($overview_header, $overview_content)
 <div class="container">
     <div class="text-center mb-50">
         <h2 class="section-title"><?=$title?></h2>
-        <p class="section-sub"><?php if (isset($location)) {
-    echo $location;
-}
-?></p>
+        <p class="section-sub"><?php if (isset($location)) {echo $location;}?></p>
     </div>
 
     <!-- Indicators -->

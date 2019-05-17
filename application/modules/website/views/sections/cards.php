@@ -1,5 +1,4 @@
 <?php
-
 if (count($cards) > 0) {
     switch ($folder) {
         case "events":
@@ -8,10 +7,9 @@ if (count($cards) > 0) {
         case "collections":
             showCollectionCards($folder, $cards);
             break;
-        default:
-            displayNone($folder);
-            break;
     }
+} else {
+    displayNone($folder);
 }
 
 function displayNone($folder)
@@ -37,17 +35,18 @@ function showEventCards($folder, $cards)
         $full_name = $whole_name[1];
         $location = $event['location'];
         $item_summary = $event['item_summary'];
+        $event_link = base_url($url . $id);
 
         echo '
             <div class="portfolio-item" data-groups=\'["all", "' . $filter . '"]\'>
-                <div class="card">
+                <div class="card event">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator"
-                            src="' . images_url($folder . '/' . $name . "/" . $img) . '" alt="image" height="470px">
+                            src="' . images_url($folder . '/' . $name . "/" . $img) . '" alt="image" height="450px">
                     </div>
                     <div class="card-content activator">
                         <span class="card-title">
-                            <a href="' . base_url($url . $id) . '" class="grey-text text-darken-2">
+                            <a href="' . $event_link . '" class="grey-text text-darken-2">
                                 ' . $name . '<br>
                                 <span class="text-capitalize grey-text">' . $location . '</span>
                             </a>
@@ -59,8 +58,11 @@ function showEventCards($folder, $cards)
                             <i class="material-icons right">&#xE5CD;</i>
                         </span>
                         <p>' . $item_summary . '</p>
-                        <a href="' . base_url($url . $id) . '" class="readmore">Learn more</a>
+                        <a href="' . $event_link . '" class="readmore">Learn more</a>
                     </div>
+                    <!--<div class="card-action">
+                        <a href="' . $event_link . '" class="blue-text">View event</a>
+                    </div>-->
                 </div><!-- /.card -->
             </div><!-- /.portfolio-item -->
             ';
