@@ -10,7 +10,7 @@ $(function () {
     $('.events-carousel').owlCarousel({
         margin: 5,
         loop: true,
-        items: 2,
+        items: 3,
         touchDrag: true,
         mouseDrag: true,
         nav: true,
