@@ -22,7 +22,7 @@ $_SESSION['item_id'] = $_GET['id'];
             value="<?=$_SESSION['item_name']?>" readonly>
         <!--Hidden fields-->
         <span class="p-2">Current landing page image:</span>
-        <span id="current_landing_image"><?=$landing_img?></span>
+        <span id="current_landing_image"><b><?=$landing_img?></b></span>
         <!-- <label for="image_name">Update landing page image</label> -->
         <select class="form-control" name="image_name" id="image_name">
 

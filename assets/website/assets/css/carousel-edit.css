@@ -85,10 +85,13 @@
     padding: 10px !important;
 }
 
-.modal{
+/* .modal{
    padding: 0px !important;
-}
+} */
 
+.modal-backdrop{
+    background:#fff;
+}
 .modal-content .section-title{
     padding-top: 15px !important;
 }

@@ -15,6 +15,8 @@ $(document).ready(function () {
     let folder = $('#folder').val();
     let item_name = $('#item_name').val();
 
+    $('td > input').attr('autocomplete','off');
+
     //Display the folder images
     list_image();
     //Populate select with the filename values
@@ -108,7 +110,7 @@ $(document).ready(function () {
     /**Action: Remove image**/
     $(document).on('click','.remove_image',function () {
         let name = $(this).attr('id');
-        let landing_image = $('#current_landing_image').val();
+        let landing_image = $('#current_landing_image').text();
         if (name !== landing_image) {
             let confirm_del = confirm("Delete " + name);
 

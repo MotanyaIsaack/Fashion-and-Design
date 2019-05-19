@@ -208,7 +208,7 @@ class Admin_model extends CI_Model
     public function getFileNames($folder, $item_name)
     {
         $dir = $this->image_path . $folder . '/' . $item_name . "/";
-        $option = '<option value="">Select landing page image</option>';
+        $option = '<option value="">Update landing page image</option>';
 
         //Make directory: Prevents error from being thrown by scandir
         if (!file_exists($dir)) {
