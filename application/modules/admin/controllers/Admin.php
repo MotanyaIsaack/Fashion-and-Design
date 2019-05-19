@@ -15,8 +15,50 @@ class Admin extends MY_Controller
     {
         $this->load->view('head');
         $this->load->view('login');
+    }
+
+    public function registration()
+    {
+        $data = array(
+            'username' => $this->input->post('signup-username'),
+            'email' => $this->input->post('signup-email'),
+            'password' => $this->input->post('signup-password'),
+        );
+        $parameter = array(
+            'username' => $this->input->post('signup-username'),
+            'email' => $this->input->post('signup-email'),
+        );
+
+        $result = $this->admin_model->registration_insert($data, $parameter);
+        if ($result === true) {
+
+            $this->session->set_flashdata('message', 'Registration Successful');
+            redirect('admin/index');
+        } else {
+            $this->session->set_flashdata('message', 'Username already exists');
+            redirect('admin/signup');
+        }
 
     }
+    public function login()
+    {
+        if ($this->input->post('login')) {
+            $username = $this->input->post('login-username');
+            $password = $this->input->post('login-password');
+
+            $query = $this->db->query("select * from user where username='" . $username . "' and password='$password'");
+
+            $row = $query->num_rows();
+            if ($row) {
+                redirect('admin/events');
+            } else {
+                $this->session->set_flashdata('message', 'Invalid Credentials');
+                redirect('admin/index');
+            }
+        }
+
+    }
+
     public function signup()
     {
         $this->load->view('head');
@@ -197,8 +239,8 @@ class Admin extends MY_Controller
         );
 
         $data['collection_info'] = array(
-            'short_name' => $this->input->post('short_name'), 
-            'full_name' => $this->input->post('full_name'), 
+            'short_name' => $this->input->post('short_name'),
+            'full_name' => $this->input->post('full_name'),
             'item_info' => $this->input->post('item_info'),
             'overview_header' => implode(',', $this->input->post('overview_header')),
             'overview_content' => implode(',', $this->input->post('overview_content')),
@@ -231,23 +273,23 @@ class Admin extends MY_Controller
     }
     //Function that deletes collections
     public function deleteCollection($collection_id)
-    {   $collection_info = $this->admin_model->getCollectionInfo(['event_collection_info.info_id','short_name'], $collection_id);
+    {$collection_info = $this->admin_model->getCollectionInfo(['event_collection_info.info_id', 'short_name'], $collection_id);
         $data['collection'] = array(
             'collection_id' => $collection_id,
         );
         $data['collection_info'] = array(
-            'info_id'=>$collection_info['info_id']
+            'info_id' => $collection_info['info_id'],
         );
-        
-        $deleted = $this->admin_model->deleteFolder('collections',$collection_info['short_name']);
+
+        $deleted = $this->admin_model->deleteFolder('collections', $collection_info['short_name']);
         $result = ($deleted) ? $this->admin_model->delete_collection($data) : false;
-        
+
         if ($result === true) {
             $this->session->set_flashdata("message", "Collection Succesfully Deleted");
             redirect('admin/viewcollection');
         } else {
             $this->session->set_flashdata("message", "Collection not deleted");
-           // redirect('admin/viewcollection');
+            // redirect('admin/viewcollection');
         }
 
     }
