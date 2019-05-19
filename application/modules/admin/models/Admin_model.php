@@ -131,7 +131,7 @@
             
         }
          //Function that fetches all the collections
-         function get_collections(){
+        function get_collections(){
             $this->db->trans_start();
             $this->db->from('collection');
             $this->db->join('collection_category','collection_category.category_id = collection.category_id');
@@ -156,6 +156,30 @@
                 return false;
             }
         }
-    }
+        
+            public function registration_insert($data,$parameter) {
+
+                // Query to check whether username already exist or not
+                $query = $this->db->get_where('user',$parameter);
+                if ($query->num_rows() == 0) {
+                // Query to insert data in database
+                // die("Username doesnt exist");
+                $uquery = $this->db->insert('user', $data);
+                $afftectedRows = $this->db->affected_rows();
+                if ($afftectedRows > 0) {
+                return true;
+                }else{
+                    return false;
+                }
+                } else {
+                    // die("Username exists");
+                return false;
+                }
+                }
+                
+        
+                    
+        }
+    
     
 ?>

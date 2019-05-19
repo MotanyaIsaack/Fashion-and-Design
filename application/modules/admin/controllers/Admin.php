@@ -7,9 +7,9 @@ class Admin extends MY_Controller {
 		parent::__construct();
 		$this->load->library('encryption');
 		$this->load->model('admin/admin_model');
+		$this->load->library('session');
 	}
-
-  	public function index()
+public function index()
 	{
 		$this->load->view('head');
 		$this->load->view('login');
@@ -237,4 +237,54 @@ class Admin extends MY_Controller {
 		}
 	
 	}
-}
+	public function registration(){
+		
+		$data = array(
+		'username' => $this->input->post('signup-username'),
+		'email' => $this->input->post('signup-email'),
+		'password' => $this->input->post('signup-password')
+		);
+		$parameter = array(
+			'username' => $this->input->post('signup-username'),
+			'email' => $this->input->post('signup-email')
+		);
+
+		$result = $this->admin_model->registration_insert($data,$parameter);
+		if ($result === TRUE) {
+			
+			$this->session->set_flashdata('message', 'Registration Successful');
+		redirect('admin/index');
+		} else {
+			$this->session->set_flashdata('message', 'Username already exists');
+		redirect('admin/signup');
+		}
+		
+		}
+		public function login()
+		{
+		
+		if($this->input->post('login'))
+		{
+		$username=$this->input->post('login-username');
+		$password=$this->input->post('login-password');
+		
+		$query=$this->db->query("select * from user where username='".$username."' and password='$password'");
+
+		$row = $query->num_rows();
+		if($row)
+		{
+		redirect('admin/events');
+		}
+		else
+		{
+			$this->session->set_flashdata('message', 'Invalid Credentials');
+		
+		redirect('admin/index');
+
+		} 
+		}
+		
+		}
+
+			}
+

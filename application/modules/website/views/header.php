@@ -224,13 +224,8 @@ if ($this->uri->uri_string() == 'website/events') {
 }
 ?>><a href="<?=base_url();?>website/events">Events</a></li>
 
-                        <li><a href="javascript:void(0)">Contact</a>
-                            <!--
-                                <ul class="dropdown">
-                                    <li><a href="contact-us.html">Contact One</a></li>
-                                    <li><a href="contact-us-2.html">Contact Two</a></li>
-                                </ul>
--->
+                        <li><a href="#modal1">Contact</a>
+                        
                         </li>
 
                     </ul>
