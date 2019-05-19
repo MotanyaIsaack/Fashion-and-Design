@@ -43,12 +43,9 @@ class Website extends MX_Controller
     public function event($id)
     {
         $event_data = $this->website_model->getEventData($id);
-        $whole_name = explode(",", $event_data['item_name']);
-        $short_name = $whole_name[0];
-        $full_name = $whole_name[1];
 
-        $data['title'] = $short_name;
-        $data['full_name'] = $full_name;
+        $data['title'] = $event_data['short_name'];
+        $data['full_name'] = $event_data['full_name'];
         $data['row'] = $event_data;
         $data['folder'] = "events";
         $this->load->view('header', $data);
@@ -67,13 +64,11 @@ class Website extends MX_Controller
     public function subcollections($id)
     {
         $collection_data = $this->website_model->getCollectionData($id);
-        $whole_name = explode(",", $collection_data['item_name']);
-        $short_name = $whole_name[0];
-        $full_name = $whole_name[1];
+        $full_name = $collection_data['full_name'];
 
         $data['folder'] = "collections";
-        $data['title'] = $short_name;
-        $data['full_name'] = $full_name;
+        $data['title'] = $collection_data['short_name'];
+        $data['full_name'] = $collection_data['full_name'];
         $data['row'] = $collection_data;
         $this->load->view('header', $data);
         $this->load->view('view-subcollection');

@@ -138,7 +138,8 @@ class Admin extends MY_Controller
 
         $data = array(
             'item_id' => $item_id,
-            'item_name' => $item_name,
+            'short_name' => $item_name,
+            'full_name' => $item_name,
             'item_info' => $item_info,
         );
 
@@ -196,7 +197,8 @@ class Admin extends MY_Controller
         );
 
         $data['collection_info'] = array(
-            'item_name' => $this->input->post('short_name') . "," . $this->input->post('full_name'),
+            'short_name' => $this->input->post('short_name'), 
+            'full_name' => $this->input->post('full_name'), 
             'item_info' => $this->input->post('item_info'),
             'overview_header' => implode(',', $this->input->post('overview_header')),
             'overview_content' => implode(',', $this->input->post('overview_content')),
@@ -207,7 +209,7 @@ class Admin extends MY_Controller
             case 'Collection Added Succesfully.':
                 # code...
                 $this->session->set_flashdata("message", "Collection Succesfully Added");
-                redirect('admin/file_upload?folder=collections&id=' . $_SESSION['item_id'] . '&name=' . $_SESSION['item_name']);
+                redirect('admin/file_upload?folder=collections&id=' . $_SESSION['item_id'] . '&name=' . $_SESSION['short_name']);
                 break;
             case 'Collection Not Added Succesfully.':
                 # code...
@@ -229,17 +231,23 @@ class Admin extends MY_Controller
     }
     //Function that deletes collections
     public function deleteCollection($collection_id)
-    {
-        $data = array(
+    {   $collection_info = $this->admin_model->getCollectionInfo(['event_collection_info.info_id','short_name'], $collection_id);
+        $data['collection'] = array(
             'collection_id' => $collection_id,
         );
-        $result = $this->admin_model->delete_collection($data);
+        $data['collection_info'] = array(
+            'info_id'=>$collection_info['info_id']
+        );
+        
+        $deleted = $this->admin_model->deleteFolder('collections',$collection_info['short_name']);
+        $result = ($deleted) ? $this->admin_model->delete_collection($data) : false;
+        
         if ($result === true) {
             $this->session->set_flashdata("message", "Collection Succesfully Deleted");
             redirect('admin/viewcollection');
         } else {
-            $this->session->set_flashdata("message", "Collection Succesfully Deleted");
-            redirect('admin/viewcollection');
+            $this->session->set_flashdata("message", "Collection not deleted");
+           // redirect('admin/viewcollection');
         }
 
     }
@@ -247,7 +255,7 @@ class Admin extends MY_Controller
     /* Image handling */
     public function dropzone_upload()
     {
-        $this->admin_model->dropzoneUpload($_SESSION['folder'], $_SESSION['item_name']);
+        $this->admin_model->dropzoneUpload($_SESSION['folder'], $_SESSION['short_name']);
     }
 
     public function get_file_names()
@@ -271,7 +279,7 @@ class Admin extends MY_Controller
     {
         $data = array(
             'folder' => $_SESSION['folder'],
-            'item_name' => $_SESSION['item_name'],
+            'short_name' => $_SESSION['short_name'],
         );
         $this->admin_model->fetchPhotos($data);
     }
@@ -281,7 +289,7 @@ class Admin extends MY_Controller
         $data = array(
             'file_name' => $this->input->post('name'),
             'folder' => $_SESSION['folder'],
-            'item_name' => $_SESSION['item_name'],
+            'short_name' => $_SESSION['short_name'],
         );
         $this->admin_model->removeImage($data);
     }

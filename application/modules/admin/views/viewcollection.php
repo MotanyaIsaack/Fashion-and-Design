@@ -44,7 +44,7 @@ if ($this->session->flashdata('message')) {
 
 foreach ($collections as $collection) {
     $id = $collection['collection_id'];
-    $name = $collection['item_name'];
+    $name = $collection['short_name'];
     echo "<tr>";
     echo "<td class='font-w600'>" . $id . "</td>";
     echo "<td>" . $collection['category_name'] . "</td>";

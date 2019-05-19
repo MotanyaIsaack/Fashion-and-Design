@@ -122,8 +122,12 @@ class Admin_model extends CI_Model
     public function add_collection($data)
     {
         $this->db->trans_start();
-        $collection_name = $data['collection_info']['item_name'];
-        $collectionResults = $this->db->get_where('event_collection_info', ['item_name' => $collection_name]);
+        $short_name = $data['collection_info']['short_name'];
+        $full_name = $data['collection_info']['full_name'];
+        $this->db->where('short_name', $short_name);
+        $this->db->or_where('full_name', $full_name);
+        $collectionResults = $this->db->get('event_collection_info');
+
         if ($collectionResults->num_rows() == 0) {
 
             $this->db->insert('collection', $data['collection']);
@@ -133,7 +137,7 @@ class Admin_model extends CI_Model
             $info_id = $this->db->insert_id();
 
             $this->db->insert('event_collection_bridge', ['info_id' => $info_id, 'collection_id' => $collection_id]);
-            $this->session->set_userdata(['item_id' => $collection_id, 'item_name' => $collection_name]);
+            $this->session->set_userdata(['item_id' => $collection_id, 'short_name' => $short_name, 'full_name'=>$full_name]);
         } else {
             return "Collection Exists";
         }
@@ -183,8 +187,11 @@ class Admin_model extends CI_Model
     //Function delete collections
     public function delete_collection($data)
     {
-        $query = $this->db->delete('collection', $data);
-        if ($query === true) {
+        $this->db->trans_start();
+        $this->db->delete('collection', $data['collection']);
+        $this->db->delete('event_collection_info', $data['collection_info']);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === true) {
             return true;
         } else {
             return false;
@@ -197,12 +204,15 @@ class Admin_model extends CI_Model
         $dir = $this->image_path . $folder . "/" . $item_name . "/";
         $temp_file = $_FILES['file']['tmp_name'];
         $location = $dir . $_FILES['file']['name'];
-        //Check whether the hostel folder exists
-
+        
+        //Creates a folder the item (collection or event) if it does not exist
         if (!file_exists($dir)) {
             mkdir($dir);
-        }
-        move_uploaded_file($temp_file, $location);
+        
+        //Uploads the file if it does not already exist in the directory 
+        } else if (!file_exists($location)){
+            move_uploaded_file($temp_file, $location);
+        }        
     }
 
     public function getFileNames($folder, $item_name)
@@ -229,7 +239,7 @@ class Admin_model extends CI_Model
     public function fetchPhotos($data)
     {
         $folder = $data['folder'];
-        $item_name = $data['item_name'];
+        $item_name = $data['short_name'];
         //Scans the named folder and returns file names
         $dir = $this->image_path . $folder . '/' . $item_name;
         $files = scandir($dir);
@@ -256,24 +266,30 @@ class Admin_model extends CI_Model
         echo json_encode($output);
     }
 
+    /** Delete the folder with the photos */
+    public function deleteFolder($folder,$item_name){
+        $dir = $this->image_path.$folder.'/'.$item_name.'/';
+        $deleted = file_exists($dir) ? $this->deletePhotos($dir) : true;
+        return $deleted;
+    }
+
+    /**Clear the contents of the folder */
+    public function deletePhotos($dir){
+        $files = array_diff(scandir($dir), ['.', '..']);
+        foreach ($files as $file) {
+            unlink($dir.'/'.$file);
+        }
+        return rmdir($dir); 
+    }
+
     public function removeImage($data)
     {
-        $path = $this->image_path . $data['folder'] . '/' . $data['item_name'] . '/' . $data['file_name'];
+        $path = $this->image_path . $data['folder'] . '/' . $data['short_name'] . '/' . $data['file_name'];
         if (!unlink($path)) {
             echo json_encode("Error found");
         } else {
             echo json_encode("Deleted");
         }
-    }
-
-    public function getEventInfo($columns, $event_id)
-    {
-        $this->db->select(implode(',', $columns));
-        $this->db->from('event');
-        $this->db->join('event_collection_bridge', 'event_collection_bridge.event_id = event.event_id');
-        $this->db->join('event_collection_info', 'event_collection_bridge.info_id = event_collection_info.info_id');
-        $this->db->where('event.event_id', $event_id);
-        return $this->db->get()->row_array();
     }
 
     public function getEventLandingImg($folder, $item_id)
@@ -301,9 +317,20 @@ class Admin_model extends CI_Model
         $this->db->trans_complete();
 
         if ($this->db->trans_status()) {
-            redirect('admin/file_upload?folder=' . $_POST['folder'] . '&id=' . $_SESSION['item_id'] . '&name=' . $_POST['item_name']);
+            redirect('admin/file_upload?folder=' . $_POST['folder'] . '&id=' . $_SESSION['item_id'] . '&name=' . $_POST['short_name']);
         }
     }
+
+    public function getEventInfo($columns, $event_id)
+    {
+        $this->db->select(implode(',', $columns));
+        $this->db->from('event');
+        $this->db->join('event_collection_bridge', 'event_collection_bridge.event_id = event.event_id');
+        $this->db->join('event_collection_info', 'event_collection_bridge.info_id = event_collection_info.info_id');
+        $this->db->where('event.event_id', $event_id);
+        return $this->db->get()->row_array();
+    }
+
     public function registration_insert($data, $parameter)
     {
         // Query to check whether username already exist or not

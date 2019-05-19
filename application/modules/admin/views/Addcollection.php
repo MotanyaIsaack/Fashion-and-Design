@@ -3,13 +3,13 @@
     <?php
 if ($this->session->flashdata('message')) {
     echo '
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>' . $this->session->flashdata("message") . '</strong>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                ';
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>' . $this->session->flashdata("message") . '</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        ';
 }
 ?>
     <form action="<?=base_url();?>admin/add_collection" method="post">
@@ -29,53 +29,19 @@ if ($this->session->flashdata('message')) {
                     </div>
                     <div class="col-4">
                         <label for="short_name">Collection Short name</label>
-                        <input type="text" name="short_name" class="form-control form-control-lg" id="short_name">
+                        <input type="text" name="short_name" class="form-control form-control-lg" id="short_name" required>
                         <span class="helper-text">e.g. SS2015 or LFW 2018</span>
                     </div>
                     <div class="col-4">
                         <label for="full_name">Collection Full name</label>
-                        <input type="text" name="full_name" class="form-control form-control-lg" id="full_name">
+                        <input type="text" name="full_name" class="form-control form-control-lg" id="full_name" required>
                     </div>
                 </div>
-
-                <div class="table-responsive form-group add-item">
-                    <table class="table-bordered">
-                        <thead>
-                            <tr style="font-weight:600;">
-                                <td>Overview Header</td>
-                                <td>Overview Content</td>
-                                <td>Add</td>
-                                <td>Delete</td>
-                            </tr>
-                        </thead>
-                        <tbody class="add-item-body">
-                            <tr>
-                                <td>
-                                    <input type="text" name="overview_header[]" class="form-control form-control-lg">
-                                </td>
-                                <td>
-                                    <input type="text" name="overview_content[]" class="form-control form-control-lg">
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-success add">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger delete">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <small class="feedback text-danger d-none">At least one row is needed</small>
-                </div>
-
+                <?php overview_table();?>
                 <div class="form-group row">
                     <div class="col-12">
                         <label for="mega-firstname">Collection Details</label>
-                        <textarea id="js-ckeditor" name="item_info"></textarea>
+                        <textarea id="js-ckeditor" name="item_info" required></textarea>
                     </div>
                 </div>
 

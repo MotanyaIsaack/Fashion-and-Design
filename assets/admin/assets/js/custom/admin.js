@@ -13,7 +13,7 @@ Dropzone.autoDiscover = false
 
 $(document).ready(function () {
     let folder = $('#folder').val();
-    let item_name = $('#item_name').val();
+    let item_name = $('#short_name').val();
 
     $('td > input').attr('autocomplete','off');
 
@@ -46,11 +46,11 @@ $(document).ready(function () {
         <tr>
             <td>
                 <input type="text" class="form-control form-control-lg" id="mega-firstname"
-                    name="overview_header[]">
+                    name="overview_header[]" required>
             </td>
             <td>
                 <input type="text" class="form-control form-control-lg" id="mega-firstname"
-                    name="overview_content[]">
+                    name="overview_content[]" required>
             </td>
             <td>
                 <button type="button" class="btn btn-success add">

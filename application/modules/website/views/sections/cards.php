@@ -30,9 +30,8 @@ function showEventCards($folder, $cards)
         $filter = (true == false) ? "upcoming" : "past";
 
         $img = $event['landing_page_image'];
-        $whole_name = explode(",", $event['item_name']);
-        $name = $whole_name[0];
-        $full_name = $whole_name[1];
+        $name = $event['short_name'];
+        $full_name = $event['full_name'];
         $location = $event['location'];
         $item_summary = $event['item_summary'];
         $event_link = base_url($url . $id);
@@ -78,9 +77,8 @@ function showCollectionCards($folder, $cards)
         $filter = $collection['category_name'];
 
         $img = $collection['landing_page_image'];
-        $whole_name = explode(",", $collection['item_name']);
-        $name = $whole_name[0];
-        $full_name = $whole_name[1];
+        $name = $collection['short_name'];
+        $full_name = $collection['full_name'];
         $location = null;
         $item_summary = $collection['item_summary'];
         $collection_url = base_url($url . $id);

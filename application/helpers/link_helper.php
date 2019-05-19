@@ -12,6 +12,11 @@ function cards()
     $CI->load->view('website/sections/cards');
 }
 
+function overview_table(){
+    $CI = &get_instance();
+    $CI->load->view('admin/sections/overview-table');
+}
+
 function website_assets_url($asset)
 {
     return base_url() . "assets/website/assets/" . $asset;

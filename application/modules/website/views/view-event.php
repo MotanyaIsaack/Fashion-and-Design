@@ -1,7 +1,4 @@
 <?php
-if (isset($location)) {
-    $location = $row['location'];
-}
 $overview_header = explode(",", $row['overview_header']);
 $overview_content = explode(",", $row['overview_content']);
 function showOverview($overview_header, $overview_content)
@@ -17,7 +14,7 @@ function showOverview($overview_header, $overview_content)
 <div class="container">
     <div class="text-center mb-50">
         <h2 class="section-title"><?=$title?></h2>
-        <p class="section-sub"><?php if (isset($location)) {echo $location;}?></p>
+        <p class="section-sub"><?=$row['location'];?></p>
     </div>
 
     <!-- Indicators -->

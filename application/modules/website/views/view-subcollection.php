@@ -1,7 +1,4 @@
 <?php
-if (isset($location)) {
-    $location = $row['location'];
-}
 $overview_header = explode(",", $row['overview_header']);
 $overview_content = explode(",", $row['overview_content']);
 function showOverview($overview_header, $overview_content)
