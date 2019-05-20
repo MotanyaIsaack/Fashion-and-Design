@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2019 at 09:02 PM
+-- Generation Time: May 12, 2019 at 10:17 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fashion_and_design`
+-- Database: `hci`
 --
 
 -- --------------------------------------------------------
@@ -53,14 +53,14 @@ ALTER TABLE `event`
   ADD PRIMARY KEY (`event_id`);
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table `event`
+-- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event_collection_info` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

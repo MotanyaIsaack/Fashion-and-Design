@@ -1,19 +1,35 @@
-$(document).on("submit","#contact-form",function (e) {
+$(document).on("submit","#contactForm",function (e) {
     e.preventDefault();
-    let form = $('#contact-form'),
+    let form = $('#contactForm'),
         url = form.attr('action'),
         form_data = getFormData(form);
 
     console.log(url,form_data)
     ajax_form_submit(url,form_data).then(data => {
-        let type = data.status ? "success" : "danger"
-        displayAlert(data.msg,type)
+        data = JSON.parse(data)
+        let alert = $("#alert-feedback");
+        alert.html(data.msg);
+        alert.removeClass('d-none');
+
+        if (data.status) {
+            document.getElementById('contactForm').reset();
+        }
     })
 })
 
-let form = document.getElementById('contact-form'),
-    url = form.attr('action'),
-    form_data = getFormData(form);
+/**
+ * Filter through the cards
+ */
+
+$("#event_search #event").keyup(function () {
+    let value = $(this).val().toLowerCase();
+
+    $(".portfolio *").filter(function () {
+        let text = $(this).text();
+        console.log(text);
+        $(this).toggle(text.toLowerCase().includes(value));
+    })
+});
 
 /**
 * To send asynchronous HTTP requests
@@ -89,4 +105,19 @@ function displayAlert(msg,type) {
 
     target.html(msg);
     target.slideDown().delay(6000).slideUp();
+}
+
+/**
+ * Gets the current class that is assigned to the alert div
+ * @param {string} target jQuery selector 
+ */
+function getClass(target) {
+    let classes = ['alert-success','alert-danger','alert-warning'];
+
+    for (let class_ of classes) {
+        if (target.hasClass(class_)) {
+            return class_;
+        }
+    }
+    return null;
 }

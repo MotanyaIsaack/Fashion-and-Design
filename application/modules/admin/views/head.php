@@ -22,7 +22,7 @@
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
         <!-- <link rel="shortcut icon" href="assets/media/favicons/favicon.png"> -->
-         <link rel="icon" type="image/png" sizes="192x192" href="<?=base_url();?>assets/admin/images/kikoromeo.ico"> 
+         <link rel="icon" type="image/png" sizes="192x192" href="<?=base_url();?>assets/admin/images/kikoromeo.ico">
   <!-- <link rel="icon" type="image/png" sizes="192x192" href="<?=base_url();?>assets/admin/assets/media/favicons/favicon-192x192.png"> -->
         <!-- <link rel="apple-touch-icon" sizes="180x180" href="<?=base_url();?>assets/admin/assets/media/favicons/apple-touch-icon-180x180.png"> -->
 <!-- END Icons -->
@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/js/plugins/simplemde/simplemde.min.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 
-        
+
         <!-- Fonts and Codebase framework -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700">
         <link rel="stylesheet" id="css-main" href="<?=base_url();?>assets/admin/assets/css/codebase.min.css">
@@ -42,12 +42,14 @@
         <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/js/plugins/slick/slick-theme.css">
 
 
-        <link rel="stylesheet" href="<?=base_url();?>assets/website/assets/materialize/css/materialize.min">
+        <!-- <link rel="stylesheet" href="<?=base_url();?>assets/website/assets/materialize/css/materialize.min.css"> -->
         <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/js/plugins/magnific-popup/magnific-popup.css">
-       <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+        <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/js/plugins/dropzonejs/dist/dropzone.css">
         <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
         <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
         <!-- END Stylesheets -->
-       
+        <script>
+        let base_url = "<?=base_url();?>"
+        </script>
     </head>

@@ -10,7 +10,7 @@ $(function () {
     $('.events-carousel').owlCarousel({
         margin: 5,
         loop: true,
-        items: 2,
+        items: 3,
         touchDrag: true,
         mouseDrag: true,
         nav: true,
@@ -51,25 +51,11 @@ $(function () {
     setTimeout(() => {
         btn.removeClass('hide');
         btn.fadeIn();
-    },1000);
+    },500);
 
 
     $(window).resize(function () {
         console.log($(window).width())
     })
-    /**
-     * Filter through the cards
-     */
-
-    $("#event").keyup(function () {
-        let value = $(this).val().toLowerCase();
-        console.log(value)
-
-        $(".portfolio *").filter(function () {
-            let text = $(this).text();
-            console.log(text);
-            $(this).toggle(text.toLowerCase().includes(value));
-        })
-    });
 
 });

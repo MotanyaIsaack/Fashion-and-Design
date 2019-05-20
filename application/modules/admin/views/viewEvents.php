@@ -46,7 +46,7 @@
                             # code...
                             echo "<tr>";
                             echo "<td class='font-w600'>" . $event['event_id'] . "</td>";
-                            echo "<td>" . $event['item_name'] . "</td>";
+                            echo "<td>" . $event['short_name'] . "</td>";
                             echo "<td>" . $event['item_info'] . "</td>";
                             echo "<td>" . $event['location'] . "</td>";
                             echo "<td>" . $event['date'] . "</td>";

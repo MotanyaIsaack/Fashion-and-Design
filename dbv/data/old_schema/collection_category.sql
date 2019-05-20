@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2019 at 04:40 PM
+-- Generation Time: May 04, 2019 at 11:27 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -19,43 +19,49 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hci`
+-- Database: `fashion_and_design`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `collection_category`
 --
 
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+CREATE TABLE `collection_category` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `collection_category`
+--
+
+INSERT INTO `collection_category` (`category_id`, `category_name`) VALUES
+(1, 'menswear'),
+(2, 'womenswear'),
+(3, 'vintage'),
+(4, 'kids');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `user`
+-- Indexes for table `collection_category`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
+ALTER TABLE `collection_category`
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `collection_category`
 --
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `collection_category`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

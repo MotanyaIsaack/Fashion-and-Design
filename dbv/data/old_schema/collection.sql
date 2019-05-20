@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2019 at 06:55 PM
+-- Generation Time: May 04, 2019 at 11:26 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hci`
+-- Database: `fashion_and_design`
 --
 
 -- --------------------------------------------------------
@@ -30,15 +30,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `collection` (
   `collection_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL
+  `category_id` int(11) NOT NULL,
+  `collection_name` varchar(255) NOT NULL,
+  `collection_details` varchar(255) NOT NULL,
+  `date` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `collection`
---
-
-INSERT INTO `collection` (`collection_id`, `category_id`) VALUES
-(2, 4);
 
 --
 -- Indexes for dumped tables
@@ -52,16 +48,6 @@ ALTER TABLE `collection`
   ADD KEY `category_id` (`category_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `collection`
---
-ALTER TABLE `collection`
-  MODIFY `collection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- Constraints for dumped tables
 --
 
@@ -69,7 +55,8 @@ ALTER TABLE `collection`
 -- Constraints for table `collection`
 --
 ALTER TABLE `collection`
-  ADD CONSTRAINT `FK_category_collection` FOREIGN KEY (`category_id`) REFERENCES `collection_category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `collection_ibfk_2` FOREIGN KEY (`collection_id`) REFERENCES `event_collection_info` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `collection_ibfk_3` FOREIGN KEY (`category_id`) REFERENCES `collection_category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
