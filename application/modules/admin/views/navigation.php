@@ -1,3 +1,4 @@
+ 
  <div id="page-container" class="sidebar-o sidebar-inverse enable-page-overlay side-scroll page-header-fixed main-content-narrow">
             <!-- Side Overlay-->
             <aside id="side-overlay">
@@ -128,7 +129,7 @@
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="link-effect text-dual-primary-dark" href="op_auth_signin.html">
+                                    <a class="link-effect text-dual-primary-dark" href="<?=base_url();?>admin/logout">
                                         <i class="si si-logout"></i>
                                     </a>
                                 </li>

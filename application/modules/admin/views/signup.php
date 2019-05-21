@@ -86,7 +86,7 @@
                                             <!--   <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="#" data-toggle="modal" data-target="#modal-terms">
                                                 <i class="fa fa-book text-muted mr-5"></i> Read Terms
                                             </a> -->
-                                            <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="">
+                                            <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="<?=base_url();?>admin/index">
                                                 <i class="fa fa-user text-muted mr-5"></i> Sign In
                                             </a>
                                         </div>
