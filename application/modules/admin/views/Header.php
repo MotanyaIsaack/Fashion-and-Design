@@ -35,8 +35,8 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-right min-width-200" aria-labelledby="page-header-user-dropdown">
                                 <h5 class="h6 text-center py-10 mb-5 border-b text-uppercase">User</h5>
-                                <a class="dropdown-item" href="be_pages_generic_profile.html">
-                                    <i class="si si-user mr-5"></i> Profile
+                                <a class="dropdown-item" href="<?=base_url();?>admin/signup">
+                                    <i class="si si-user mr-5"></i> Add new Admin
                                 </a>
                                 
                                 <div class="dropdown-divider"></div>
