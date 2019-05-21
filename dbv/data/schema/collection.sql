@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2019 at 06:55 PM
+-- Generation Time: May 21, 2019 at 06:31 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -38,6 +38,9 @@ CREATE TABLE `collection` (
 --
 
 INSERT INTO `collection` (`collection_id`, `category_id`) VALUES
+(3, 1),
+(5, 1),
+(4, 2),
 (2, 4);
 
 --
@@ -59,7 +62,7 @@ ALTER TABLE `collection`
 -- AUTO_INCREMENT for table `collection`
 --
 ALTER TABLE `collection`
-  MODIFY `collection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `collection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

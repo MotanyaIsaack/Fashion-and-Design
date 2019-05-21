@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2019 at 07:49 PM
+-- Generation Time: May 21, 2019 at 06:35 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -41,7 +41,10 @@ CREATE TABLE `event_collection_bridge` (
 INSERT INTO `event_collection_bridge` (`info_id`, `event_id`, `collection_id`) VALUES
 (1, 1, NULL),
 (2, 2, NULL),
-(3, NULL, 2);
+(3, NULL, 2),
+(4, NULL, 3),
+(5, NULL, 4),
+(6, NULL, 5);
 
 --
 -- Indexes for dumped tables
@@ -64,7 +67,8 @@ ALTER TABLE `event_collection_bridge`
 --
 ALTER TABLE `event_collection_bridge`
   ADD CONSTRAINT `FK_collection_bridge` FOREIGN KEY (`collection_id`) REFERENCES `collection` (`collection_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_event_bridge` FOREIGN KEY (`event_id`) REFERENCES `event` (`event_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_event_bridge` FOREIGN KEY (`event_id`) REFERENCES `event` (`event_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `event_collection_bridge_ibfk_1` FOREIGN KEY (`info_id`) REFERENCES `event_collection_info` (`info_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

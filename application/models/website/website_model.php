@@ -34,7 +34,7 @@ class Website_Model extends CI_Model
         $query = $this->db->get();
         return $query->row_array();
     }
-
+    
     public function getCollections()
     {
         $this->db->select('*');
@@ -42,6 +42,7 @@ class Website_Model extends CI_Model
         $this->db->join('collection', 'collection.category_id = collection_category.category_id');
         $this->db->join('event_collection_bridge', 'collection.collection_id = event_collection_bridge.collection_id');
         $this->db->join('event_collection_info', 'event_collection_bridge.info_id = event_collection_info.info_id');
+        $this->db->order_by('collection.category_id', 'ASC');
         return $this->db->get()->result_array();
     }
 
