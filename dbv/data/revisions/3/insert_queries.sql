@@ -1,8 +1,18 @@
+INSERT INTO `collection_category` (`category_id`, `category_name`) VALUES
+(1, 'menswear'),
+(2, 'womenswear'),
+(3, 'vintage'),
+(4, 'kids');
+
 INSERT INTO `collection` (`collection_id`, `category_id`) VALUES
 (3, 1),
 (5, 1),
 (4, 2),
 (2, 4);
+
+INSERT INTO `event` (`event_id`, `date`, `location`) VALUES
+(1, '2018-11-23', 'Dakhla, Western Sahara'),
+(2, '2018-10-25', 'Lagos, Nigeria');
 
 INSERT INTO `event_collection_info` (`info_id`, `short_name`, `full_name`, `landing_page_image`, `item_info`, `item_summary`, `overview_header`, `overview_content`) VALUES
 (1, 'FIMA 2018', 'Festival International de la Mode Africaine', 'fima1.png', 'KikoRomeo showed its latest collection “Desert Rhapsody” at FIMA (Festival International de la Mode Africaine) by Alphadi, in Dakhla, Western Sahara on 23rd November 2018. This was the first time FIMA had been held outside Niger, and celebrated a coming together of artists, musicians and designers from around Africa and beyond. The 4 day festival included a Music Festival, Young Designer and Model Competition, Jewellery and Leatherwork show, Panafrican show and show of Designers from 5 Continents. Guests stayed in elegant tents, modelled on a traditional Tuareg style village.\r\nThe show opened with an outstanding couture cloak of wool with patchwork inserts. The cloak picks on the shield motif in the Kenyan flag and symbolises the brand’s commitment to sustainable fashion as fabric wastage is sewn into crazy patchwork, through a project which incorporates 15 women groups across Western Kenya.\r\nThe rest of the collection was menswear, inspired by the idea of Maasai travelling through the desert. Picking up on traditional reds and blues, KikoRomeo commissioned handwoven cotton checks  for dramatic scarves and turbans. These were teamed with layers of tunic shirts over skinny leg pants, and accessorised with KikoRomeo by Baobab fishskin bags, done in collaboration with Victoria Foods, who tanned the Nile Perch skins  in Kitale.', 'KikoRomeo showed its latest collection “Desert Rhapsody” at FIMA (Festival\r\nInternational de la Mode Africaine) by Alphadi, in Dakhla, Western Sahara on 23rd\r\nNovember 2018. This was the first time FIMA had been held outside Niger, and\r\ncelebrated a coming together of artists, musicians and designers from around Africa\r\nand beyond.', 'Collection Name, By, Bags by, Held On', 'Desert Rhaspody, Kikoromeo, Baobab Fishskin bags, 23 November 2018'),
@@ -12,7 +22,6 @@ INSERT INTO `event_collection_info` (`info_id`, `short_name`, `full_name`, `land
 (5, 'AWT 2015-16', 'The AWT 2016/16 Collection', 'awt1516_2.jpg', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ad velit dolore tempora porro minima aperiam molestias, iusto, nisi molestiae debitis rem eveniet magnam. Repellendus quasi tempore corrupti reprehenderit eligendi?</p>\r\n', '', 'Released on ', '20th November 2018'),
 (6, 'VTG 2019', 'The Vintage Collection 2019 ', 'vintage19_1.jpg', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ad velit dolore tempora porro minima aperiam molestias, iusto, nisi molestiae debitis rem eveniet magnam. Repellendus quasi tempore corrupti reprehenderit eligendi?</p>\r\n', '', 'Released on,Designed by ', '1 April 2019,Loux the Vintage Guru');
 
-
 INSERT INTO `event_collection_bridge` (`info_id`, `event_id`, `collection_id`) VALUES
 (1, 1, NULL),
 (2, 2, NULL),
@@ -20,3 +29,5 @@ INSERT INTO `event_collection_bridge` (`info_id`, `event_id`, `collection_id`) V
 (4, NULL, 3),
 (5, NULL, 4),
 (6, NULL, 5);
+
+INSERT INTO user(username,email,password) VALUES('Rosanne','rosanneodiero9@gmail.com','Rosanne');

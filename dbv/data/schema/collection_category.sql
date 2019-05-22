@@ -34,20 +34,6 @@ CREATE TABLE `collection_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `collection_category`
---
-
-INSERT INTO `collection_category` (`category_id`, `category_name`) VALUES
-(1, 'menswear'),
-(2, 'womenswear'),
-(3, 'vintage'),
-(4, 'kids');
-
---
--- Indexes for dumped tables
---
-
---
 -- Indexes for table `collection_category`
 --
 ALTER TABLE `collection_category`

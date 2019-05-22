@@ -35,6 +35,22 @@ CREATE TABLE `event_collection_bridge` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `event_collection_bridge`
+--
+
+INSERT INTO `event_collection_bridge` (`info_id`, `event_id`, `collection_id`) VALUES
+(1, 1, NULL),
+(2, 2, NULL),
+(3, NULL, 2),
+(4, NULL, 3),
+(5, NULL, 4),
+(6, NULL, 5);
+
+--
+-- Indexes for dumped tables
+--
+
+--
 -- Indexes for table `event_collection_bridge`
 --
 ALTER TABLE `event_collection_bridge`

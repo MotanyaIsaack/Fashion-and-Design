@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2019 at 11:28 AM
+-- Generation Time: May 12, 2019 at 10:17 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -19,41 +19,48 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fashion_and_design`
+-- Database: `hci`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `event`
 --
 
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+CREATE TABLE `event` (
+  `event_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `location` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`event_id`, `date`, `location`) VALUES
+(1, '2018-11-23', 'Dakhla, Western Sahara'),
+(2, '2018-10-25', 'Lagos, Nigeria');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `user`
+-- Indexes for table `event`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`);
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`event_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `event`
 --
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `event`
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

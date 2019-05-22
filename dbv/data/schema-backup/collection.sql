@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2019 at 09:02 PM
+-- Generation Time: May 21, 2019 at 06:31 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -19,48 +19,60 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fashion_and_design`
+-- Database: `hci`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event`
+-- Table structure for table `collection`
 --
 
-CREATE TABLE `event` (
-  `event_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `location` varchar(255) NOT NULL
+CREATE TABLE `collection` (
+  `collection_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `event`
+-- Dumping data for table `collection`
 --
 
-INSERT INTO `event` (`event_id`, `date`, `location`) VALUES
-(1, '2018-11-23', 'Dakhla, Western Sahara'),
-(2, '2018-10-25', 'Lagos, Nigeria');
+INSERT INTO `collection` (`collection_id`, `category_id`) VALUES
+(3, 1),
+(5, 1),
+(4, 2),
+(2, 4);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `event`
+-- Indexes for table `collection`
 --
-ALTER TABLE `event`
-  ADD PRIMARY KEY (`event_id`);
+ALTER TABLE `collection`
+  ADD PRIMARY KEY (`collection_id`),
+  ADD KEY `category_id` (`category_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `collection`
+--
+ALTER TABLE `collection`
+  MODIFY `collection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `event`
+-- Constraints for table `collection`
 --
-ALTER TABLE `event`
-  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event_collection_info` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `collection`
+  ADD CONSTRAINT `FK_category_collection` FOREIGN KEY (`category_id`) REFERENCES `collection_category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
