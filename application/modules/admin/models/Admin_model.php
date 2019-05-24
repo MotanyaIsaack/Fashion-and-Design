@@ -41,13 +41,32 @@ class Admin_model extends CI_Model
             return $events;
         }
     }
+
+    
+    public function itemExists($short_name, $full_name){
+        $this->db->where('short_name', $short_name);
+        $this->db->or_where('full_name', $full_name);
+        $query = $this->db->get('event_collection_info');
+        return $query->num_rows() > 0;
+    }
+
     //Function that adds an event
     public function add_event($data)
     {
         $this->db->trans_start();
-        $categoryResults = $this->db->get_where('event', $data);
-        if ($categoryResults->num_rows() == 0) {
-            $this->db->insert('event', $data);
+        //Get the event data and check whether it exists
+        $short_name = $data['event_info']['short_name'];
+        $full_name = $data['event_info']['full_name'];
+        $full_name = $data['event_info']['full_name'];
+        $eventExists = $this->itemExists($short_name, $full_name);
+
+        if ($eventExists == false) {
+            $this->db->insert('event', $data['event']);
+            $event_id = $this->db->insert_id();
+            $this->db->insert('event_collection_info', $data['event_info']);
+            $info_id = $this->db->insert_id();
+            $this->db->insert('event_collection_bridge',['info_id'=>$info_id, 'event_id'=>$event_id]);
+            $this->session->set_userdata(['item_id' => $event_id, 'short_name' => $short_name, 'full_name'=>$full_name]);
         } else {
             return "Event Exists";
         }
@@ -86,17 +105,14 @@ class Admin_model extends CI_Model
 
     }
     //Function delete events
-    public function delete_events($dataEvents, $dataEventDetails)
+    public function delete_event($data)
     {
-        $query = $this->db->delete('event_collection_info', $dataEventDetails);
-        if ($query === true) {
-            $queryDetails = $this->db->delete('event', $dataEvents);
-            if ($queryDetails === true) {
-                # code...
-                return true;
-            } else {
-                return false;
-            }
+        $this->db->trans_start();
+        $this->db->delete('event', $data['event']);
+        $this->db->delete('event_collection_info', $data['event_info']);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === true) {
+            return true;
         } else {
             return false;
         }
@@ -295,7 +311,7 @@ class Admin_model extends CI_Model
     public function getEventLandingImg($folder, $item_id)
     {
         $columns = array('landing_page_image');
-        $array = ($folder == "events") ?
+        $array = ($folder == "event") ?
         $this->getEventInfo($columns, $item_id) :
         $this->getCollectionInfo($columns, $item_id);
         return $array;
@@ -304,28 +320,30 @@ class Admin_model extends CI_Model
     public function updateLandingImg($folder, $item_id)
     {
         $columns = array('event_collection_info.info_id');
-        $array = ($folder == "events") ?
+        $image_name = $_POST['image_name'];
+        $array = ($folder == "event") ?
         $this->getEventInfo($columns, $item_id) :
         $this->getCollectionInfo($columns, $item_id);
-
+        
         $info_id = $array['info_id'];
-        $info_data = array('landing_page_image' => $_POST['image_name']);
+        $info_data = array('landing_page_image' => $image_name);
 
         $this->db->trans_start();
         $this->db->where('info_id', $info_id);
         $this->db->update('event_collection_info', $info_data);
         $this->db->trans_complete();
-
+        
         if ($this->db->trans_status()) {
-            redirect('admin/file_upload?folder=' . $_POST['folder'] . '&id=' . $_SESSION['item_id'] . '&name=' . $_POST['short_name']);
+            echo $image_name;
         }
+        
     }
 
     public function getEventInfo($columns, $event_id)
     {
         $this->db->select(implode(',', $columns));
         $this->db->from('event');
-        $this->db->join('event_collection_bridge', 'event_collection_bridge.event_id = event.event_id');
+        $this->db->join('event_collection_bridge', 'event.event_id = event_collection_bridge.event_id');
         $this->db->join('event_collection_info', 'event_collection_bridge.info_id = event_collection_info.info_id');
         $this->db->where('event.event_id', $event_id);
         return $this->db->get()->row_array();

@@ -4,13 +4,13 @@
         <?php
 if ($this->session->flashdata('message')) {
     echo '
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>' . $this->session->flashdata("message") . '</strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        ';
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>' . $this->session->flashdata("message") . '</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                ';
 }
 ?>
         <div class="block-options">
@@ -54,7 +54,7 @@ foreach ($collections as $collection) {
     echo "<td class='text-center'>";
     echo "<div class='btn-group'>";
     echo '<button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">';
-    echo '<a href="' . base_url() . 'admin/file_upload?folder=collections&id=' . $id . '&name=' . $name . '"><i class="fa fa-pencil"></i></a>';
+    echo '<a href="' . base_url() . 'admin/edit_item/collection/' . $id . '"><i class="fa fa-edit"></i></a>';
     echo '</button>';
     echo "</div>";
     echo "</td>";

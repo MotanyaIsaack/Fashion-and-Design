@@ -32,6 +32,7 @@
                     <th style="width: 15%;">Event Details</th>
                     <th style="width: 15%;">Event Location</th>
                     <th style="width: 15%;">Event Date</th>
+                    <th class="text-center" style="width: 100px;">Edit</th>
                     <th class="text-center" style="width: 100px;">Actions</th>
                 </tr>
             </thead>
@@ -43,6 +44,8 @@
                     <?php
                         // print_r($events);
                         foreach ($events as $event) {
+                            $id = $event['event_id'];
+                            $name = $event['short_name'];
                             # code...
                             echo "<tr>";
                             echo "<td class='font-w600'>" . $event['event_id'] . "</td>";
@@ -52,8 +55,15 @@
                             echo "<td>" . $event['date'] . "</td>";
                             echo "<td class='text-center'>";
                             echo "<div class='btn-group'>";
+                            echo '<button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">';
+                            echo '<a href="' . base_url() . 'admin/edit_item/event/' . $id . '"><i class="fa fa-edit"></i></a>';
+                            echo '</button>';
+                            echo "</div>";
+                            echo "</td>";
+                            echo "<td class='text-center'>";
+                            echo "<div class='btn-group'>";
                                 echo '<button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">';
-                                echo '<a href="'.base_url().'admin/deleteEvent/'.$event['event_id'].'"><i class="fa fa-times"></i></a>';
+                                echo '<a href="'.base_url().'admin/deleteEvent/'.$id.'"><i class="fa fa-times"></i></a>';
                                 echo '</button>';
                             echo "</div>";
                             echo "</td>";

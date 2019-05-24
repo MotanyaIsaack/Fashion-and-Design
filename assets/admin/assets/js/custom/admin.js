@@ -14,6 +14,7 @@ Dropzone.autoDiscover = false
 $(document).ready(function () {
     let folder = $('#folder').val();
     let item_name = $('#short_name').val();
+    let item_id = $('#item_id').val();
 
     $('td > input').attr('autocomplete','off');
 
@@ -167,8 +168,61 @@ $(document).ready(function () {
         });
     }
 
+    $('#landing_image_form').submit(function (e) {
+        e.preventDefault();
+        let image_name = $('#image_name').val();
+        updateItem(folder,item_id,image_name);
+    })
+
+    function updateItem(folder,item_id,image_name) {
+        $.ajax({
+            url: $('#landing_image_form').attr('action'),
+            method: "POST",
+            data: { folder,item_id,image_name },
+            success: function (data) {
+                //Fetch images and uploads on image
+
+                $('#current_landing_image').html(data);
+                displayAlert('Landing page updated','success');
+            },
+            error: function (xhr,textStatus,errorThrown) {
+                console.error(xhr.responseTxt);
+                console.error(textStatus);
+                console.error(errorThrown);
+            }
+        });
+    }
+
+    let overview = {
+        disabled: true
+    }
+
+    $(document).on('click','#edit-overview-btn',function () {
+        enable_overview()
+    })
+
+    function enable_overview() {
+        let input = $('.add-item-body tr td input');
+        let button = $('.add-item-body tr td button');
+        let state = overview.disabled;
+        console.log(state)
+
+        switch (state) {
+            case true:
+                input.removeAttr('readonly');
+                button.removeAttr('disabled');
+                break;
+            case false:
+                input.attr('readonly','');
+                button.attr('disabled','');
+                break;
+        }
+        overview.disabled = !state;
+    }
+
+    $('#collection-category').val($('#category').val())
+
     let image_name = $('#current_landing_image').text()
     console.log(image_name)
     $("#" + image_name).siblings('img').hide();
 })
-

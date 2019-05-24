@@ -9,6 +9,7 @@ class Admin extends MY_Controller
         parent::__construct();
         $this->load->library('encryption');
         $this->load->model('admin/admin_model');
+        $this->load->model('website/website_model');
         $this->load->library('session');
     }
 
@@ -47,6 +48,31 @@ class Admin extends MY_Controller
             redirect('admin/index');
         }
     }
+
+    /**
+     * editCollection + editEvent
+     */
+    public function edit_item($item_name,$id){
+        $data['landing_image'] = $this->admin_model->getEventLandingImg($item_name, $id);
+        $data['folder'] = $item_name;
+        
+        switch($item_name) { 
+            case "event": 
+                $data['row'] = $this->website_model->getEventData($id);
+                break;  
+            case "collection": 
+                $data['row'] = $this->website_model->getCollectionData($id);
+                $data['categoryid'] = $this->admin_model->get_categories();    
+                break;  
+        } 
+         
+        $this->load->view('head');
+        $this->load->view('navigation');
+        $this->load->view('header');
+        $this->load->view('editEventCollections',$data);
+        $this->load->view('footer');
+    }
+
 
     public function editOurStory()
     {
@@ -99,22 +125,26 @@ class Admin extends MY_Controller
 
     public function addEvent()
     {
-        $from = $this->input->post('from');
-        $to = $this->input->post('to');
-        $eventDate = $from . " - " . $to;
-        $eventLocation = $this->input->post('location');
-
-        $data = array(
-            'date' => $eventDate,
-            'location' => $eventLocation,
+        $data['event'] = array(
+            'date' => $this->input->post('date'),
+            'location' => $this->input->post('location')
         );
+
+        $data['event_info'] = array(
+            'short_name' => $this->input->post('short_name'), 
+            'full_name' => $this->input->post('full_name'), 
+            'item_info' => $this->input->post('item_info'),
+            'overview_header' => implode(',', $this->input->post('overview_header')),
+            'overview_content' => implode(',', $this->input->post('overview_content')),
+        );
+
         $result = $this->admin_model->add_event($data);
 
         switch ($result) {
             case 'Event Added Succesfully.':
                 # code...
                 $this->session->set_flashdata("message", "Event Succesfully Added");
-                redirect('admin/events');
+                redirect('admin/file_upload/event/' . $_SESSION['item_id']);
                 break;
             case 'Event Not Added Succesfully.':
                 # code...
@@ -177,13 +207,18 @@ class Admin extends MY_Controller
     //Function that deletes categories
     public function deleteEvent($event_id)
     {
-        $dataEvents = array(
+        $columns = ['event_collection_info.info_id','short_name'];
+        $event_info = $this->admin_model->getEventInfo($columns, $event_id);
+        $data['event'] = array(
             'event_id' => $event_id,
         );
-        $dataEventDetails = array(
-            'item_id' => $event_id,
+        $data['event_info'] = array(
+            'info_id'=>$event_info['info_id']
         );
-        $result = $this->admin_model->delete_events($dataEvents, $dataEventDetails);
+        
+        $deleted = $this->admin_model->deleteFolder('event',$event_info['short_name']);
+        $result = ($deleted) ? $this->admin_model->delete_event($data) : false;
+
         if ($result === true) {
             $this->session->set_flashdata("message", "Event Succesfully Deleted");
             redirect('admin/viewEvents');
@@ -213,7 +248,7 @@ class Admin extends MY_Controller
             case 'Collection Added Succesfully.':
                 # code...
                 $this->session->set_flashdata("message", "Collection Succesfully Added");
-                redirect('admin/file_upload?folder=collections&id=' . $_SESSION['item_id'] . '&name=' . $_SESSION['short_name']);
+                redirect('admin/file_upload/collection/' . $_SESSION['item_id']);
                 break;
             case 'Collection Not Added Succesfully.':
                 # code...
@@ -236,7 +271,8 @@ class Admin extends MY_Controller
     //Function that deletes collections
     public function deleteCollection($collection_id)
     {
-        $collection_info = $this->admin_model->getCollectionInfo(['event_collection_info.info_id','short_name'], $collection_id);
+        $columns = ['event_collection_info.info_id','short_name'];
+        $collection_info = $this->admin_model->getCollectionInfo($columns, $collection_id);
         $data['collection'] = array(
             'collection_id' => $collection_id,
         );
@@ -244,7 +280,7 @@ class Admin extends MY_Controller
             'info_id'=>$collection_info['info_id']
         );
         
-        $deleted = $this->admin_model->deleteFolder('collections',$collection_info['short_name']);
+        $deleted = $this->admin_model->deleteFolder('collection',$collection_info['short_name']);
         $result = ($deleted) ? $this->admin_model->delete_collection($data) : false;
         
         if ($result === true) {
@@ -252,7 +288,7 @@ class Admin extends MY_Controller
             redirect('admin/viewcollection');
         } else {
             $this->session->set_flashdata("message", "Collection not deleted");
-           // redirect('admin/viewcollection');
+           redirect('admin/viewcollection');
         }
     }
 
@@ -322,13 +358,17 @@ class Admin extends MY_Controller
         $this->admin_model->getFileNames($folder, $item_name);
     }
 
-    public function file_upload()
+    public function file_upload($folder, $id)
     {
-        $data['landing_image'] = $this->admin_model->getEventLandingImg($_GET['folder'], $_GET['id']);
+        $data['landing_image'] = $this->admin_model->getEventLandingImg($folder, $id);
+        $data['folder'] = $folder;
+        $data['row'] = ($folder == "event") ? 
+        $this->website_model->getEventData($id) : 
+        $this->website_model->getCollectionData($id);
         $this->load->view('head');
         $this->load->view('navigation');
         $this->load->view('header');
-        $this->load->view('file_upload', $data);
+        $this->load->view('sections/file_upload', $data);
         $this->load->view('footer');
     }
 
@@ -353,7 +393,7 @@ class Admin extends MY_Controller
 
     public function update_landing_img()
     {
-        $this->admin_model->updateLandingImg($_SESSION['folder'], $_SESSION['item_id']);
+        $this->admin_model->updateLandingImg($_POST['folder'], $_POST['item_id']);
     }
 
 }

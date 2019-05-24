@@ -1,10 +1,10 @@
 <?php
 if (count($cards) > 0) {
     switch ($folder) {
-        case "events":
+        case "event":
             showEventCards($folder, $cards);
             break;
-        case "collections":
+        case "collection":
             showCollectionCards($folder, $cards);
             break;
     }
