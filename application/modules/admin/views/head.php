@@ -46,6 +46,7 @@
         <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/js/plugins/magnific-popup/magnific-popup.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/js/plugins/dropzonejs/dist/dropzone.css">
+        <link rel="stylesheet" href="<?=base_url();?>assets/admin/assets/css/admin.css">
         <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
         <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
         <!-- END Stylesheets -->

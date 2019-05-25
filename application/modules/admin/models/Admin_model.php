@@ -215,9 +215,9 @@ class Admin_model extends CI_Model
     }
 
     /* File handling */
-    public function dropzoneUpload($folder, $item_name)
+    public function dropzoneUpload($folder, $subfolder)
     {
-        $dir = $this->image_path . $folder . "/" . $item_name . "/";
+        $dir = $this->image_path . $folder . "/" . $subfolder . "/";
         $temp_file = $_FILES['file']['tmp_name'];
         $location = $dir . $_FILES['file']['name'];
         
@@ -231,9 +231,9 @@ class Admin_model extends CI_Model
         }        
     }
 
-    public function getFileNames($folder, $item_name)
+    public function getFileNames($folder, $subfolder)
     {
-        $dir = $this->image_path . $folder . '/' . $item_name . "/";
+        $dir = $this->image_path . $folder . '/' . $subfolder . "/";
         $option = '<option value="">Update landing page image</option>';
 
         //Make directory: Prevents error from being thrown by scandir
@@ -255,24 +255,28 @@ class Admin_model extends CI_Model
     public function fetchPhotos($data)
     {
         $folder = $data['folder'];
-        $item_name = $data['short_name'];
+        $subfolder = $data['subfolder'];
+        $landing_image = $data['landing_image'];
         //Scans the named folder and returns file names
-        $dir = $this->image_path . $folder . '/' . $item_name;
+        $dir = $this->image_path . $folder . '/' . $subfolder;
         $files = scandir($dir);
         $output = '<div class="row">';
 
         //This will check whether there is an error with the scandir() function
         if (false !== $files) {
             foreach ($files as $file) {
+                $class = ($file == $landing_image) ? "": "";  
                 //This condition will ignore a single dot and double dot file
                 if ('.' != $file && '..' != $file) {
-                    $output .= '
-                    <div class="col-md-4" >
-                    <img src="' . images_url($folder . '/' . $item_name . '/' . $file) . '" class="img-thumbnail" width="150" height="300" style="height:175px;" />
-                    <button type="button" class="btn btn-outline-danger btn-sm remove_image" id="' . $file . '">Remove</button>
-                        <p>' . $file . '</p>
-                    </div>
-                ';
+                    $output .= '<div class="col-md-4 col-sm-12 image_container">';
+                    // ($file == $landing_image) ? 
+                    // $output.= $this->addLandingPageBanner() : "";
+                    $output.='
+                        <img src="' . images_url($folder . '/' . $subfolder . '/' . $file) . '" class="img-thumbnail" width="165" height="360" style="height:175px;" />
+                        <button type="button" class="btn btn-outline-danger btn-sm remove_image '.$class.'" id="' . $file . '">Remove</button>
+                            <p>' . $file . '</p>
+                        <div class="image_name d-none">'.$file.'</div>
+                    </div>';
                 }
             }
         } else {
@@ -280,6 +284,15 @@ class Admin_model extends CI_Model
         }
         $output .= '</div>';
         echo json_encode($output);
+    }
+
+    function addLandingPageBanner()
+    {
+        return '
+            <div class="text-success" data-toggle="tooltip" title="This is the image that appears on the card">Landing page image
+                <i class="fa fa-info-circle"></i>
+            </div>
+        ';
     }
 
     /** Delete the folder with the photos */
@@ -300,7 +313,7 @@ class Admin_model extends CI_Model
 
     public function removeImage($data)
     {
-        $path = $this->image_path . $data['folder'] . '/' . $data['short_name'] . '/' . $data['file_name'];
+        $path = $this->image_path . $data['folder'] . '/' . $data['subfolder'] . '/' . $data['file_name'];
         if (!unlink($path)) {
             echo json_encode("Error found");
         } else {
@@ -337,46 +350,7 @@ class Admin_model extends CI_Model
             echo $image_name;
         }
         
-    }
-
-    public function renameFolder($data)
-    {
-        $old_name = $data['previous_name']; 
-        $new_name = $data['short_name']; 
-        $folder = $data['folder'];
-
-        $path = $this->image_path . $folder . "/";
-        $old = $path . $old_name . "/";
-        $new = $path . $new_name . "/";
-        $status = true;
-        $msg = "To rename: ";
-        //Check whether the directory exists
-        if (file_exists($old)) {
-            $msg .= "Exists...";
-            $renamed = rename($old, $new);
-            if($renamed){
-                $msg.= "Renamed...";
-                $status = $this->updateName($data);
-
-                if(!$status){
-                    rename($new, $old);
-                }
-            }
-            
-        } else {
-            $msg = "No such directory";
-            echo $msg." ".$old;
-            $status = false;
-        }
-        $data = ['status'=>$status, 'message'=>$msg];
-        return $data;
-    }
-
-    function updateName($data)
-    {
-        $this->db->where('info_id', $data['info_id']);
-        $this->db->update('event_collection_info', ['short_name' => $data['short_name']]);
-    }
+    }    
 
     /** End: Image Handling */
     
@@ -459,4 +433,3 @@ class Admin_model extends CI_Model
     }
 
 }
-

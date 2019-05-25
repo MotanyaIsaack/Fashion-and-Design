@@ -109,10 +109,6 @@
     transform: scale(1.1);
 }
 
-.landing_image{
-    border: 2px solid #5cb85c;
-}
-
 .display-4{
     font-size: 1.7em !important;
 }

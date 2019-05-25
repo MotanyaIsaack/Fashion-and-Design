@@ -1,8 +1,9 @@
 <?php
-$short_name = $title;
+$id = $folder == "event" ? $row['event_id']: $row['collection_id'];
+$subfolder = $folder."_".$id;
 
-$rel_path = "assets/website/assets/Images/" . $folder . "/" . $short_name;
-$abs_path = images_url($folder . "/" . $short_name);
+$rel_path = "assets/website/assets/Images/" . $folder . "/" . $subfolder;
+$abs_path = images_url($folder . "/" . $subfolder);
 
 if (file_exists($rel_path)) {
     $handle = opendir($rel_path);

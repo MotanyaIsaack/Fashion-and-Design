@@ -399,15 +399,16 @@ class Admin extends MY_Controller
 
     /* Image handling */
     public function dropzone_upload()
-    {
-        $this->admin_model->dropzoneUpload($_SESSION['folder'], $_SESSION['short_name']);
+    {   $folder = $_SESSION['folder']; 
+        $subfolder = $folder."_".$_SESSION['item_id'];
+        $this->admin_model->dropzoneUpload($folder,$subfolder);
     }
 
     public function get_file_names()
     {
         $folder = $_POST['folder'];
-        $item_name = $_POST['item_name'];
-        $this->admin_model->getFileNames($folder, $item_name);
+        $subfolder = $folder."_".$_POST['item_id'];
+        $this->admin_model->getFileNames($folder, $subfolder);
     }
 
     public function file_upload($folder, $id)
@@ -426,19 +427,25 @@ class Admin extends MY_Controller
 
     public function fetch_photos()
     {
+        $folder = $this->session->folder;
+        $subfolder = $folder."_".$this->session->item_id;
+
         $data = array(
-            'folder' => $_SESSION['folder'],
-            'short_name' => $_SESSION['short_name'],
+            'folder' => $folder,
+            'subfolder' => $subfolder,
+            'landing_image' => $this->input->post('landing_image')
         );
         $this->admin_model->fetchPhotos($data);
     }
 
     public function remove_image()
-    {
+    {  
+        $folder = $this->session->folder;
+        $subfolder = $folder."_".$this->session->item_id;
         $data = array(
-            'file_name' => $this->input->post('name'),
-            'folder' => $_SESSION['folder'],
-            'short_name' => $_SESSION['short_name'],
+            'folder' => $folder,
+            'subfolder' => $subfolder,
+            'file_name' => $this->input->post('file_name'),
         );
         $this->admin_model->removeImage($data);
     }

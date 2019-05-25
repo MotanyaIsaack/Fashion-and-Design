@@ -12,16 +12,17 @@ Dropzone.options.dropzoneFrom = {
 Dropzone.autoDiscover = false
 
 $(document).ready(function () {
+    $('#collection-category').val($('#category').val());
     let folder = $('#folder').val();
-    let item_name = $('#short_name').val();
     let item_id = $('#item_id').val();
+    let landing_image = $('#current_landing_image').text();
 
     $('td > input').attr('autocomplete','off');
 
     //Display the folder images
-    list_image();
+    list_image(landing_image);
     //Populate select with the filename values
-    appendFileNames(folder,item_name);
+    appendFileNames(folder,item_id);
 
     /* Dynamic table */
     let feedback = $('.feedback');
@@ -69,24 +70,21 @@ $(document).ready(function () {
     }
 
 
-    /* Dropzone */
-    /*****Action: Display images********/
-
-    function list_image() {
+    /**Gets the images in a particular directory and displays them*/
+    function list_image(landing_image) {
         $.ajax({
             url: base_url + "admin/fetch_photos",
+            type: "POST",
             dataType: "JSON",
+            data: { landing_image },
             success: function (data) {
                 $('#preview').html(data);
             },
             error: function (xhr,textStatus,errorThrown) {
-                console.log(xhr.responseText);
+                console.error(xhr.responseText);
             }
         });
     }
-
-    /*****End: Display images********/
-
 
 
     var dropzone = new Dropzone('#dropzoneFrom');
@@ -94,9 +92,9 @@ $(document).ready(function () {
     /***Dropzone action listeners***/
     dropzone.on('complete',function () {
         setTimeout(function () {
-            list_image();
+            list_image(landing_image);
             dropzone.removeAllFiles();
-            appendFileNames(folder,item_name);
+            appendFileNames(folder,item_id);
         },2000);
 
     });
@@ -120,19 +118,18 @@ $(document).ready(function () {
                     url: base_url + "admin/remove_image",
                     method: "POST",
                     dataType: "JSON",
-                    data: { name: name },
+                    data: { file_name: name },
                     success: function (data) {
-                        //Fetch images and uploads on image
-                        list_image();
-                        appendFileNames(folder,item_name);
+                        list_image(landing_image);
+                        appendFileNames(folder,item_id);
                     },
                     error: function (xhr,textStatus,errorThrown) {
-                        console.log(xhr.responseTxt);
+                        console.error(xhr.responseTxt);
                     }
                 });
             }
         } else {
-            displayAlert("Cannot delete landing page image",'danger');
+            displayAlert("Cannot delete landing page image",'warning');
         }
     });
 
@@ -143,18 +140,19 @@ $(document).ready(function () {
      */
     function displayAlert(msg,type) {
         let target = $("#page-feedback");
-        target.addClass('alert-' + type);
+        let $class = 'alert-' + type;
+        let old_class = getClass(target);
+        target.addClass($class);
         target.html(msg);
         target.slideDown().delay(10000).slideUp();
-        target.removeClass(type);
     }
 
-    function appendFileNames(folder,item_name) {
+    function appendFileNames(folder,item_id) {
         $.ajax({
             url: base_url + "admin/get_file_names",
             method: "POST",
             dataType: "JSON",
-            data: { folder,item_name },
+            data: { folder,item_id },
             success: function (data) {
                 //Fetch images and uploads on image
                 console.log(data)
@@ -183,7 +181,7 @@ $(document).ready(function () {
                 //Fetch images and uploads on image
 
                 $('#current_landing_image').html(data);
-                displayAlert('Landing page updated','success');
+                displayAlert('Landing page image updated','success');
             },
             error: function (xhr,textStatus,errorThrown) {
                 console.error(xhr.responseTxt);
@@ -221,9 +219,9 @@ $(document).ready(function () {
         overview.disabled = !state;
     }
 
-    $('#collection-category').val($('#category').val())
-
-    let image_name = $('#current_landing_image').text()
-    console.log(image_name)
-    $("#" + image_name).siblings('img').hide();
+    //Doesn't work yet
+    $('.image_name').each(function (index) {
+        console.log($(this).text())
+        console.log("hello")
+    })
 })
