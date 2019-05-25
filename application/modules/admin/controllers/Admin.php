@@ -52,27 +52,27 @@ class Admin extends MY_Controller
     /**
      * editCollection + editEvent
      */
-    public function edit_item($item_name,$id){
+    public function edit_item($item_name, $id)
+    {
         $data['landing_image'] = $this->admin_model->getEventLandingImg($item_name, $id);
         $data['folder'] = $item_name;
-        
-        switch($item_name) { 
-            case "event": 
+
+        switch ($item_name) {
+            case "event":
                 $data['row'] = $this->website_model->getEventData($id);
-                break;  
-            case "collection": 
+                break;
+            case "collection":
                 $data['row'] = $this->website_model->getCollectionData($id);
-                $data['categoryid'] = $this->admin_model->get_categories();    
-                break;  
-        } 
-         
+                $data['categoryid'] = $this->admin_model->get_categories();
+                break;
+        }
+
         $this->load->view('head');
         $this->load->view('navigation');
         $this->load->view('header');
-        $this->load->view('editEventCollections',$data);
+        $this->load->view('editEventCollections', $data);
         $this->load->view('footer');
     }
-
 
     public function editOurStory()
     {
@@ -89,7 +89,7 @@ class Admin extends MY_Controller
         $this->load->view('head');
         $this->load->view('navigation');
         $this->load->view('header');
-        $this->load->view('events', $data);
+        $this->load->view('addEvents', $data);
         $this->load->view('footer');
     }
 
@@ -127,12 +127,12 @@ class Admin extends MY_Controller
     {
         $data['event'] = array(
             'date' => $this->input->post('date'),
-            'location' => $this->input->post('location')
+            'location' => $this->input->post('location'),
         );
 
         $data['event_info'] = array(
-            'short_name' => $this->input->post('short_name'), 
-            'full_name' => $this->input->post('full_name'), 
+            'short_name' => $this->input->post('short_name'),
+            'full_name' => $this->input->post('full_name'),
             'item_info' => $this->input->post('item_info'),
             'overview_header' => implode(',', $this->input->post('overview_header')),
             'overview_content' => implode(',', $this->input->post('overview_content')),
@@ -207,16 +207,16 @@ class Admin extends MY_Controller
     //Function that deletes categories
     public function deleteEvent($event_id)
     {
-        $columns = ['event_collection_info.info_id','short_name'];
+        $columns = ['event_collection_info.info_id', 'short_name'];
         $event_info = $this->admin_model->getEventInfo($columns, $event_id);
         $data['event'] = array(
             'event_id' => $event_id,
         );
         $data['event_info'] = array(
-            'info_id'=>$event_info['info_id']
+            'info_id' => $event_info['info_id'],
         );
-        
-        $deleted = $this->admin_model->deleteFolder('event',$event_info['short_name']);
+
+        $deleted = $this->admin_model->deleteFolder('event', $event_info['short_name']);
         $result = ($deleted) ? $this->admin_model->delete_event($data) : false;
 
         if ($result === true) {
@@ -236,8 +236,8 @@ class Admin extends MY_Controller
         );
 
         $data['collection_info'] = array(
-            'short_name' => $this->input->post('short_name'), 
-            'full_name' => $this->input->post('full_name'), 
+            'short_name' => $this->input->post('short_name'),
+            'full_name' => $this->input->post('full_name'),
             'item_info' => $this->input->post('item_info'),
             'overview_header' => implode(',', $this->input->post('overview_header')),
             'overview_content' => implode(',', $this->input->post('overview_content')),
@@ -271,24 +271,24 @@ class Admin extends MY_Controller
     //Function that deletes collections
     public function deleteCollection($collection_id)
     {
-        $columns = ['event_collection_info.info_id','short_name'];
+        $columns = ['event_collection_info.info_id', 'short_name'];
         $collection_info = $this->admin_model->getCollectionInfo($columns, $collection_id);
         $data['collection'] = array(
             'collection_id' => $collection_id,
         );
         $data['collection_info'] = array(
-            'info_id'=>$collection_info['info_id']
+            'info_id' => $collection_info['info_id'],
         );
-        
-        $deleted = $this->admin_model->deleteFolder('collection',$collection_info['short_name']);
+
+        $deleted = $this->admin_model->deleteFolder('collection', $collection_info['short_name']);
         $result = ($deleted) ? $this->admin_model->delete_collection($data) : false;
-        
+
         if ($result === true) {
             $this->session->set_flashdata("message", "Collection Succesfully Deleted");
             redirect('admin/viewcollection');
         } else {
             $this->session->set_flashdata("message", "Collection not deleted");
-           redirect('admin/viewcollection');
+            redirect('admin/viewcollection');
         }
     }
 
@@ -314,8 +314,60 @@ class Admin extends MY_Controller
             $this->session->set_flashdata('message', 'Username  already exists');
             redirect('admin/signup');
         }
-
     }
+
+    /**
+     * @param {string} item --> Event or collection
+     */
+    public function update_item($item)
+    {
+        $data['names'] = [
+            'info_id' => $this->input->post('info_id'),
+            'folder' => $item,
+            'previous_name' => $this->input->post('previous_name'),
+            'short_name' => $this->input->post('short_name'),
+            'full_name' => $this->input->post('full_name'),
+        ];
+
+        $data['item_info'] = [
+            'info_id' => $this->input->post('info_id'),
+            'short_name' => $data['names']['short_name'],
+            'full_name' => $data['names']['full_name'],
+            'item_info' => $this->input->post('item_info'),
+            'item_summary' => $this->input->post('item_summary'),
+            'overview_header' => implode(',', $this->input->post('overview_header')),
+            'overview_content' => implode(',', $this->input->post('overview_content')),
+        ];
+
+        switch ($item) {
+            case "event":
+                $data['event'] = [
+                    'event_id'=> $this->input->post('event_id'),
+                    'date'=> $this->input->post('date'),
+                    'location'=> $this->input->post('location')
+                ];
+                $result = $this->admin_model->updateEvent($data);
+                $id = $this->input->post('event_id');
+                break;
+            case "collection":
+                $data['collection'] = [
+                    'collection_id'=> $this->input->post('collection_id'),
+                    'category_id'=> $this->input->post('category_id')
+                ];
+                $result = $this->admin_model->updateCollection($data);
+                $id = $this->input->post('collection_id');
+                break;
+        }
+
+        $this->session->set_flashdata('message', $result['message']);
+        redirect('admin/edit_item/' . $item . '/' . $id);
+        
+        //If the event (short) name was changed, update the folder name
+        // if ($data['names']['previous_name'] !== $data['names']['short_name']) {
+        //     print_r($this->admin_model->renameFolder($data['names']));
+        // }
+    }
+
     public function login()
     {
 
@@ -362,8 +414,8 @@ class Admin extends MY_Controller
     {
         $data['landing_image'] = $this->admin_model->getEventLandingImg($folder, $id);
         $data['folder'] = $folder;
-        $data['row'] = ($folder == "event") ? 
-        $this->website_model->getEventData($id) : 
+        $data['row'] = ($folder == "event") ?
+        $this->website_model->getEventData($id) :
         $this->website_model->getCollectionData($id);
         $this->load->view('head');
         $this->load->view('navigation');

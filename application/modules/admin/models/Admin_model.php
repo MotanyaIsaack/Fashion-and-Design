@@ -339,6 +339,47 @@ class Admin_model extends CI_Model
         
     }
 
+    public function renameFolder($data)
+    {
+        $old_name = $data['previous_name']; 
+        $new_name = $data['short_name']; 
+        $folder = $data['folder'];
+
+        $path = $this->image_path . $folder . "/";
+        $old = $path . $old_name . "/";
+        $new = $path . $new_name . "/";
+        $status = true;
+        $msg = "To rename: ";
+        //Check whether the directory exists
+        if (file_exists($old)) {
+            $msg .= "Exists...";
+            $renamed = rename($old, $new);
+            if($renamed){
+                $msg.= "Renamed...";
+                $status = $this->updateName($data);
+
+                if(!$status){
+                    rename($new, $old);
+                }
+            }
+            
+        } else {
+            $msg = "No such directory";
+            echo $msg." ".$old;
+            $status = false;
+        }
+        $data = ['status'=>$status, 'message'=>$msg];
+        return $data;
+    }
+
+    function updateName($data)
+    {
+        $this->db->where('info_id', $data['info_id']);
+        $this->db->update('event_collection_info', ['short_name' => $data['short_name']]);
+    }
+
+    /** End: Image Handling */
+    
     public function getEventInfo($columns, $event_id)
     {
         $this->db->select(implode(',', $columns));
@@ -368,4 +409,54 @@ class Admin_model extends CI_Model
             return false;
         }
     }
+
+    /**
+     * When collection or event is being updated, this ensures that the update is done
+     * on the same item to avoid duplicate names
+     */
+    public function isSameItem($data) {
+        $this->db->select('info_id');
+        $this->db->where('short_name', $data['previous_name']);
+        $row = $this->db->get('event_collection_info')->row_array();
+        return $data['info_id'] == $row['info_id'];
+    }
+
+    public function updateEvent($data){
+        $status = false;
+        if($this->isSameItem($data['names'])) {
+            $this->db->trans_start();
+            $this->db->where('event_id', $data['event']['event_id']);
+            $this->db->update('event', $data['event']);
+            $this->db->where('info_id', $data['item_info']['info_id']);
+            $this->db->update('event_collection_info', $data['item_info']);
+            $this->db->trans_complete();
+            $status = $this->db->trans_status();
+            $message = $status ? "Event details updated" : "Sorry, something went wrong.";
+        } else{
+            $message = "That event name already exists";
+        }
+        
+        $data = ['status'=>$status, 'message'=>$message];
+        return $data;
+    }
+
+    public function updateCollection($data){
+        if($this->isSameItem($data['names'])) {
+            $this->db->trans_start();
+            $this->db->where('collection_id', $data['collection']['collection_id']);
+            $this->db->update('collection', $data['collection']);
+            $this->db->where('info_id', $data['item_info']['info_id']);
+            $this->db->update('event_collection_info', $data['item_info']);
+            $this->db->trans_complete();
+            $status = $this->db->trans_status();
+            $message = $status ? "Event details updated" : "Sorry, something went wrong.";
+        } else{
+            $message = "That event name already exists";
+        }
+        
+        $data = ['status'=>$status, 'message'=>$message];
+        return $data;
+    }
+
 }
+

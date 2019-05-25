@@ -102,7 +102,7 @@ $(document).ready(function () {
     });
 
     dropzone.on('error',function () {
-        displayAlert("Only image files can be uploaded",warning);
+        displayAlert("Some images were not uploaded. Ensure they are valid image files","warning");
     });
 
 
@@ -145,7 +145,7 @@ $(document).ready(function () {
         let target = $("#page-feedback");
         target.addClass('alert-' + type);
         target.html(msg);
-        target.slideDown().delay(6000).slideUp();
+        target.slideDown().delay(10000).slideUp();
         target.removeClass(type);
     }
 
@@ -199,13 +199,14 @@ $(document).ready(function () {
 
     $(document).on('click','#edit-overview-btn',function () {
         enable_overview()
+        let btn_text = overview.disabled ? "Edit table" : "Disable table"
+        $('#edit-overview-btn').html(btn_text)
     })
 
     function enable_overview() {
         let input = $('.add-item-body tr td input');
         let button = $('.add-item-body tr td button');
         let state = overview.disabled;
-        console.log(state)
 
         switch (state) {
             case true:

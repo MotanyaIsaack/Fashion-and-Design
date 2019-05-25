@@ -3,13 +3,19 @@ $item_name = $row['short_name'];
 $overview_header = explode(",", $row['overview_header']);
 $overview_content = explode(",", $row['overview_content']);
 ?>
-<form action="<?=base_url();?>admin/add_collection" method="post">
+<form action="<?=base_url();?>admin/update_item/collection" method="post">
     <div class="row">
-    
+
+        <!--Hidden field-->
+        <input type="hidden" name="collection_id" value="<?=$row['collection_id']?>">
+        <input type="hidden" name="info_id" value="<?=$row['info_id']?>">
+        <input type="hidden" name="previous_name" value="<?=$item_name?>">
+        <input type="hidden" id="category" value="<?=$row['category_id']?>">
+        <!--Hidden field-->
+
         <div class="col-12">
             <div class="form-group row">
                 <div class="col-4">
-                    <input type="hidden" id="category" value="<?=$row['category_id']?>">
                     <label for="collection-category">Category Name</label>
                     <select class="form-control form-control-lg" id="collection-category" name="category_id">
                         <option value="">Choose a category</option>
@@ -34,7 +40,7 @@ $overview_content = explode(",", $row['overview_content']);
             </div>
 
             <div class="table-responsive form-group add-item">
-                <button type="button" class="btn btn-dark"  id="edit-overview-btn">Edit table</button>
+                <button type="button" class="btn btn-dark" id="edit-overview-btn">Edit table</button>
                 <table class="table-bordered">
                     <thead>
                         <tr style="font-weight:600;">

@@ -19,7 +19,7 @@ $item = $folder;
             if ($this->session->flashdata('message')) {
             echo '
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>' . $this->session->flashdata("message") . '
+                    <strong>' . $this->session->flashdata("message") . '</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -27,16 +27,15 @@ $item = $folder;
                 ';
             }
 
-//Select which page to display
-switch ($item) {
-    case "event":
-        editEvent();
-        break;
-    case "collection":
-        editCollection();
-        break;
-}
-
+            //Select which page to display
+            switch ($item) {
+                case "event":
+                    editEvent();
+                    break;
+                case "collection":
+                    editCollection();
+                    break;
+            }
 
 ?>
 
