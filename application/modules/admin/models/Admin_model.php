@@ -350,4 +350,8 @@ class Admin_model extends CI_Model
             return false;
         }
     }
+    public function updateOurStory($data){
+        $query = $this->db->insert('About', $data);
+    }
+    
 }
