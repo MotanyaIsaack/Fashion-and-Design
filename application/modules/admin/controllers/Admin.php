@@ -334,7 +334,6 @@ if(!empty($sess_id))
 	}
 	public function addStory(){
 		$data = array(
-		
 		'story' => $this->input->post('ckeditor')
 		);
 		$result = $this->admin_model->updateOurStory($data);
