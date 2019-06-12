@@ -11,6 +11,7 @@ class Website extends MX_Controller
     public function home()
     {
         $data['title'] = "Kikoromeo";
+        $data['Awards']=$this->website_model->getAwards();
         $this->load->view('header', $data);
         $this->load->view('home');
         $this->load->view('footer');
@@ -88,5 +89,6 @@ class Website extends MX_Controller
         $this->load->view('test');
         $this->load->view('footer');
     }
+   
 
 }

@@ -399,7 +399,15 @@
                                 
                                 <img class="alignright mt-20" src="<?=base_url();?>assets/website/assets/img/data.png" alt="">
 
-                                <p>KikoRomeo is a Kenyan heritage brand, based in Nairobi with over two decades in the fashion business. Recent achievements include dressing the actresses from the Kenyan movie “Rafiki” at the Cannes Film Festival as well as musicians Mr Eazi and Blinky Bill. KikoRomeo is no stranger to the red carpet having famously dressed Dorothy Nyon’go to accompany Lupita her daughter, for the BAFTA Awards. Over the years KikoRomeo has won East African Designer of the Year at the Swahili Fashion Awards 2014, Icon of Hope at AFDW Nigeria in 2015 as well as head creative Ann McCreath being listed by Arise magazine in the “100 Women Changing Africa”, and African Woman’s ‘Fashion Power Players”. Ann has been quoted severally in the Business of Fashion and continues to make a mark by mentoring the next generation of designers including refugees in Kenya. Iona has been celebrated in her own right, for her sustainable fashion brand Kikoti, including being featured in ID magazine. However the duo see their most important award as the praise they get from clients and fans, who constantly encourage them, by showing just how much appreciation they have for KikoRomeo.</p>
+                                <p>
+                                    <?php
+                                        foreach ($Awards as $award ) {
+                                          echo  $award['Awards'];
+
+                                        }
+                                    
+                                    ?>
+                                </p>
                             </div>
                           </div>
                         </div>

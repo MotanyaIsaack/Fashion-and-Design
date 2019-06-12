@@ -16,7 +16,7 @@
 
                 <!-- END Header Section -->
                 
-<form action="<?=base_url();?>admin/addStory" method="post" >
+<form action="be_forms_editors.html" method="post" onsubmit="return false;">
                 <div class="block">
                         <div class="block-header block-header-default">
                             <h3 class="block-title">Our Story</h3>
@@ -37,7 +37,7 @@
                         </div>
                 </div>
                 
-                 <button type="submit" onClick="<?=base_url();?>admin/addStory" class="btn btn-alt-primary" style="float: right;">Submit</button>
+                 <button type="submit" class="btn btn-alt-primary" style="float: right;">Submit</button>
 </form>
 </div>
 
