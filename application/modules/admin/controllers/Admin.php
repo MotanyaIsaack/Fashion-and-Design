@@ -332,10 +332,16 @@ if(!empty($sess_id))
 	
 	echo $this->email->print_debugger();
 	}
-	public function addStory(){
-		$data = array(
-		'story' => $this->input->post('ckeditor')
-		);
-		$result = $this->admin_model->updateOurStory($data);
-	}
+	public function addStory()
+    {
+
+        $story = $this->input->post('ckeditor');
+
+        $result = $this->admin_model->updateOurStory($story);
+        if ($result) {
+      
+            $this->session->set_flashdata('message', 'Updated Successfully');
+        }
+    }
+
 	  } 
