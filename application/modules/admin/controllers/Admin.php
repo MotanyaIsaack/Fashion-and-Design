@@ -340,6 +340,3 @@ if(!empty($sess_id))
 		$result = $this->admin_model->updateOurStory($data);
 	}
 	  } 
-
-			
-
