@@ -77,11 +77,11 @@
                     <!-- Social Icon -->
                     <ul class="list-inline social-top tt-animate btt">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://mobile.twitter.com/KikoRomeoAfrica"><i class="fa fa-twitter"></i></a></li>
                         <!--                  <li><a href="#"><i class="fa fa-tumblr"></i></a></li>-->
                         <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                         <!--                  <li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/kikoromeo/"><i class="fa fa-instagram"></i></a></li>
                         <!--                  <li><a href="#"><i class="fa fa-rss"></i></a></li>-->
                     </ul>
                 </div>

@@ -92,15 +92,14 @@
                 <div class="col-md-4 widget clearfix">
                 <h2 class="white-text">About Kikoromeo</h2>
                     <ul class="social-link tt-animate ltr">
-                      
                         <p>Kikoromeo, meaning “Adam’s Apple” in Kiswahili,
                             is now co-designed by mother-daughter duo
                             Ann and Iona McCreath from Nairobi, Kenya.
                             The heritage lifestyle brand was founded in 1996 .</p>
                         <li><a href="#"><i class="fa fa-2x fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-2x fa-twitter"></i></a></li>
+                        <li><a href="https://mobile.twitter.com/KikoRomeoAfrica"><i class="fa fa-2x fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-2x fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-2x fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/kikoromeo/"><i class="fa fa-2x fa-instagram"></i></a></li>
                     </ul>
                 </div><!-- /.col-md-3 -->
 
