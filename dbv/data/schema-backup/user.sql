@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2019 at 09:49 PM
+-- Generation Time: May 19, 2019 at 04:40 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -25,41 +25,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `image`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `image` (
-  `img_id` int(11) NOT NULL,
-  `img_name` varchar(255) NOT NULL
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `image`
---
-
-INSERT INTO `image` (`img_id`, `img_name`) VALUES
-(1, 'fima1.png'),
-(2, 'lfw1.png');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `image`
+-- Indexes for table `user`
 --
-ALTER TABLE `image`
-  ADD PRIMARY KEY (`img_id`);
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `image`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `image`
-  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

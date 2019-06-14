@@ -34,17 +34,6 @@ CREATE TABLE `event` (
   `location` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `event`
---
-
-INSERT INTO `event` (`event_id`, `date`, `location`) VALUES
-(1, '2018-11-23', 'Dakhla, Western Sahara'),
-(2, '2018-10-25', 'Lagos, Nigeria');
-
---
--- Indexes for dumped tables
---
 
 --
 -- Indexes for table `event`

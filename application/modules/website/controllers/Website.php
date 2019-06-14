@@ -22,7 +22,7 @@ class Website extends MX_Controller
     {
         $data['cards'] = $this->website_model->getCollections();
         $data['title'] = "Collections";
-        $data['folder'] = "collections";
+        $data['folder'] = "collection";
         $this->load->view('header', $data);
         $this->load->view('collections');
         $this->load->view('footer');
@@ -34,7 +34,7 @@ class Website extends MX_Controller
     {
         $data['title'] = "Events";
         $data['cards'] = $this->website_model->getEvents();
-        $data['folder'] = "events";
+        $data['folder'] = "event";
         $this->load->view('header', $data);
         $this->load->view('events');
         $this->load->view('footer');
@@ -48,7 +48,7 @@ class Website extends MX_Controller
         $data['title'] = $event_data['short_name'];
         $data['full_name'] = $event_data['full_name'];
         $data['row'] = $event_data;
-        $data['folder'] = "events";
+        $data['folder'] = "event";
         $this->load->view('header', $data);
         $this->load->view('view-event');
         $this->load->view('footer');
@@ -67,7 +67,7 @@ class Website extends MX_Controller
         $collection_data = $this->website_model->getCollectionData($id);
         $full_name = $collection_data['full_name'];
 
-        $data['folder'] = "collections";
+        $data['folder'] = "collection";
         $data['title'] = $collection_data['short_name'];
         $data['full_name'] = $collection_data['full_name'];
         $data['row'] = $collection_data;

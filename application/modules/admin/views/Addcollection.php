@@ -18,8 +18,8 @@ if ($this->session->flashdata('message')) {
                 <div class="form-group row">
                     <div class="col-4">
                         <label for="material-select">Category Name</label>
-                        <select class="form-control" id="material-select" name="category_id">
-                            <!-- <option>Based on Location</option> -->
+                        <select class="form-control form-control-lg" id="material-select" name="category_id" required>
+                            <option value="">Choose a category</option>
                             <?php
                             foreach ($categoryid as $category) {
                                 echo '<option value="' . $category["category_id"] . '">' . $category["category_name"] . '</option>';

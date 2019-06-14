@@ -302,10 +302,66 @@ if(!empty($sess_id))
 		}
 		
 		}
-		public function logout()
+		
+
+    /**
+     * @param {string} item --> Event or collection
+     */
+    public function update_item($item)
     {
-		$this->session->unset_userdata('username');
-		$this->session->set_userdata('logged_in', FALSE);
+        $data['names'] = [
+            'info_id' => $this->input->post('info_id'),
+            'folder' => $item,
+            'previous_name' => $this->input->post('previous_name'),
+            'short_name' => $this->input->post('short_name'),
+            'full_name' => $this->input->post('full_name'),
+        ];
+
+        $data['item_info'] = [
+            'info_id' => $this->input->post('info_id'),
+            'short_name' => $data['names']['short_name'],
+            'full_name' => $data['names']['full_name'],
+            'item_info' => $this->input->post('item_info'),
+            'item_summary' => $this->input->post('item_summary'),
+            'overview_header' => implode(',', $this->input->post('overview_header')),
+            'overview_content' => implode(',', $this->input->post('overview_content')),
+        ];
+
+        switch ($item) {
+            case "event":
+                $data['event'] = [
+                    'event_id'=> $this->input->post('event_id'),
+                    'date'=> $this->input->post('date'),
+                    'location'=> $this->input->post('location')
+                ];
+                $result = $this->admin_model->updateEvent($data);
+                $id = $this->input->post('event_id');
+                break;
+            case "collection":
+                $data['collection'] = [
+                    'collection_id'=> $this->input->post('collection_id'),
+                    'category_id'=> $this->input->post('category_id')
+                ];
+                $result = $this->admin_model->updateCollection($data);
+                $id = $this->input->post('collection_id');
+                break;
+        }
+
+        $this->session->set_flashdata('message', $result['message']);
+        redirect('admin/edit_item/' . $item . '/' . $id);
+        
+        //If the event (short) name was changed, update the folder name
+        // if ($data['names']['previous_name'] !== $data['names']['short_name']) {
+        //     print_r($this->admin_model->renameFolder($data['names']));
+        // }
+    }
+
+    
+
+    public function logout()
+    {
+        $this->session->unset_userdata('username');
+        $this->session->set_userdata('logged_in', false);
         redirect('admin/index');
 		}
 		public function sendMail()
@@ -344,4 +400,63 @@ if(!empty($sess_id))
         }
     }
 
-	  } 
+
+    /* Image handling */
+    public function dropzone_upload()
+    {   $folder = $_SESSION['folder']; 
+        $subfolder = $folder."_".$_SESSION['item_id'];
+        $this->admin_model->dropzoneUpload($folder,$subfolder);
+    }
+
+    public function get_file_names()
+    {
+        $folder = $_POST['folder'];
+        $subfolder = $folder."_".$_POST['item_id'];
+        $this->admin_model->getFileNames($folder, $subfolder);
+    }
+
+    public function file_upload($folder, $id)
+    {
+        $data['landing_image'] = $this->admin_model->getEventLandingImg($folder, $id);
+        $data['folder'] = $folder;
+        $data['row'] = ($folder == "event") ?
+        $this->website_model->getEventData($id) :
+        $this->website_model->getCollectionData($id);
+        $this->load->view('head');
+        $this->load->view('navigation');
+        $this->load->view('header');
+        $this->load->view('sections/file_upload', $data);
+        $this->load->view('footer');
+    }
+
+    public function fetch_photos()
+    {
+        $folder = $this->session->folder;
+        $subfolder = $folder."_".$this->session->item_id;
+
+        $data = array(
+            'folder' => $folder,
+            'subfolder' => $subfolder,
+            'landing_image' => $this->input->post('landing_image')
+        );
+        $this->admin_model->fetchPhotos($data);
+    }
+
+    public function remove_image()
+    {  
+        $folder = $this->session->folder;
+        $subfolder = $folder."_".$this->session->item_id;
+        $data = array(
+            'folder' => $folder,
+            'subfolder' => $subfolder,
+            'file_name' => $this->input->post('file_name'),
+        );
+        $this->admin_model->removeImage($data);
+    }
+
+    public function update_landing_img()
+    {
+        $this->admin_model->updateLandingImg($_POST['folder'], $_POST['item_id']);
+    }
+
+}

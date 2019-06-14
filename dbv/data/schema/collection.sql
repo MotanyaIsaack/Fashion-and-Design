@@ -34,20 +34,6 @@ CREATE TABLE `collection` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `collection`
---
-
-INSERT INTO `collection` (`collection_id`, `category_id`) VALUES
-(3, 1),
-(5, 1),
-(4, 2),
-(2, 4);
-
---
--- Indexes for dumped tables
---
-
---
 -- Indexes for table `collection`
 --
 ALTER TABLE `collection`

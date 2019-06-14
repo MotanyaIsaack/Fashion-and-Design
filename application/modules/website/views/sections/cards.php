@@ -1,10 +1,10 @@
 <?php
 if (count($cards) > 0) {
     switch ($folder) {
-        case "events":
+        case "event":
             showEventCards($folder, $cards);
             break;
-        case "collections":
+        case "collection":
             showCollectionCards($folder, $cards);
             break;
     }
@@ -31,6 +31,7 @@ function showEventCards($folder, $cards)
 
         $img = $event['landing_page_image'];
         $name = $event['short_name'];
+        $subfolder = "event_".$id;
         $full_name = $event['full_name'];
         $location = $event['location'];
         $item_summary = $event['item_summary'];
@@ -41,7 +42,7 @@ function showEventCards($folder, $cards)
                 <div class="card event">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator"
-                            src="' . images_url($folder . '/' . $name . "/" . $img) . '" alt="image" height="450px">
+                            src="' . images_url($folder . '/' . $subfolder . "/" . $img) . '" alt="image" height="450px">
                     </div>
                     <div class="card-content activator">
                         <span class="card-title">
@@ -77,6 +78,7 @@ function showCollectionCards($folder, $cards)
         $filter = $collection['category_name'];
 
         $img = $collection['landing_page_image'];
+        $subfolder = "collection_".$id;
         $name = $collection['short_name'];
         $full_name = $collection['full_name'];
         $location = null;
@@ -88,7 +90,7 @@ function showCollectionCards($folder, $cards)
                 <div class="card collection">
                     <div class="card-image waves-effect waves-block waves-light">
                         <a href="' . $collection_url . '">
-                        <img class="activator" src="' . images_url($folder . '/' . $name . "/" . $img) . '" alt="image" height="470px">
+                        <img class="activator" src="' . images_url($folder . '/' . $subfolder . "/" . $img) . '" alt="image" height="470px">
                         </a>
                     </div>
                     <a href="' . $collection_url . '" class="grey-text text-darken-2">
