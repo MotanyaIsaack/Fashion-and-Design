@@ -34,7 +34,6 @@ $overview_content = explode(",", $row['overview_content']);
                         <input value="<?=$row['date']?>" type="text" class="form-control form-control-lg"
                             id="example-daterange1" name="date" data-week-start="1" data-autoclose="true"
                             data-today-highlight="true" readonly>
-
                     </div>
                 </div>
                 <div class="col-5">

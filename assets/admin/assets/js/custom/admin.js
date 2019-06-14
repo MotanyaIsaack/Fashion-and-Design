@@ -17,12 +17,15 @@ $(document).ready(function () {
     let item_id = $('#item_id').val();
     let landing_image = $('#current_landing_image').text();
 
-    $('td > input').attr('autocomplete','off');
+    onDocumentReady();
 
-    //Display the folder images
-    list_image(landing_image);
-    //Populate select with the filename values
-    appendFileNames(folder,item_id);
+    function onDocumentReady() {
+        $('td > input').attr('autocomplete','off');
+        //Display the folder images
+        if (landing_image != "") list_image(landing_image);
+        //Populate select with the filename values
+        if (folder != "") appendFileNames(folder,item_id);
+    }
 
     /* Dynamic table */
     let feedback = $('.feedback');
@@ -140,9 +143,6 @@ $(document).ready(function () {
      */
     function displayAlert(msg,type) {
         let target = $("#page-feedback");
-        let $class = 'alert-' + type;
-        let old_class = getClass(target);
-        target.addClass($class);
         target.html(msg);
         target.slideDown().delay(10000).slideUp();
     }
@@ -151,11 +151,11 @@ $(document).ready(function () {
         $.ajax({
             url: base_url + "admin/get_file_names",
             method: "POST",
-            dataType: "JSON",
             data: { folder,item_id },
             success: function (data) {
                 //Fetch images and uploads on image
                 console.log(data)
+                data = JSON.parse(data)
                 $('#image_name').html(data);
             },
             error: function (xhr,textStatus,errorThrown) {

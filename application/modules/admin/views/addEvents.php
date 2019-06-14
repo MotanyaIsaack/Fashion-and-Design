@@ -30,10 +30,15 @@ if ($this->session->flashdata('message')) {
                 </div>
 
                 <div class="form-group row">
-                    <div class="col-5">
-                        <label for="date">Date</label>
-                        <input class="form-control form-control-lg" id="date" name="date" required />
+                <div class="col-5">
+                    <label for="example-daterange1">Date</label>
+                    <div class="input-daterange input-group" data-date-format="yyyy-mm-dd" data-week-start="1"
+                        data-autoclose="true" data-today-highlight="true">
+                        <input type="text" class="form-control form-control-lg"
+                            id="example-daterange1" name="date" data-week-start="1" data-autoclose="true"
+                            data-today-highlight="true" readonly>
                     </div>
+                </div>
                     <div class="col-5">
                         <label for="location">Location</label>
                         <input class="form-control form-control-lg" id="location" name="location" required />
