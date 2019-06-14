@@ -327,7 +327,7 @@ if(!empty($sess_id))
 	$this->email->cc('');
 	$this->email->bcc('');
 	$this->email->subject('Kikoromeo Registration');
-	$this->email->message(nl2br('You have been successfully registered as an Administrator on Kikoromeo webiste </br>Username: '.$usern.'<br>'.'Password'.$passwo));
+	$this->email->message(nl2br('You have been successfully registered as an Administrator on Kikoromeo webiste Username: '.$usern.' '.'Password'.$passwo));
 	$this->email->send();
 	
 	echo $this->email->print_debugger();

@@ -50,7 +50,7 @@
 
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="op_auth_signin.html">
-                                    <i class="si si-logout mr-5"></i> Sign Out
+                                    <i class="si si-logout mr-5" ></i> Sign Out
                                 </a>
                             </div>
                         </div>

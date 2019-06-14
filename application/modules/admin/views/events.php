@@ -1,5 +1,5 @@
 <div class="block-content" style="margin-top: 70px;">
-    <h2>Add Collection</h2>
+    <h2>Add Event</h2>
     <?php
 if ($this->session->flashdata('message')) {
     echo '

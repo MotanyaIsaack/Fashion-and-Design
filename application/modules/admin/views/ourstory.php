@@ -5,7 +5,7 @@
                 <div class="bg-image" style="background-image: url('<?=base_url();?>assets/admin/assets/media/photos/kikoRomeo2.jpg');background-position: top;">
                     <div class="bg-primary-dark-op">
                         <div class="content content-full content-top">
-                            <h1 class="py-50 text-white text-center">Our Story!</h1>
+                            <h1 class="py-50 text-white text-center">Our Awards!</h1>
                         </div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
 <form action="<?=base_url();?>admin/addStory" method="post" >
                 <div class="block">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Our Story</h3>
+                            <h3 class="block-title">Our Awards</h3>
                             <div class="block-options">
                                 <button type="button" class="btn-block-option">
                                     <i class="si si-wrench"></i>

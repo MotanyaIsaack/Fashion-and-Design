@@ -214,11 +214,11 @@
                             <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-cup"></i><span class="sidebar-mini-hide">Our Story</span></a>
                                 <ul>
                                     <li class="open">
-                                        <a  href="<?=base_url();?>admin/ourstory"><span class="sidebar-mini-hide">View Story</span></a>
+                                        <a  href="<?=base_url();?>admin/ourstory"><span class="sidebar-mini-hide">Edit Awards</span></a>
                                         
-                                            <li>
-                                                <a href="<?=base_url();?>admin/editOurStory"><span class="sidebar-mini-hide">Edit Our Story</span></a>
-                                            </li>
+                                            <!-- <li>
+                                                <a href="<?=base_url();?>admin/editOurStory"><span class="sidebar-mini-hide">Edit Our Awards</span></a>
+                                            </li> -->
                                 </li>
                                 </ul>
                                
