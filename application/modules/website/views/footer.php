@@ -89,17 +89,18 @@
             </a>
 
             <div class="row">
-                <div class="col-md-3 widget clearfix">
+                <div class="col-md-4 widget clearfix">
+                    <h2 class="white-text">About Kikoromeo</h2>
                     <ul class="social-link tt-animate ltr">
                         <h2 class="white-text">About Kikoromeo</h2>
                         <p>Kikoromeo, meaning “Adam’s Apple” in Kiswahili,
                             is now co-designed by mother-daughter duo
                             Ann and Iona McCreath from Nairobi, Kenya.
                             The heritage lifestyle brand was founded in 1996 .</p>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-instagram"></i></a></li>
                     </ul>
                 </div><!-- /.col-md-3 -->
 
@@ -115,7 +116,7 @@
                     </ul>
                 </div><!-- /.col-md-3 -->
 
-                <div class="col-md-3 widget">
+                <div class="col-md-4 widget">
                     <h2 class="white-text" style="margin-top:15px;">Location</h2>
                     <p>Old Mutual Building<br>Momabasa,Kenya<br>Address:2393-00348<br>Telephone:0763372892</p>
                 </div><!-- /.col-md-3 -->

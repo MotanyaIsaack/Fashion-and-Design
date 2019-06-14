@@ -432,4 +432,9 @@ class Admin_model extends CI_Model
         return $data;
     }
 
+    public function updateOurStory($story){
+        $query=$this->db->query("UPDATE About SET Awards='$story' WHERE ID=1");
+        return $query;
+    }
+
 }

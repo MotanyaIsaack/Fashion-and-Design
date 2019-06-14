@@ -79,7 +79,7 @@
                                         </div>
                                     </div> -->
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-sm btn-hero btn-alt-success">
+                                    <button type="submit" name="email"class="btn btn-sm btn-hero btn-alt-success" onClick="<?=base_url();?>admin/sendMail">
                                             <i class="fa fa-plus mr-10"></i> Create Account
                                         </button>
                                         <div class="mt-30">

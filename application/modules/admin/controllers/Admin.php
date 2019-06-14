@@ -49,6 +49,41 @@ class Admin extends MY_Controller
         }
     }
 
+    public function addStory()
+    {
+        $story = $this->input->post('ckeditor');
+
+        $result = $this->admin_model->updateOurStory($story);
+        if ($result) {
+        
+            $this->session->set_flashdata('message', 'Updated Successfully');
+        }
+    }
+
+    public function sendMail()
+    {
+       $this->email->initialize(array(
+               'protocol' => 'smtp',
+               'smtp_host' => 'smtp.sendgrid.net',
+              'smtp_user' => 'apikey',
+               'smtp_pass' => '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',
+               'smtp_port' => 587,
+               'crlf' => "\r\n",
+               'newline' => "\r\n"
+       ));       $email =$this->input->post('signup-email');       
+        $usern=$this->input->post('signup-username');
+        $passwo=$this->input->post('signup-password');      
+        $this->email->from('vchegetest@gmail.com', 'Kikoromeo');
+        $this->email->to($email);
+        $this->email->cc('');
+        $this->email->bcc('');
+        $this->email->subject('Kikoromeo Registration');
+        $this->email->message(nl2br('You have been successfully registered as an Administrator on Kikoromeo webiste Username: '.$usern.' '.'Password'.$passwo));
+        $this->email->send();
+       
+       echo $this->email->print_debugger();
+    }
+
     /**
      * editCollection + editEvent
      */

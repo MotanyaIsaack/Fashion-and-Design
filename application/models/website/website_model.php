@@ -133,4 +133,14 @@ class Website_Model extends CI_Model
         return $renamed;
     }
 
+   public function getAwards(){
+        $this->db->select('Awards');
+        $this->db->from('About');
+       $res = $this->db->get();
+        return $res->result_array();
+        // die(print_r($this->db->get()->row_array()));
+    //    $awards=$this->db->query("SELECT Awards FROM About WHERE ID=1");
+    //    return $awards->result_array();
+    }
+
 }

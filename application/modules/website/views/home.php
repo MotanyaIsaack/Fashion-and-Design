@@ -331,18 +331,14 @@
               <div class="text-center mb-80">
                   <h2 class="section-title text-uppercase">Who We Are</h2>
                   <p class="section-sub">
-                      KikoRomeo, meaning “Adam’s Apple” in Kiswahili, 
-                      is now co-designed by mother-daughter duo 
-                      Ann and Iona McCreath from Nairobi, Kenya. 
-                      The heritage lifestyle brand was founded in 1996 
-                      to stimulate employment through trade and to encourage 
-                      appreciation of traditional crafts. KikoRomeo is widely 
-                      credited with transforming the Kenyan fashion industry 
-                      and has mentored many designers and artisans over the last two decades.
+                      <?php
+                        foreach ($Awards as $award ) {
+                            echo  $award['Awards'];
+
+                        }
+                        ?>                                
                     </p>
                   <!-- <p>Iona graduated in 2018 with a degree in Sociology from London School of Economics and a Foundation in Art and Design from UAL Central St Martin’s. She has also apprenticed in the fashion industry from birth. Ann has a classical training in Italian Alta Moda combined with a Master of Arts from University of Edinburgh. She is the founder of FAFA (Festival of African Fashion & Arts), which created “Fashion for Peace” in 2008, and became a global platform for African designers.</p> -->
-
-
               </div>
 
               <div class="vertical-tab">
