@@ -49,7 +49,7 @@
                                 <!-- END Side Overlay -->
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="op_auth_signin.html">
+                                <a class="dropdown-item" href="<?=base_url();?>admin/logout">
                                     <i class="si si-logout mr-5" ></i> Sign Out
                                 </a>
                             </div>

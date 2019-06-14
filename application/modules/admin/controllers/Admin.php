@@ -290,7 +290,7 @@ if(!empty($sess_id))
 		session_start();
 		$this->session->set_userdata('username',$username);
         $this->session->set_userdata('logged_in', TRUE);
-		redirect('admin/ourstory');
+		redirect('admin/profile');
 		}
 		else
 		{
