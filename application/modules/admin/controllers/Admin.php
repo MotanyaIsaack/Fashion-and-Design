@@ -243,6 +243,7 @@ class Admin extends MY_Controller
     {
         $columns = ['event_collection_info.info_id', 'short_name'];
         $event_info = $this->admin_model->getEventInfo($columns, $event_id);
+        $item_folder = "event_".$event_id;
         $data['event'] = array(
             'event_id' => $event_id,
         );
@@ -250,7 +251,7 @@ class Admin extends MY_Controller
             'info_id' => $event_info['info_id'],
         );
 
-        $deleted = $this->admin_model->deleteFolder('event', $event_info['short_name']);
+        $deleted = $this->admin_model->deleteFolder('event', $item_folder);
         $result = ($deleted) ? $this->admin_model->delete_event($data) : false;
 
         if ($result === true) {
@@ -307,6 +308,7 @@ class Admin extends MY_Controller
     {
         $columns = ['event_collection_info.info_id', 'short_name'];
         $collection_info = $this->admin_model->getCollectionInfo($columns, $collection_id);
+        $item_folder = "collection_".$collection_id;
         $data['collection'] = array(
             'collection_id' => $collection_id,
         );
@@ -314,7 +316,7 @@ class Admin extends MY_Controller
             'info_id' => $collection_info['info_id'],
         );
 
-        $deleted = $this->admin_model->deleteFolder('collection', $collection_info['short_name']);
+        $deleted = $this->admin_model->deleteFolder('collection', $item_folder);
         $result = ($deleted) ? $this->admin_model->delete_collection($data) : false;
 
         if ($result === true) {

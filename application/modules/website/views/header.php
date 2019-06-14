@@ -224,7 +224,7 @@ if ($this->uri->uri_string() == 'website/events') {
 }
 ?>><a href="<?=base_url();?>website/events">Events</a></li>
 
-                        <li><a href="#modal1">Contact</a>
+                        <li><a href="#modal1" onclick="callmodal()">Contact</a>
                         
                         </li>
 

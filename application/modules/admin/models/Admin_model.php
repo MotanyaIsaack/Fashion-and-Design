@@ -189,6 +189,7 @@ class Admin_model extends CI_Model
         $this->db->join('event_collection_bridge', 'event_collection_bridge.info_id = event_collection_info.info_id');
         $this->db->join('collection', 'event_collection_bridge.collection_id = collection.collection_id');
         $this->db->join('collection_category', 'collection.category_id = collection_category.category_id');
+        $this->db->order_by('collection.category_id', 'ASC');
         $collections = $this->db->get()->result_array();
         $this->db->trans_complete();
 
