@@ -6,6 +6,7 @@ function callmodal() {
 
 function dismissModal() {
   $('.modal').modal('hide');
+  $("#email-feedback").addClass('hide')
 }
 
 $(document).ready(function () {

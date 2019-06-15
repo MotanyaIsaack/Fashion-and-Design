@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <form id="contactForm" class="white" style="padding:2em; padding-bottom:5em"
-                                        id="contactForm" action="<?=base_url()?>website/sendmail" method="POST">
+                                        id="contactForm" action="<?=base_url()?>website/send_mail" method="POST">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="input-field">
@@ -53,6 +53,12 @@
                                             </div><!-- /.col-md-6 -->
                                         </div><!-- /.row -->
 
+
+                                        <div class="input-field">
+                                            <input id="subject" type="text" name="subject" class="validate" required>
+                                            <label for="subject">Subject</label>
+                                        </div>
+
                                         <div class="input-field">
                                             <textarea name="message" id="message"
                                                 class="materialize-textarea"></textarea>
@@ -61,8 +67,9 @@
 
                                         <div class="p-2">
                                             <button type="submit" name="submit"
-                                                class="waves-effect waves-light btn submit-button pink mt-25 left">Send
+                                                class="waves-effect waves-light btn submit-button pink mt-25 left submit-btn">Send
                                                 Message</button>
+                                                <div class="alert hide" id="email-feedback"></div>
                                         </div>
                                     </form>
                                 </div><!-- /.col-md-8 -->
@@ -119,8 +126,8 @@
                     <h2 class="white-text" style="margin-top:15px;">Location</h2>
                     <p>Old Mutual Building<br>Momabasa,Kenya<br>Address:2393-00348<br>Telephone:0763372892</p>
                 </div><!-- /.col-md-3 -->
-        
-                
+
+
             </div><!-- /.row -->
         </div><!-- /.container -->
     </div><!-- /.primary-footer -->

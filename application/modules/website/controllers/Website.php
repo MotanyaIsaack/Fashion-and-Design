@@ -78,7 +78,10 @@ class Website extends MX_Controller
 
     public function send_mail()
     {
-        $this->website_model->sendMail();
+        $name = $this->input->post('name');
+        $mail_sent = $this->website_model->sendMail();
+        $msg = $mail_sent ? "Your email was sent. Thanks for your feedback, " . $name : "There was an error sending your email. Check your connection and email address then try again";
+        echo json_encode(['status' => $mail_sent, 'msg' => $msg]);
     }
 
     //Test page

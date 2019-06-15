@@ -64,31 +64,35 @@ class Website_Model extends CI_Model
         //Form data
         $name = $this->input->post('name');
         $from = $this->input->post('email');
-        $to = "testmailer79@gmail.com";
+        $to = "jerrybenjamin007@gmail.com";
         $subject = $this->input->post('subject');
         $message = $this->input->post('message');
+        $website = $this->input->post('website');
+        $phone = $this->input->post('phone');
+        
+        $extras = null;
+        if ($website != "")  $extras.="Website: ".$website;
+        if ($phone != "")  $extras.="Phone number: ".$phone;
 
-        $this->load->library("phpmailer_library");
-        $mail = $this->phpmailer_library->load();
-
-        $mail->IsSmtp();
-        $mail->SMTPDebug = 0; //To enable or disable debug
-        $mail->SMTPAuth = true; //Gmail requires authentication
-        $mail->SMTPSecure = 'ssl';
-        $mail->Host = "smtp.gmail.com"; //SMTP host
-        $mail->Port = 465; // Port No. or 587 id the former doesn't work
-        $mail->IsHTML(true); //If HTML format set true
-        $mail->Username = $to;
-        $mail->Password = "m@ilerme123";
-        $mail->SetFrom($from, $name);
-        $mail->Subject = $subject;
-        $mail->Body = $message;
-        $mail->AddAddress($from);
-
-        $mail_sent = $mail->Send();
-        $msg = $mail_sent ? "Your email was sent. Thanks for your feedback," . $name : "There was an error sending your email. Check your connection and try again";
-
-        echo json_encode(['status' => $mail_sent, 'msg' => $msg]);
+        $this->email->initialize(array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'smtp.sendgrid.net',
+            'smtp_user' => 'apikey',
+            'smtp_pass' => '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',
+            'smtp_port' => 587,
+            'crlf' => "\r\n",
+            'newline' => "\r\n",
+        ));
+        
+        $this->email->set_mailtype('html');
+        $this->email->from($from, $name);
+        $this->email->to($to);
+        $this->email->cc('');
+        $this->email->bcc('');
+        $this->email->subject($subject);
+        $this->email->message(nl2br($message)."<br/><br/>".$extras);
+        //echo $this->email->print_debugger();
+        return $this->email->send();
     }
 
     /* File handling */
