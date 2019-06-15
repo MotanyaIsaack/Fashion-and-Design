@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends MY_Controller
 {
@@ -54,33 +54,35 @@ class Admin extends MY_Controller
 
         $result = $this->admin_model->updateOurStory($story);
         if ($result) {
-        
+
             $this->session->set_flashdata('message', 'Updated Successfully');
         }
     }
 
     public function sendMail()
     {
-       $this->email->initialize(array(
-               'protocol' => 'smtp',
-               'smtp_host' => 'smtp.sendgrid.net',
-              'smtp_user' => 'apikey',
-               'smtp_pass' => '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',
-               'smtp_port' => 587,
-               'crlf' => "\r\n",
-               'newline' => "\r\n"
-       ));       $email =$this->input->post('signup-email');       
-        $usern=$this->input->post('signup-username');
-        $passwo=$this->input->post('signup-password');      
+        $this->email->initialize(array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'smtp.sendgrid.net',
+            'smtp_user' => 'apikey',
+            'smtp_pass' => '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',
+            'smtp_port' => 587,
+            'crlf' => "\r\n",
+            'newline' => "\r\n",
+        ));
+        $email = $this->input->post('signup-email');
+        $usern = $this->input->post('signup-username');
+        $passwo = $this->input->post('signup-password');
+        $body = $this->admin_model->mailTemplate();
+        $this->email->set_mailtype('html');
         $this->email->from('vchegetest@gmail.com', 'Kikoromeo');
         $this->email->to($email);
         $this->email->cc('');
         $this->email->bcc('');
         $this->email->subject('Kikoromeo Registration');
-        $this->email->message(nl2br('You have been successfully registered as an Administrator on Kikoromeo webiste Username: '.$usern.' '.'Password'.$passwo));
-        $this->email->send();
-       
-       echo $this->email->print_debugger();
+        $this->email->message($body);
+        echo $this->email->print_debugger();
+        return $this->email->send();
     }
 
     /**
@@ -243,7 +245,7 @@ class Admin extends MY_Controller
     {
         $columns = ['event_collection_info.info_id', 'short_name'];
         $event_info = $this->admin_model->getEventInfo($columns, $event_id);
-        $item_folder = "event_".$event_id;
+        $item_folder = "event_" . $event_id;
         $data['event'] = array(
             'event_id' => $event_id,
         );
@@ -308,7 +310,7 @@ class Admin extends MY_Controller
     {
         $columns = ['event_collection_info.info_id', 'short_name'];
         $collection_info = $this->admin_model->getCollectionInfo($columns, $collection_id);
-        $item_folder = "collection_".$collection_id;
+        $item_folder = "collection_" . $collection_id;
         $data['collection'] = array(
             'collection_id' => $collection_id,
         );
@@ -343,7 +345,7 @@ class Admin extends MY_Controller
 
         $result = $this->admin_model->registration_insert($data, $parameter);
         if ($result === true) {
-
+            $this->sendMail();
             $this->session->set_flashdata('message', 'Registration Successful');
             redirect('admin/index');
         } else {
@@ -378,17 +380,17 @@ class Admin extends MY_Controller
         switch ($item) {
             case "event":
                 $data['event'] = [
-                    'event_id'=> $this->input->post('event_id'),
-                    'date'=> $this->input->post('date'),
-                    'location'=> $this->input->post('location')
+                    'event_id' => $this->input->post('event_id'),
+                    'date' => $this->input->post('date'),
+                    'location' => $this->input->post('location'),
                 ];
                 $result = $this->admin_model->updateEvent($data);
                 $id = $this->input->post('event_id');
                 break;
             case "collection":
                 $data['collection'] = [
-                    'collection_id'=> $this->input->post('collection_id'),
-                    'category_id'=> $this->input->post('category_id')
+                    'collection_id' => $this->input->post('collection_id'),
+                    'category_id' => $this->input->post('category_id'),
                 ];
                 $result = $this->admin_model->updateCollection($data);
                 $id = $this->input->post('collection_id');
@@ -397,34 +399,52 @@ class Admin extends MY_Controller
 
         $this->session->set_flashdata('message', $result['message']);
         redirect('admin/edit_item/' . $item . '/' . $id);
-        
+
         //If the event (short) name was changed, update the folder name
         // if ($data['names']['previous_name'] !== $data['names']['short_name']) {
         //     print_r($this->admin_model->renameFolder($data['names']));
         // }
     }
 
-    
+    public function login()
+    {
+        if ($this->input->post('login')) {
+            $username = $this->input->post('login-username');
+            $password = $this->input->post('login-password');
+
+            $query = $this->db->query("select * from user where username='" . $username . "' and password='$password'");
+
+            $row = $query->num_rows();
+            if ($row) {
+                session_start();
+                $this->session->set_userdata('username', $username);
+                $this->session->set_userdata('logged_in', true);
+                redirect('admin/ourstory');
+            } else {
+                $this->session->set_flashdata('message', 'Invalid Credentials');
+                redirect('admin/index');
+            }
+        }
+    }
 
     public function logout()
     {
         $this->session->unset_userdata('username');
         $this->session->set_userdata('logged_in', false);
         redirect('admin/index');
-		}
-    
-        
+    }
+
     /* Image handling */
     public function dropzone_upload()
-    {   $folder = $_SESSION['folder']; 
-        $subfolder = $folder."_".$_SESSION['item_id'];
-        $this->admin_model->dropzoneUpload($folder,$subfolder);
+    {$folder = $_SESSION['folder'];
+        $subfolder = $folder . "_" . $_SESSION['item_id'];
+        $this->admin_model->dropzoneUpload($folder, $subfolder);
     }
 
     public function get_file_names()
     {
         $folder = $_POST['folder'];
-        $subfolder = $folder."_".$_POST['item_id'];
+        $subfolder = $folder . "_" . $_POST['item_id'];
         $this->admin_model->getFileNames($folder, $subfolder);
     }
 
@@ -445,20 +465,20 @@ class Admin extends MY_Controller
     public function fetch_photos()
     {
         $folder = $this->session->folder;
-        $subfolder = $folder."_".$this->session->item_id;
+        $subfolder = $folder . "_" . $this->session->item_id;
 
         $data = array(
             'folder' => $folder,
             'subfolder' => $subfolder,
-            'landing_image' => $this->input->post('landing_image')
+            'landing_image' => $this->input->post('landing_image'),
         );
         $this->admin_model->fetchPhotos($data);
     }
 
     public function remove_image()
-    {  
+    {
         $folder = $this->session->folder;
-        $subfolder = $folder."_".$this->session->item_id;
+        $subfolder = $folder . "_" . $this->session->item_id;
         $data = array(
             'folder' => $folder,
             'subfolder' => $subfolder,
