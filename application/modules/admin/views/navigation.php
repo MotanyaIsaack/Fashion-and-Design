@@ -15,12 +15,12 @@
 
                 <!-- User Info -->
                 <div class="content-header-item">
-                    <a class="img-link mr-5" href="be_pages_generic_profile.html">
+                    <a class="img-link mr-5" href="">
                         <img class="img-avatar img-avatar32"
                             src="<?=base_url();?>assets/admin/assets/media/avatars/avatar15.jpg" alt="">
                     </a>
                     <a class="align-middle link-effect text-primary-dark font-w600"
-                        href="be_pages_generic_profile.html">R.Odiero</a>
+                        href="be_pages_generic_profile.html"><?= @$_SESSION['username'] ?></a>
                 </div>
                 <!-- END User Info -->
             </div>
@@ -173,21 +173,11 @@
                     <ul class="list-inline mt-10">
                         <li class="list-inline-item">
                             <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase"
-                                href="<?=base_url();?>admin/profile">R.Odiero</a>
+                                href="<?=base_url();?>admin/profile"><?= @$_SESSION['username'] ?></a>
                         </li>
-                        <li class="list-inline-item">
-                            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                            <a class="link-effect text-dual-primary-dark" data-toggle="layout"
-                                data-action="sidebar_style_inverse_toggle" href="javascript:void(0)">
-                                <i class="si si-drop"></i>
-                            </a>
+                       
                         </li>
-                        <li class="list-inline-item">
-                            <a class="link-effect text-dual-primary-dark" href="<?=base_url();?>admin/logout">
-                                <i class="si si-logout"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    </ul> 
                 </div>
                 <!-- END Visible only in normal mode -->
             </div>

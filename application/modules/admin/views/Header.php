@@ -14,10 +14,7 @@
 
             <!-- Open Search Section -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-            <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="layout"
-                data-action="header_search_on">
-                <i class="fa fa-search"></i>
-            </button>
+           
             <!-- END Open Search Section -->
 
 
@@ -31,7 +28,7 @@
                 <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user d-sm-none"></i>
-                    <span class="d-none d-sm-inline-block">R.ODIERO</span>
+                    <span class="d-none d-sm-inline-block"><?= @$_SESSION['username'] ?></span>
                     <i class="fa fa-angle-down ml-5"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right min-width-200"
@@ -76,7 +73,7 @@
     <!-- Header Search -->
     <div id="page-header-search" class="overlay-header">
         <div class="content-header content-header-fullrow">
-            <form action="be_pages_generic_search.html" method="post">
+            <form  method="post">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <!-- Close Search Section -->
