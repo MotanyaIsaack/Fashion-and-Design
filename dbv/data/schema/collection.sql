@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2019 at 06:31 PM
+-- Generation Time: Jun 17, 2019 at 02:24 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -34,6 +34,20 @@ CREATE TABLE `collection` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `collection`
+--
+
+INSERT INTO `collection` (`collection_id`, `category_id`) VALUES
+(3, 1),
+(4, 2),
+(5, 3),
+(7, 4);
+
+--
+-- Indexes for dumped tables
+--
+
+--
 -- Indexes for table `collection`
 --
 ALTER TABLE `collection`
@@ -48,7 +62,7 @@ ALTER TABLE `collection`
 -- AUTO_INCREMENT for table `collection`
 --
 ALTER TABLE `collection`
-  MODIFY `collection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `collection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

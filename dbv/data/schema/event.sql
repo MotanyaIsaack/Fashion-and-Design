@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2019 at 10:17 AM
+-- Generation Time: Jun 17, 2019 at 02:25 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -34,6 +34,17 @@ CREATE TABLE `event` (
   `location` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`event_id`, `date`, `location`) VALUES
+(1, '2018-11-23', 'Dakhla, Western Sahara'),
+(2, '2018-10-25', 'Lagos, Nigeria');
+
+--
+-- Indexes for dumped tables
+--
 
 --
 -- Indexes for table `event`
