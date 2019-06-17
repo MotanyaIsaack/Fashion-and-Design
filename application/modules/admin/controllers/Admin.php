@@ -419,7 +419,7 @@ class Admin extends MY_Controller
                 session_start();
                 $this->session->set_userdata('username', $username);
                 $this->session->set_userdata('logged_in', true);
-                redirect('admin/ourstory');
+                redirect('admin/profile');
             } else {
                 $this->session->set_flashdata('message', 'Invalid Credentials');
                 redirect('admin/index');
@@ -490,6 +490,33 @@ class Admin extends MY_Controller
     public function update_landing_img()
     {
         $this->admin_model->updateLandingImg($_POST['folder'], $_POST['item_id']);
+    }
+    public function changePassword()
+    {
+            $email = $this->input->post('email');
+            $newpassword = $this->input->post('newpassword');
+            $confirmpassword = $this->input->post('confirmpassword');
+
+            $query = $this->db->query("select * from user where email='$email'");
+            //   die(print_r($query));
+            $row = $query->num_rows();
+            if ($row) {
+                $query1 = $this->db->query("UPDATE user SET password='$newpassword' WHERE email='$email'");
+                
+                if($query1){
+                    
+                    
+                    $this->session->set_flashdata('message', 'Update was successful');
+                    redirect('admin/profile');
+                }else{
+                    die(print_r('UnSuccesful'));
+
+                }
+               
+             } else {
+                $this->session->set_flashdata('message', 'Update was not successful');
+                redirect('admin/ourstory');
+            }
     }
 
 }

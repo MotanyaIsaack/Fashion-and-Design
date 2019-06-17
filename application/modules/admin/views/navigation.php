@@ -33,49 +33,22 @@
             <div class="block pull-t pull-r-l">
                 <div class="block-content block-content-full block-content-sm bg-body-light">
                     <form action="be_pages_generic_search.html" method="post">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="side-overlay-search" name="side-overlay-search"
-                                placeholder="Search..">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-secondary px-10">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
+                       
                     </form>
                 </div>
             </div>
             <!-- END Search -->
             <!-- Profile -->
             <div class="block pull-r-l">
-                <div class="block-header bg-body-light">
-                    <h3 class="block-title">
-                        <i class="fa fa-fw fa-pencil font-size-default mr-5"></i>Profile
-                    </h3>
-                    <div class="block-options">
-                        <button type="button" class="btn-block-option" data-toggle="block-option"
-                            data-action="content_toggle"></button>
-                    </div>
-                </div>
+                
                 <div class="block-content">
-                    <form action="be_pages_dashboard.html" method="post" onsubmit="return false;">
-                        <div class="form-group mb-15">
-                            <label for="side-overlay-profile-name">Name</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="side-overlay-profile-name"
-                                    name="side-overlay-profile-name" placeholder="Your name..">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-user"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                    <form action="<?=base_url();?>admin/changePassword" method="post" >
+            
                         <div class="form-group mb-15">
                             <label for="side-overlay-profile-email">Email</label>
                             <div class="input-group">
                                 <input type="email" class="form-control" id="side-overlay-profile-email"
-                                    name="side-overlay-profile-email" placeholder="Your email..">
+                                    name="email" placeholder="Your email..">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="fa fa-envelope"></i>
@@ -87,7 +60,7 @@
                             <label for="side-overlay-profile-password">New Password</label>
                             <div class="input-group">
                                 <input type="password" class="form-control" id="side-overlay-profile-password"
-                                    name="side-overlay-profile-password" placeholder="New Password..">
+                                    name="newpassword" placeholder="New Password..">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="fa fa-asterisk"></i>
@@ -99,7 +72,7 @@
                             <label for="side-overlay-profile-password-confirm">Confirm New Password</label>
                             <div class="input-group">
                                 <input type="password" class="form-control" id="side-overlay-profile-password-confirm"
-                                    name="side-overlay-profile-password-confirm" placeholder="Confirm New Password..">
+                                    name="confirmpassword" placeholder="Confirm New Password..">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="fa fa-asterisk"></i>
@@ -109,7 +82,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-6">
-                                <button type="submit" class="btn btn-block btn-alt-primary">
+                                <button type="submit" class="btn btn-block btn-alt-primary" name="changepass">
                                     <i class="fa fa-refresh mr-5"></i> Update
                                 </button>
                             </div>

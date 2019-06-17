@@ -15,6 +15,7 @@
                     </div>
                 </div>
                 <!-- END Header Section -->
+                <div id="infoMessage"><?php echo $this->session->flashdata('message');?></div>
                      <div class="row invisible" data-toggle="appear" style="margin-top:16px;">
                         <!-- Row #1 -->
                         <div class="col-6 col-xl-3">
