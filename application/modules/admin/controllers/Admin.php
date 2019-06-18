@@ -305,10 +305,10 @@ class Admin extends MY_Controller
         $result = ($deleted) ? $this->admin_model->delete_event($data) : false;
 
         if ($result === true) {
-            $this->session->set_flashdata("success", "Event Succesfully Deleted");
+            $this->session->set_userdata("success", "Event Succesfully Deleted");
             redirect('admin/viewEvents');
         } else {
-            $this->session->set_flashdata("error", "Event Not Succesfully Deleted");
+            $this->session->set_userdata("error", "Event Not Succesfully Deleted");
             redirect('admin/viewEvents');
         }
 
