@@ -27,26 +27,33 @@ class Admin extends MY_Controller
 
     public function profile()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
+		$data['events'] = $this->admin_model->get_event_no();
+		$data['collections'] = $this->admin_model->get_collection_no();
+		$data['admin'] = $this->admin_model->get_admin_no();
+		// die(print_r($data['events']));
         $this->load->view('head');
         $this->load->view('navigation');
         $this->load->view('header');
-        $this->load->view('profile');
+        $this->load->view('profile',$data);
         $this->load->view('footer');
     }
 
     public function ourstory()
     {
-        $data['awards'] = $this->website_model->getAwards();
-        $sess_id = $this->session->userdata('username');
-        if (!empty($sess_id)) {
-            $this->load->view('head');
-            $this->load->view('navigation');
-            $this->load->view('header');
-            $this->load->view('ourstory', $data);
-            $this->load->view('footer');
-        } else {
-            redirect('admin/index');
-        }
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
+		$this->load->view('head');
+		$this->load->view('navigation');
+		$this->load->view('header');
+		$this->load->view('ourstory');
+		$this->load->view('footer');
+        
     }
 
     public function addStory()
@@ -88,8 +95,13 @@ class Admin extends MY_Controller
     /**
      * editCollection + editEvent
      */
-    public function edit_item($item_name, $id)
+	public function edit_item($item_name, $id)
+	
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $data['landing_image'] = $this->admin_model->getEventLandingImg($item_name, $id);
         $data['folder'] = $item_name;
 
@@ -112,6 +124,10 @@ class Admin extends MY_Controller
 
     public function editOurStory()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $this->load->view('head');
         $this->load->view('navigation');
         $this->load->view('header');
@@ -121,6 +137,10 @@ class Admin extends MY_Controller
 
     public function events()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $data['event_id'] = $this->admin_model->get_event_ids();
         $this->load->view('head');
         $this->load->view('navigation');
@@ -131,6 +151,10 @@ class Admin extends MY_Controller
 
     public function viewEvents()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $data['events'] = $this->admin_model->get_events();
         $this->load->view('head');
         $this->load->view('navigation');
@@ -141,6 +165,10 @@ class Admin extends MY_Controller
 
     public function Addcollection()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $data['categoryid'] = $this->admin_model->get_categories();
         $this->load->view('head');
         $this->load->view('navigation');
@@ -151,6 +179,10 @@ class Admin extends MY_Controller
 
     public function viewcollection()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $data['collections'] = $this->admin_model->get_collections();
         $this->load->view('head');
         $this->load->view('navigation');
@@ -161,6 +193,7 @@ class Admin extends MY_Controller
 
     public function addEvent()
     {
+		
         $data['event'] = array(
             'date' => $this->input->post('date'),
             'location' => $this->input->post('location'),
@@ -180,23 +213,23 @@ class Admin extends MY_Controller
         switch ($result) {
             case 'Event Added Succesfully.':
                 # code...
-                $this->session->set_flashdata("message", "Event Succesfully Added");
+                $this->session->set_userdata("message", "Event Succesfully Added");
                 redirect('admin/file_upload/event/' . $_SESSION['item_id']);
                 break;
             case 'Event Not Added Succesfully.':
                 # code...
-                $this->session->set_flashdata("message", "Event Not Succesfully Added");
+                $this->session->set_userdata("error", "Event Not Succesfully Added");
                 redirect('admin/events');
                 break;
             case 'Event Exists':
                 # code...
-                $this->session->set_flashdata("message", "Event Already Exists");
+                $this->session->set_userdata("error", "Event Already Exists");
                 redirect('admin/events');
                 break;
 
             default:
                 # code...
-                $this->session->set_flashdata("message", "An Error Occurred");
+                $this->session->set_userdata("error", "An Error Occurred");
                 redirect('admin/events');
                 break;
         }
@@ -219,23 +252,23 @@ class Admin extends MY_Controller
         switch ($result) {
             case 'Event Details Added Succesfully.':
                 # code...
-                $this->session->set_flashdata("message", "Event Details Succesfully Added");
+                $this->session->set_userdata("message", "Event Details Succesfully Added");
                 redirect('admin/events');
                 break;
             case 'Event Details Not Added Succesfully.':
                 # code...
-                $this->session->set_flashdata("message", "Event Details Not Succesfully Added");
+                $this->session->set_userdata("error", "Event Details Not Succesfully Added");
                 redirect('admin/events');
                 break;
             case 'Event Details Exists':
                 # code...
-                $this->session->set_flashdata("message", "Event Details Already Exists");
+                $this->session->set_userdata("error", "Event Details Already Exists");
                 redirect('admin/events');
                 break;
 
             default:
                 # code...
-                $this->session->set_flashdata("message", "An Error Occurred");
+                $this->session->set_userdata("error", "An Error Occurred");
                 redirect('admin/events');
                 break;
         }
@@ -258,10 +291,10 @@ class Admin extends MY_Controller
         $result = ($deleted) ? $this->admin_model->delete_event($data) : false;
 
         if ($result === true) {
-            $this->session->set_flashdata("message", "Event Succesfully Deleted");
+            $this->session->set_userdata("message", "Event Succesfully Deleted");
             redirect('admin/viewEvents');
         } else {
-            $this->session->set_flashdata("message", "Event Succesfully Deleted");
+            $this->session->set_userdata("message", "Event Succesfully Deleted");
             redirect('admin/viewEvents');
         }
 
@@ -285,23 +318,23 @@ class Admin extends MY_Controller
         switch ($result) {
             case 'Collection Added Succesfully.':
                 # code...
-                $this->session->set_flashdata("message", "Collection Succesfully Added");
+                $this->session->set_userdata("message", "Collection Succesfully Added");
                 redirect('admin/file_upload/collection/' . $_SESSION['item_id']);
                 break;
             case 'Collection Not Added Succesfully.':
                 # code...
-                $this->session->set_flashdata("message", "Collection Not Succesfully Added");
+                $this->session->set_userdata("error", "Collection Not Succesfully Added");
                 redirect('admin/addCollection');
                 break;
             case 'Collection Exists':
                 # code...
-                $this->session->set_flashdata("message", "Collection Already Exists");
+                $this->session->set_userdata("error", "Collection Already Exists");
                 redirect('admin/addCollection');
                 break;
 
             default:
                 # code...
-                $this->session->set_flashdata("message", "An Error Occurred");
+                $this->session->set_userdata("error", "An Error Occurred");
                 redirect('admin/addCollection');
                 break;
         }
@@ -323,10 +356,10 @@ class Admin extends MY_Controller
         $result = ($deleted) ? $this->admin_model->delete_collection($data) : false;
 
         if ($result === true) {
-            $this->session->set_flashdata("message", "Collection Succesfully Deleted");
+            $this->session->set_userdata("message", "Collection Succesfully Deleted");
             redirect('admin/viewcollection');
         } else {
-            $this->session->set_flashdata("message", "Collection not deleted");
+            $this->session->set_userdata("error", "Collection not deleted");
             redirect('admin/viewcollection');
         }
     }
@@ -347,10 +380,10 @@ class Admin extends MY_Controller
         $result = $this->admin_model->registration_insert($data, $parameter);
         if ($result === true) {
             $this->sendMail();
-            $this->session->set_flashdata('message', 'Registration Successful');
+            $this->session->set_userdata('message', 'Registration Successful');
             redirect('admin/index');
         } else {
-            $this->session->set_flashdata('message', 'Username  already exists');
+            $this->session->set_userdata('error', 'Username  already exists');
             redirect('admin/signup');
         }
     }
@@ -398,7 +431,7 @@ class Admin extends MY_Controller
                 break;
         }
 
-        $this->session->set_flashdata('message', $result['message']);
+        $this->session->set_userdata('message', $result['message']);
         redirect('admin/edit_item/' . $item . '/' . $id);
 
         //If the event (short) name was changed, update the folder name
@@ -418,11 +451,12 @@ class Admin extends MY_Controller
             $row = $query->num_rows();
             if ($row) {
                 session_start();
+                
                 $this->session->set_userdata('username', $username);
                 $this->session->set_userdata('logged_in', true);
-                redirect('admin/ourstory');
+                redirect('admin/profile');
             } else {
-                $this->session->set_flashdata('message', 'Invalid Credentials');
+                $this->session->set_userdata('error', 'Invalid Credentials');
                 redirect('admin/index');
             }
         }
@@ -430,7 +464,8 @@ class Admin extends MY_Controller
 
     public function logout()
     {
-        $this->session->unset_userdata('username');
+		$this->session->unset_userdata('username');
+		$this->session->sess_destroy();
         $this->session->set_userdata('logged_in', false);
         redirect('admin/index');
     }
@@ -492,5 +527,39 @@ class Admin extends MY_Controller
     {
         $this->admin_model->updateLandingImg($_POST['folder'], $_POST['item_id']);
     }
+    public function changePassword()
+    {
+            $email = $this->input->post('email');
+            $newpassword = $this->input->post('newpassword');
+            $confirmpassword = $this->input->post('confirmpassword');
+            if($newpassword!=$confirmpassword){
+                $this->session->set_userdata('error', 'Passwords do not match');
+                redirect('admin/profile');
+            }else{
+
+            $query = $this->db->query("select * from user where email='$email'");
+            //   die(print_r($query));
+            $row = $query->num_rows();
+            if ($row) {
+                $query1 = $this->db->query("UPDATE user SET password='$newpassword' WHERE email='$email'");
+                
+                if($query1){
+                    
+                    $this->session->set_userdata('success', 'Update was successful');
+                    redirect('admin/profile');
+                }else{
+                    
+                    $this->session->set_userdata('error', 'Update was Not successful');
+                    redirect('admin/ourstory');
+                }
+               
+             } else {
+                $this->session->set_userdata('error', 'Update was Not successful');
+                redirect('admin/ourstory');
+            }
+        }
+	}
+	
+	
 
 }

@@ -15,12 +15,12 @@
 
                 <!-- User Info -->
                 <div class="content-header-item">
-                    <a class="img-link mr-5" href="be_pages_generic_profile.html">
+                    <a class="img-link mr-5" href="">
                         <img class="img-avatar img-avatar32"
                             src="<?=base_url();?>assets/admin/assets/media/avatars/avatar15.jpg" alt="">
                     </a>
                     <a class="align-middle link-effect text-primary-dark font-w600"
-                        href="be_pages_generic_profile.html">R.Odiero</a>
+                        href="be_pages_generic_profile.html"><?= @$_SESSION['username'] ?></a>
                 </div>
                 <!-- END User Info -->
             </div>
@@ -33,49 +33,22 @@
             <div class="block pull-t pull-r-l">
                 <div class="block-content block-content-full block-content-sm bg-body-light">
                     <form action="be_pages_generic_search.html" method="post">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="side-overlay-search" name="side-overlay-search"
-                                placeholder="Search..">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-secondary px-10">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
+                       
                     </form>
                 </div>
             </div>
             <!-- END Search -->
             <!-- Profile -->
             <div class="block pull-r-l">
-                <div class="block-header bg-body-light">
-                    <h3 class="block-title">
-                        <i class="fa fa-fw fa-pencil font-size-default mr-5"></i>Profile
-                    </h3>
-                    <div class="block-options">
-                        <button type="button" class="btn-block-option" data-toggle="block-option"
-                            data-action="content_toggle"></button>
-                    </div>
-                </div>
+                
                 <div class="block-content">
-                    <form action="be_pages_dashboard.html" method="post" onsubmit="return false;">
-                        <div class="form-group mb-15">
-                            <label for="side-overlay-profile-name">Name</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="side-overlay-profile-name"
-                                    name="side-overlay-profile-name" placeholder="Your name..">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-user"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                    <form action="<?=base_url();?>admin/changePassword" method="post" >
+            
                         <div class="form-group mb-15">
                             <label for="side-overlay-profile-email">Email</label>
                             <div class="input-group">
                                 <input type="email" class="form-control" id="side-overlay-profile-email"
-                                    name="side-overlay-profile-email" placeholder="Your email..">
+                                    name="email" placeholder="Your email" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="fa fa-envelope"></i>
@@ -87,7 +60,7 @@
                             <label for="side-overlay-profile-password">New Password</label>
                             <div class="input-group">
                                 <input type="password" class="form-control" id="side-overlay-profile-password"
-                                    name="side-overlay-profile-password" placeholder="New Password..">
+                                    name="newpassword" placeholder="New Password" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="fa fa-asterisk"></i>
@@ -99,7 +72,7 @@
                             <label for="side-overlay-profile-password-confirm">Confirm New Password</label>
                             <div class="input-group">
                                 <input type="password" class="form-control" id="side-overlay-profile-password-confirm"
-                                    name="side-overlay-profile-password-confirm" placeholder="Confirm New Password..">
+                                    name="confirmpassword" placeholder="Confirm New Password" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="fa fa-asterisk"></i>
@@ -109,7 +82,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-6">
-                                <button type="submit" class="btn btn-block btn-alt-primary">
+                                <button type="submit" class="btn btn-block btn-alt-primary" name="changepass">
                                     <i class="fa fa-refresh mr-5"></i> Update
                                 </button>
                             </div>
@@ -170,7 +143,7 @@
                     <!-- Logo -->
                     <div class="content-header-item">
 
-                        <a href="index.html">
+                        <a href="<?=base_url()?>/admin/profile">
 
                             <img src="<?=base_url();?>assets/admin/assets/media/photos/logokikoromeo1.png" width="50">
 
@@ -200,21 +173,11 @@
                     <ul class="list-inline mt-10">
                         <li class="list-inline-item">
                             <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase"
-                                href="<?=base_url();?>admin/profile">R.Odiero</a>
+                                href="<?=base_url();?>admin/profile"><?= @$_SESSION['username'] ?></a>
                         </li>
-                        <li class="list-inline-item">
-                            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                            <a class="link-effect text-dual-primary-dark" data-toggle="layout"
-                                data-action="sidebar_style_inverse_toggle" href="javascript:void(0)">
-                                <i class="si si-drop"></i>
-                            </a>
+                       
                         </li>
-                        <li class="list-inline-item">
-                            <a class="link-effect text-dual-primary-dark" href="<?=base_url();?>admin/logout">
-                                <i class="si si-logout"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    </ul> 
                 </div>
                 <!-- END Visible only in normal mode -->
             </div>
