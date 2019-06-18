@@ -30,7 +30,7 @@
                             </a> -->
                             <img src="<?=base_url();?>assets/admin/images/kikoromeo1.png" width="150" style="margin-left: 80px;">
                             <!-- <h1 class="h3 font-w700 mt-30 mb-10">Welcome to the DashBoard Admin</h1> -->
-                            <h2 class="h3 font-w700 mt-30 mb-10">Sign in</h2>
+                            <h2 class="h3 font-w700 mt-30 mb-10">Change Password</h2>
                         </div>
                         <!-- END Header -->
 
@@ -43,31 +43,14 @@
                                 <div class="col-12">
                                     <div class="form-material floating">
                                         <input type="text" class="form-control" id="login-username" name="login-username">
-                                        <label for="login-username">Username</label>
+                                        <label for="login-username">Email</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-12">
-                                    <div class="form-material floating">
-                                        <input type="password" class="form-control" id="login-password" name="login-password">
-                                        <label for="login-password">Password</label>
-                                    </div>
-                                </div>
-                            </div>
-                        
                             <div class="form-group">
                             
                         
                                 <input type="submit" name="login" class="btn btn-sm btn-hero btn-alt-primary">
-                                
-                                
-                                <div class="mt-30">
-                                    
-                                    <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="<?=base_url()?>admin/forgot_password">
-                                        <i class="fa fa-warning mr-5"></i> Forgot Password
-                                    </a>
-                                </div>
                             </div>
                         </form>
                         <!-- END Sign In Form -->
