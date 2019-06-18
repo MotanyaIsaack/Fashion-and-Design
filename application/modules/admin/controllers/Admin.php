@@ -517,6 +517,8 @@ class Admin extends MY_Controller
                 $this->session->set_flashdata('message', 'Update was not successful');
                 redirect('admin/ourstory');
             }
-    }
+	}
+	
+	
 
 }
