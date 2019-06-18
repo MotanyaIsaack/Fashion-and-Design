@@ -111,32 +111,6 @@ class Website_Model extends CI_Model
         return $this->upload->do_upload('image');
     }
 
-    /**
-     * Rename directory
-     * @param {string} $old_name
-     * @param {string} $new_name
-     * @param {string} $folder Either event or collection --> Determines the path
-     */
-    public function renameFolder($old_name, $new_name, $folder)
-    {
-        $path = $this->image_path . $folder . "/";
-        $old = $path . $old_name . "/";
-        $new = $path . $new_name . "/";
-        $renamed = false;
-
-        //Check whether the directory
-        if (file_exists($old)) {
-            $renamed = rename($old, $new);
-            $this->msg = $renamed ? "Successfully renamed" : "Error renaming the folder";
-        } else {
-            $this->msg = "No such directory";
-        }
-        array_push($this->log, $this->msg);
-        print_r($this->log);
-
-        return $renamed;
-    }
-
    public function getAwards(){
         $this->db->select('Awards');
         $this->db->from('About');

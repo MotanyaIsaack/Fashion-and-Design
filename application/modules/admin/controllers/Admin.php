@@ -50,6 +50,7 @@ class Admin extends MY_Controller
 
     public function awards()
     {
+        $data['awards'] = $this->website_model->getAwards();
 		if (!isset($_SESSION['username'])) {
 			# code...
 			redirect('admin/index');
