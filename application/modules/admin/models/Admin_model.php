@@ -24,6 +24,12 @@ class Admin_model extends CI_Model
         return $admin;
     }
 
+    //Function that gets all the awards
+    public function get_awards(){
+        $awards = $this->db->get('about')->result_array();
+        return $awards;
+    }
+
     //Function that fetches all the event id's
     public function get_event_ids()
     {

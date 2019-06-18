@@ -48,13 +48,15 @@ class Admin extends MY_Controller
         $this->load->view('footer');
     }
 
-    public function ourstory()
+    public function awards()
     {
         $data['awards'] = $this->website_model->getAwards();
 		if (!isset($_SESSION['username'])) {
 			# code...
 			redirect('admin/index');
 		}
+		$data['awards'] = $this->admin_model->get_awards();
+		// die(print_r($awards));
 		$this->load->view('head');
 		$this->load->view('navigation');
 		$this->load->view('header');
@@ -68,8 +70,8 @@ class Admin extends MY_Controller
         $story = $this->input->post('ckeditor');
         $result = $this->admin_model->updateOurStory($story);
         if ($result) {
-            $this->session->set_userdata('success', 'Update Successful');
-            redirect('admin/ourstory');
+            $this->session->set_flashdata('message', 'Updated Successfully');
+            redirect('admin/awards');
         }
     }
 
@@ -129,7 +131,18 @@ class Admin extends MY_Controller
         $this->load->view('footer');
     }
 
-    
+    public function editOurStory()
+    {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
+        $this->load->view('head');
+        $this->load->view('navigation');
+        $this->load->view('header');
+        $this->load->view('editOurstory');
+        $this->load->view('footer');
+    }
 
     public function events()
     {
@@ -209,23 +222,23 @@ class Admin extends MY_Controller
         switch ($result) {
             case 'Event Added Succesfully.':
                 # code...
-                $this->session->set_userdata("success", "Event Succesfully Added");
+                $this->session->set_flashdata("message", "Event Succesfully Added");
                 redirect('admin/file_upload/event/' . $_SESSION['item_id']);
                 break;
             case 'Event Not Added Succesfully.':
                 # code...
-                $this->session->set_userdata("success", "Event Not Succesfully Added");
+                $this->session->set_flashdata("message", "Event Not Succesfully Added");
                 redirect('admin/events');
                 break;
             case 'Event Exists':
                 # code...
-                $this->session->set_userdata("error", "Event Already Exists");
+                $this->session->set_flashdata("message", "Event Already Exists");
                 redirect('admin/events');
                 break;
 
             default:
                 # code...
-                $this->session->set_userdata("error", "An Error Occurred");
+                $this->session->set_flashdata("message", "An Error Occurred");
                 redirect('admin/events');
                 break;
         }
@@ -248,23 +261,23 @@ class Admin extends MY_Controller
         switch ($result) {
             case 'Event Details Added Succesfully.':
                 # code...
-                $this->session->set_userdata("success", "Event Details Succesfully Added");
+                $this->session->set_flashdata("message", "Event Details Succesfully Added");
                 redirect('admin/events');
                 break;
             case 'Event Details Not Added Succesfully.':
                 # code...
-                $this->session->set_userdata("error", "Event Details Not Succesfully Added");
+                $this->session->set_flashdata("message", "Event Details Not Succesfully Added");
                 redirect('admin/events');
                 break;
             case 'Event Details Exists':
                 # code...
-                $this->session->set_userdata("error", "Event Details Already Exists");
+                $this->session->set_flashdata("message", "Event Details Already Exists");
                 redirect('admin/events');
                 break;
 
             default:
                 # code...
-                $this->session->set_userdata("error", "An Error Occurred");
+                $this->session->set_flashdata("message", "An Error Occurred");
                 redirect('admin/events');
                 break;
         }
@@ -287,10 +300,10 @@ class Admin extends MY_Controller
         $result = ($deleted) ? $this->admin_model->delete_event($data) : false;
 
         if ($result === true) {
-            $this->session->set_userdata("success", "Event Succesfully Deleted");
+            $this->session->set_flashdata("message", "Event Succesfully Deleted");
             redirect('admin/viewEvents');
         } else {
-            $this->session->set_userdata("error", "Event not Succesfully Deleted");
+            $this->session->set_flashdata("message", "Event Succesfully Deleted");
             redirect('admin/viewEvents');
         }
 
@@ -314,23 +327,23 @@ class Admin extends MY_Controller
         switch ($result) {
             case 'Collection Added Succesfully.':
                 # code...
-                $this->session->set_userdata("success", "Collection Succesfully Added");
+                $this->session->set_flashdata("message", "Collection Succesfully Added");
                 redirect('admin/file_upload/collection/' . $_SESSION['item_id']);
                 break;
             case 'Collection Not Added Succesfully.':
                 # code...
-                $this->session->set_userdata("error", "Collection Not Succesfully Added");
+                $this->session->set_flashdata("message", "Collection Not Succesfully Added");
                 redirect('admin/addCollection');
                 break;
             case 'Collection Exists':
                 # code...
-                $this->session->set_userdata("error", "Collection Already Exists");
+                $this->session->set_flashdata("message", "Collection Already Exists");
                 redirect('admin/addCollection');
                 break;
 
             default:
                 # code...
-                $this->session->set_userdata("error", "An Error Occurred");
+                $this->session->set_flashdata("message", "An Error Occurred");
                 redirect('admin/addCollection');
                 break;
         }
@@ -352,10 +365,10 @@ class Admin extends MY_Controller
         $result = ($deleted) ? $this->admin_model->delete_collection($data) : false;
 
         if ($result === true) {
-            $this->session->set_userdata("success", "Collection Succesfully Deleted");
+            $this->session->set_flashdata("message", "Collection Succesfully Deleted");
             redirect('admin/viewcollection');
         } else {
-            $this->session->set_userdata("error", "Collection not deleted");
+            $this->session->set_flashdata("message", "Collection not deleted");
             redirect('admin/viewcollection');
         }
     }
@@ -377,10 +390,10 @@ class Admin extends MY_Controller
         $result = $this->admin_model->registration_insert($data, $parameter);
         if ($result === true) {
             $this->sendMail();
-            $this->session->set_userdata('success', 'Registration Successful');
+            $this->session->set_flashdata('message', 'Registration Successful');
             redirect('admin/index');
         } else {
-            $this->session->set_userdata('error', 'Username  already exists');
+            $this->session->set_flashdata('message', 'Username  already exists');
             redirect('admin/signup');
         }
     }
@@ -428,7 +441,7 @@ class Admin extends MY_Controller
                 break;
         }
 
-        $this->session->set_userdata('message', $result['message']);
+        $this->session->set_flashdata('message', $result['message']);
         redirect('admin/edit_item/' . $item . '/' . $id);
 
         //If the event (short) name was changed, update the folder name
@@ -451,7 +464,7 @@ class Admin extends MY_Controller
                 $this->session->set_userdata('logged_in', true);
                 redirect('admin/profile');
             } else {
-                $this->session->set_userdata('error', 'Invalid Credentials');
+                $this->session->set_flashdata('message', 'Invalid Credentials');
                 redirect('admin/index');
             }
         }
@@ -537,7 +550,7 @@ class Admin extends MY_Controller
                 if($query1){
                     
                     
-                    $this->session->set_userdata('success', 'Update was successful');
+                    $this->session->set_flashdata('message', 'Update was successful');
                     redirect('admin/profile');
                 }else{
                     die(print_r('UnSuccesful'));
@@ -545,8 +558,8 @@ class Admin extends MY_Controller
                 }
                
              } else {
-                $this->session->set_userdata('error', 'Update was not successful');
-                redirect('admin/ourstory');
+                $this->session->set_flashdata('message', 'Update was not successful');
+                redirect('admin/awards');
             }
 	}
 	
