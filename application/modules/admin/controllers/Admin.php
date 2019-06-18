@@ -370,13 +370,14 @@ class Admin extends MY_Controller
         $data = array(
             'username' => $this->input->post('signup-username'),
             'email' => $this->input->post('signup-email'),
-            'password' => $this->input->post('signup-password'),
+           
+            'password' => password_hash($this->input->post('signup-password'),PASSWORD_BCRYPT),
         );
         $parameter = array(
             'username' => $this->input->post('signup-username'),
             'email' => $this->input->post('signup-email'),
         );
-
+     
         $result = $this->admin_model->registration_insert($data, $parameter);
         if ($result === true) {
             $this->sendMail();

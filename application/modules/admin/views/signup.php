@@ -96,7 +96,7 @@
                                     <div class="col-12">
                                         <div class="form-material floating">
                                             <input type="password" class="form-control" id="signup-password-confirm"
-                                                name="signup-password-confirm">
+                                                name="passwordconfirm">
                                             <label for="signup-password-confirm">Password Confirmation</label>
                                         </div>
                                     </div>
