@@ -8,6 +8,22 @@ class Admin_model extends CI_Model
         $this->image_path = "./assets/website/assets/Images/";
     }
 
+    //Function that gets the count of events
+    public function get_event_no(){
+        $events = $this->db->get('event')->num_rows();
+        return $events;
+    }
+    //Function that gets the count of collections
+    public function get_collection_no(){
+        $collection = $this->db->get('collection')->num_rows();
+        return $collection;
+    }
+    //Function that gets the count of admins
+    public function get_admin_no(){
+        $admin = $this->db->get('user')->num_rows();
+        return $admin;
+    }
+
     //Function that fetches all the event id's
     public function get_event_ids()
     {

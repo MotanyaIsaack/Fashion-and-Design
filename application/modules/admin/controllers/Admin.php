@@ -27,10 +27,14 @@ class Admin extends MY_Controller
 
     public function profile()
     {
+		$data['events'] = $this->admin_model->get_event_no();
+		$data['collections'] = $this->admin_model->get_collection_no();
+		$data['admin'] = $this->admin_model->get_admin_no();
+		// die(print_r($data['events']));
         $this->load->view('head');
         $this->load->view('navigation');
         $this->load->view('header');
-        $this->load->view('profile');
+        $this->load->view('profile',$data);
         $this->load->view('footer');
     }
 
