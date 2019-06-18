@@ -447,10 +447,9 @@ class Admin extends MY_Controller
             $username = $this->input->post('login-username');
             $password = $this->input->post('login-password');
 
-            $query = $this->db->query("select * from user where username='" . $username . "' and password='$password'");
-
+            $query = $this->db->query("select * from user where username='" . $username . "'");
             $row = $query->num_rows();
-            if ($row) {
+            if ($row && password_verify($password,$query->row_array()['password'])) {
                 session_start();
                 
                 $this->session->set_userdata('username', $username);
