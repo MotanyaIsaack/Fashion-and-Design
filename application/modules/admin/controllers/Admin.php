@@ -65,11 +65,10 @@ class Admin extends MY_Controller
     public function addStory()
     {
         $story = $this->input->post('ckeditor');
-
         $result = $this->admin_model->updateOurStory($story);
         if ($result) {
-
             $this->session->set_flashdata('message', 'Updated Successfully');
+            redirect('admin/ourstory');
         }
     }
 
@@ -210,6 +209,7 @@ class Admin extends MY_Controller
             'short_name' => $this->input->post('short_name'),
             'full_name' => $this->input->post('full_name'),
             'item_info' => $this->input->post('item_info'),
+            'item_summary' => $this->input->post('item_summary'),
             'overview_header' => implode(',', $this->input->post('overview_header')),
             'overview_content' => implode(',', $this->input->post('overview_content')),
         );
@@ -376,13 +376,14 @@ class Admin extends MY_Controller
         $data = array(
             'username' => $this->input->post('signup-username'),
             'email' => $this->input->post('signup-email'),
-            'password' => $this->input->post('signup-password'),
+           
+            'password' => password_hash($this->input->post('signup-password'),PASSWORD_BCRYPT),
         );
         $parameter = array(
             'username' => $this->input->post('signup-username'),
             'email' => $this->input->post('signup-email'),
         );
-
+     
         $result = $this->admin_model->registration_insert($data, $parameter);
         if ($result === true) {
             $this->sendMail();

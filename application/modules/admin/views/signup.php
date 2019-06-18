@@ -37,7 +37,32 @@
                             <!-- Sign Up Form -->
                             <!-- jQuery Validation functionality is initialized with .js-validation-signup class in js/pages/op_auth_signup.min.js which was auto compiled from _es6/pages/op_auth_signup.js -->
                             <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                            <div id="infoMessage"><?php echo $this->session->flashdata('message'); ?></div>
+                            <?php
+                        if (isset($_SESSION['error'])) {
+                            echo '
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                '.$_SESSION['error'].'
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            ';
+                            $this->session->unset_userdata('error');
+                            
+                        }elseif (isset($_SESSION['success'])) {
+                            echo '
+                            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                '.$_SESSION['success'].'
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            ';
+                            $this->session->unset_userdata('success');
+                            
+                        }
+                    ?>
+               
                             <form class="js-validation-signup px-30" action="<?=base_url();?>admin/registration"
                                 method="post">
                                 <div class="form-group row">
@@ -71,7 +96,7 @@
                                     <div class="col-12">
                                         <div class="form-material floating">
                                             <input type="password" class="form-control" id="signup-password-confirm"
-                                                name="signup-password-confirm">
+                                                name="passwordconfirm">
                                             <label for="signup-password-confirm">Password Confirmation</label>
                                         </div>
                                     </div>
