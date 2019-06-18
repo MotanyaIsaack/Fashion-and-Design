@@ -1,8 +1,5 @@
 
     <body>
-
-       
-
             <!-- Main Container -->
             <main id="main-container">
 

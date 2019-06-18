@@ -27,6 +27,10 @@ class Admin extends MY_Controller
 
     public function profile()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
 		$data['events'] = $this->admin_model->get_event_no();
 		$data['collections'] = $this->admin_model->get_collection_no();
 		$data['admin'] = $this->admin_model->get_admin_no();
@@ -40,16 +44,16 @@ class Admin extends MY_Controller
 
     public function ourstory()
     {
-        $sess_id = $this->session->userdata('username');
-        if (!empty($sess_id)) {
-            $this->load->view('head');
-            $this->load->view('navigation');
-            $this->load->view('header');
-            $this->load->view('ourstory');
-            $this->load->view('footer');
-        } else {
-            redirect('admin/index');
-        }
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
+		$this->load->view('head');
+		$this->load->view('navigation');
+		$this->load->view('header');
+		$this->load->view('ourstory');
+		$this->load->view('footer');
+        
     }
 
     public function addStory()
@@ -92,8 +96,13 @@ class Admin extends MY_Controller
     /**
      * editCollection + editEvent
      */
-    public function edit_item($item_name, $id)
+	public function edit_item($item_name, $id)
+	
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $data['landing_image'] = $this->admin_model->getEventLandingImg($item_name, $id);
         $data['folder'] = $item_name;
 
@@ -116,6 +125,10 @@ class Admin extends MY_Controller
 
     public function editOurStory()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $this->load->view('head');
         $this->load->view('navigation');
         $this->load->view('header');
@@ -125,6 +138,10 @@ class Admin extends MY_Controller
 
     public function events()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $data['event_id'] = $this->admin_model->get_event_ids();
         $this->load->view('head');
         $this->load->view('navigation');
@@ -135,6 +152,10 @@ class Admin extends MY_Controller
 
     public function viewEvents()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $data['events'] = $this->admin_model->get_events();
         $this->load->view('head');
         $this->load->view('navigation');
@@ -145,6 +166,10 @@ class Admin extends MY_Controller
 
     public function Addcollection()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $data['categoryid'] = $this->admin_model->get_categories();
         $this->load->view('head');
         $this->load->view('navigation');
@@ -155,6 +180,10 @@ class Admin extends MY_Controller
 
     public function viewcollection()
     {
+		if (!isset($_SESSION['username'])) {
+			# code...
+			redirect('admin/index');
+		}
         $data['collections'] = $this->admin_model->get_collections();
         $this->load->view('head');
         $this->load->view('navigation');
@@ -165,6 +194,7 @@ class Admin extends MY_Controller
 
     public function addEvent()
     {
+		
         $data['event'] = array(
             'date' => $this->input->post('date'),
             'location' => $this->input->post('location'),
@@ -433,7 +463,8 @@ class Admin extends MY_Controller
 
     public function logout()
     {
-        $this->session->unset_userdata('username');
+		$this->session->unset_userdata('username');
+		$this->session->sess_destroy();
         $this->session->set_userdata('logged_in', false);
         redirect('admin/index');
     }

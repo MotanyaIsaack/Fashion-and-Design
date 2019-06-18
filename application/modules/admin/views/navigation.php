@@ -143,7 +143,7 @@
                     <!-- Logo -->
                     <div class="content-header-item">
 
-                        <a href="index.html">
+                        <a href="<?=base_url()?>/admin/profile">
 
                             <img src="<?=base_url();?>assets/admin/assets/media/photos/logokikoromeo1.png" width="50">
 
