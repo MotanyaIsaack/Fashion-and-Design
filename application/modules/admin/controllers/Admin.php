@@ -48,16 +48,18 @@ class Admin extends MY_Controller
         $this->load->view('footer');
     }
 
-    public function ourstory()
+    public function awards()
     {
 		if (!isset($_SESSION['username'])) {
 			# code...
 			redirect('admin/index');
 		}
+		$data['awards'] = $this->admin_model->get_awards();
+		// die(print_r($awards));
 		$this->load->view('head');
 		$this->load->view('navigation');
 		$this->load->view('header');
-		$this->load->view('ourstory');
+		$this->load->view('ourstory',$data);
 		$this->load->view('footer');
         
     }
@@ -68,7 +70,7 @@ class Admin extends MY_Controller
         $result = $this->admin_model->updateOurStory($story);
         if ($result) {
             $this->session->set_flashdata('message', 'Updated Successfully');
-            redirect('admin/ourstory');
+            redirect('admin/awards');
         }
     }
 
@@ -453,10 +455,9 @@ class Admin extends MY_Controller
             $username = $this->input->post('login-username');
             $password = $this->input->post('login-password');
 
-            $query = $this->db->query("select * from user where username='" . $username . "' and password='$password'");
-
+            $query = $this->db->query("select * from user where username='" . $username . "'");
             $row = $query->num_rows();
-            if ($row) {
+            if ($row && password_verify($password,$query->row_array()['password'])) {
                 session_start();
                 $this->session->set_userdata('username', $username);
                 $this->session->set_userdata('logged_in', true);
@@ -557,7 +558,7 @@ class Admin extends MY_Controller
                
              } else {
                 $this->session->set_flashdata('message', 'Update was not successful');
-                redirect('admin/ourstory');
+                redirect('admin/awards');
             }
 	}
 	

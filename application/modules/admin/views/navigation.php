@@ -192,13 +192,13 @@
                                 class="sidebar-mini-hide">Our Story</span></a>
                         <ul>
                             <li class="open">
-                                <a href="<?=base_url();?>admin/ourstory"><span class="sidebar-mini-hide">Edit
+                                <a href="<?=base_url();?>admin/awards"><span class="sidebar-mini-hide">Edit
                                         Awards</span></a>
 
-                            <li>
+                            <!-- <li>
                                 <a href="<?=base_url();?>admin/editOurStory"><span class="sidebar-mini-hide">Edit Our
                                         Story</span></a> </li>
-                    </li>
+                    </li> -->
                 </ul>
 
                 </li>
