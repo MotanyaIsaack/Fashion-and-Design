@@ -12,10 +12,10 @@
                 </div>
             </div>
             <?php
-            if ($this->session->flashdata('message')) {
+            if ($this->session->success) {
                 echo '
                     <center class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>' . $this->session->flashdata("message") . '</strong>
+                        <strong>' . $this->session->success . '</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

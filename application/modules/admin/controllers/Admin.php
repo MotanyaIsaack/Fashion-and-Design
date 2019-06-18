@@ -50,6 +50,7 @@ class Admin extends MY_Controller
 
     public function ourstory()
     {
+        $data['awards'] = $this->website_model->getAwards();
 		if (!isset($_SESSION['username'])) {
 			# code...
 			redirect('admin/index');
@@ -57,7 +58,7 @@ class Admin extends MY_Controller
 		$this->load->view('head');
 		$this->load->view('navigation');
 		$this->load->view('header');
-		$this->load->view('ourstory');
+		$this->load->view('ourstory',$data);
 		$this->load->view('footer');
         
     }
@@ -67,7 +68,7 @@ class Admin extends MY_Controller
         $story = $this->input->post('ckeditor');
         $result = $this->admin_model->updateOurStory($story);
         if ($result) {
-            $this->session->set_userdata('success', 'Update Successfull');
+            $this->session->set_userdata('success', 'Update Successful');
             redirect('admin/ourstory');
         }
     }
