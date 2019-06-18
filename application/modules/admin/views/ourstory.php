@@ -1,4 +1,5 @@
 <body>
+
     <main id="main-container">
         <!-- Header Section -->
         <div class="tab">
@@ -10,7 +11,18 @@
                     </div>
                 </div>
             </div>
-
+            <?php
+            if ($this->session->flashdata('message')) {
+                echo '
+                    <center class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>' . $this->session->flashdata("message") . '</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </center>
+                    ';
+            }
+            ?>
         </div>
 
 
@@ -31,8 +43,14 @@
                     <div class="form-group row">
                         <div class="col-12">
                             <!-- CKEditor Container -->
-                            <textarea id="js-ckeditor" name="ckeditor"></textarea>
+                            <textarea id="js-ckeditor" name="ckeditor">
+                            <?php
+                            foreach ($awards as $award) {
+                                echo $award['Awards'];
 
+                            }
+                            ?>
+                            </textarea>
                         </div>
                     </div>
                 </div>

@@ -46,21 +46,29 @@
                 </div>
 
                 <div class="form-group row">
-                <div class="col-5">
-                    <label for="example-daterange1">Date</label>
-                    <div class="input-daterange input-group" data-date-format="yyyy-mm-dd" data-week-start="1"
-                        data-autoclose="true" data-today-highlight="true">
-                        <input type="text" class="form-control form-control-lg"
-                            id="example-daterange1" name="date" data-week-start="1" data-autoclose="true"
-                            data-today-highlight="true" readonly>
+                    <div class="col-5">
+                        <label for="example-daterange1">Date</label>
+                        <div class="input-daterange input-group" data-date-format="yyyy-mm-dd" data-week-start="1"
+                            data-autoclose="true" data-today-highlight="true">
+                            <input type="text" class="form-control form-control-lg" id="example-daterange1" name="date"
+                                data-week-start="1" data-autoclose="true" data-today-highlight="true" readonly>
+                        </div>
                     </div>
-                </div>
                     <div class="col-5">
                         <label for="location">Location</label>
                         <input class="form-control form-control-lg" id="location" name="location" required />
                     </div>
                 </div>
                 <?php overview_table();?>
+
+                <div class="form-group row">
+                    <div class="col-12">
+                        <label for="item_summary">Event Summary</label>
+                        <textarea class="form-control form-control-lg" name="item_summary" required
+                            rows="3"></textarea>
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <div class="col-12">
                         <label for="item_info">Event Details</label>

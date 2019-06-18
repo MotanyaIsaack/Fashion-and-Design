@@ -17,9 +17,9 @@
                             Ann and Iona McCreath from Nairobi, Kenya.
                             The heritage lifestyle brand was founded in 1996 .</p>
                         <li><a href="#"><i class="fa fa-2x fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-2x fa-twitter"></i></a></li>
+                        <li><a href="https://mobile.twitter.com/KikoRomeoAfrica" target="_blank"><i class="fa fa-2x fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-2x fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-2x fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/kikoromeo/" target="_blank"><i class="fa fa-2x fa-instagram"></i></a></li>
                     </ul>
                 </div><!-- /.col-md-3 -->
 
