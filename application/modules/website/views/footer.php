@@ -31,7 +31,7 @@
                         <li><a href="#">Collections</a></li>
                         <li><a href="#">Events</a></li>
                         <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Terms &amp; Condition</a></li>
+                        
                     </ul>
                 </div><!-- /.col-md-3 -->
 
