@@ -128,18 +128,7 @@ class Admin extends MY_Controller
         $this->load->view('footer');
     }
 
-    public function editOurStory()
-    {
-		if (!isset($_SESSION['username'])) {
-			# code...
-			redirect('admin/index');
-		}
-        $this->load->view('head');
-        $this->load->view('navigation');
-        $this->load->view('header');
-        $this->load->view('editOurstory');
-        $this->load->view('footer');
-    }
+    
 
     public function events()
     {

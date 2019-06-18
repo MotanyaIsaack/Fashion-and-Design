@@ -195,9 +195,7 @@
                                 <a href="<?=base_url();?>admin/addStory"><span class="sidebar-mini-hide">Edit
                                         Awards</span></a>
 
-                            <li>
-                                <a href="<?=base_url();?>admin/addStory"><span class="sidebar-mini-hide">Edit Our
-                                        Story</span></a> </li>
+                           
                     </li>
                 </ul>
 
