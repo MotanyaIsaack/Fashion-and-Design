@@ -15,12 +15,12 @@
 
                 <!-- User Info -->
                 <div class="content-header-item">
-                    <a class="img-link mr-5" href="">
+                    <a class="img-link mr-5" >
                         <img class="img-avatar img-avatar32"
                             src="<?=base_url();?>assets/admin/assets/media/avatars/avatar15.jpg" alt="">
                     </a>
                     <a class="align-middle link-effect text-primary-dark font-w600"
-                        href="be_pages_generic_profile.html"><?= @$_SESSION['username'] ?></a>
+                        ><?= @$_SESSION['username'] ?></a>
                 </div>
                 <!-- END User Info -->
             </div>
@@ -166,7 +166,7 @@
 
                 <!-- Visible only in normal mode -->
                 <div class="sidebar-mini-hidden-b text-center">
-                    <a class="img-link" href="be_pages_generic_profile.html">
+                    <a class="img-link" href="">
                         <img class="img-avatar" src="<?=base_url();?>assets/admin/assets/media/avatars/avatar15.jpg"
                             alt="">
                     </a>
@@ -189,7 +189,7 @@
                     <li class="open">
 
                         <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-cup"></i><span
-                                class="sidebar-mini-hide">Our Story</span></a>
+                                class="sidebar-mini-hide">Our Awards</span></a>
                         <ul>
                             <li class="open">
                                 <a href="<?=base_url();?>admin/awards"><span class="sidebar-mini-hide">Edit

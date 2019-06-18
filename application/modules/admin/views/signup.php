@@ -119,8 +119,8 @@
                                                 <i class="fa fa-book text-muted mr-5"></i> Read Terms
                                             </a> -->
                                         <a class="link-effect text-muted mr-10 mb-5 d-inline-block"
-                                            href="<?=base_url();?>admin/index">
-                                            <i class="fa fa-user text-muted mr-5"></i> Sign In
+                                            href="<?=base_url();?>admin/profile">
+                                            <i class="fa fa-user text-muted mr-5"></i> Back
                                         </a>
                                     </div>
                                 </div>

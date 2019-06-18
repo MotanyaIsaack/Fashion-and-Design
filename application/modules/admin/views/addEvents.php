@@ -27,7 +27,7 @@
  }
 ?>
 
-?>
+
     <form action="<?=base_url();?>admin/addEvent" method="post">
         <div class="row">
             <div class="col-12">

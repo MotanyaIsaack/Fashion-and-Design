@@ -27,11 +27,11 @@
                     <h2 class="white-text" style="margin-top:15px;">Imporant links</h2>
 
                     <ul class="footer-list">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Collections</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Terms &amp; Condition</a></li>
+                        <li><a href="<?=base_url();?>website/home">Home</a></li>
+                        <li><a href="<?=base_url();?>website/collections">Collections</a></li>
+                        <li><a href="<?=base_url();?>website/events">Events</a></li>
+                        <li><a href="<?=base_url();?>website/contact">Contact Us</a></li>
+                        
                     </ul>
                 </div><!-- /.col-md-3 -->
 
