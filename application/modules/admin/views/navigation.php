@@ -15,12 +15,12 @@
 
                 <!-- User Info -->
                 <div class="content-header-item">
-                    <a class="img-link mr-5" href="">
+                    <a class="img-link mr-5" >
                         <img class="img-avatar img-avatar32"
                             src="<?=base_url();?>assets/admin/assets/media/avatars/avatar15.jpg" alt="">
                     </a>
                     <a class="align-middle link-effect text-primary-dark font-w600"
-                        href="be_pages_generic_profile.html"><?= @$_SESSION['username'] ?></a>
+                        ><?= @$_SESSION['username'] ?></a>
                 </div>
                 <!-- END User Info -->
             </div>
@@ -189,14 +189,14 @@
                     <li class="open">
 
                         <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-cup"></i><span
-                                class="sidebar-mini-hide">Our Story</span></a>
+                                class="sidebar-mini-hide">Our Awards</span></a>
                         <ul>
                             <li class="open">
-                                <a href="<?=base_url();?>admin/ourstory"><span class="sidebar-mini-hide">Edit
+                                <a href="<?=base_url();?>admin/addStory"><span class="sidebar-mini-hide">Edit
                                         Awards</span></a>
 
                             <li>
-                                <a href="<?=base_url();?>admin/editOurStory"><span class="sidebar-mini-hide">Edit Our
+                                <a href="<?=base_url();?>admin/addStory"><span class="sidebar-mini-hide">Edit Our
                                         Story</span></a> </li>
                     </li>
                 </ul>
