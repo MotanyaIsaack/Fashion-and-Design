@@ -27,8 +27,9 @@ function showEventCards($folder, $cards)
         //Get the event details
         $id = $event['event_id'];
         $url = 'website/event/';
-        $filter = (true == false) ? "upcoming" : "past";
-
+        $today = date("Y-m-d");
+        $event_date = $event['date'];
+        $filter = ($event_date > $today) ? "upcoming" : "past";
         $img = $event['landing_page_image'];
         $name = $event['short_name'];
         $subfolder = "event_".$id;
