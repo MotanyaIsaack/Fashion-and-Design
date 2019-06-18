@@ -16,6 +16,13 @@ class Website extends MX_Controller
         $this->load->view('home');
         $this->load->view('footer');
     }
+    public function contact()
+    {
+       
+        $this->load->view('header');
+        $this->load->view('contact');
+        $this->load->view('footer');
+    }
 
     //Function that loads the collections page
     public function collections()
