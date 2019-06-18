@@ -36,7 +36,7 @@
  </script>
  <script src="<?=base_url();?>assets/admin/assets/js/plugins/dropzonejs/dist/dropzone.js"></script>
  <script src="<?=base_url();?>assets/admin/assets/js/custom/admin.js"></script>
- <script src="<?=base_url();?>assets⁩/website⁩/assets⁩/js⁩s⁨bootstrap-notify-master⁩⁨/bootstrap-notify-master⁩/bootstrap-notify.js"></script>
+ 
  
  <script src="<?=base_url();?>assets⁩/admin/assets⁩/js⁩s⁨bootstrap-notify-master⁩⁨/bootstrap-notify-master⁩/bootstrap-notify.js"></script>
  <script>

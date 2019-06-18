@@ -48,7 +48,7 @@
                             <label for="side-overlay-profile-email">Email</label>
                             <div class="input-group">
                                 <input type="email" class="form-control" id="side-overlay-profile-email"
-                                    name="email" placeholder="Your email..">
+                                    name="email" placeholder="Your email" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="fa fa-envelope"></i>
@@ -60,7 +60,7 @@
                             <label for="side-overlay-profile-password">New Password</label>
                             <div class="input-group">
                                 <input type="password" class="form-control" id="side-overlay-profile-password"
-                                    name="newpassword" placeholder="New Password..">
+                                    name="newpassword" placeholder="New Password" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="fa fa-asterisk"></i>
@@ -72,7 +72,7 @@
                             <label for="side-overlay-profile-password-confirm">Confirm New Password</label>
                             <div class="input-group">
                                 <input type="password" class="form-control" id="side-overlay-profile-password-confirm"
-                                    name="confirmpassword" placeholder="Confirm New Password..">
+                                    name="confirmpassword" placeholder="Confirm New Password" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="fa fa-asterisk"></i>

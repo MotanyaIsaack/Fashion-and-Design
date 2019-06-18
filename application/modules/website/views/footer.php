@@ -97,6 +97,7 @@
 <script src="<?=website_assets_url('js/website.js');?>"></script>
 <!--Should be added last-->
 <script src="<?=website_assets_url('js/modal.js');?>"></script>
+<script src="<?=base_url();?>assets⁩/website⁩/assets⁩/js⁩s⁨bootstrap-notify-master⁩⁨/bootstrap-notify-master⁩/bootstrap-notify.js"></script>
 
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems! The following part can be removed on Server for On Demand Loading) -->
 
