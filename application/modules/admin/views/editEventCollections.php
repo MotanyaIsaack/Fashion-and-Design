@@ -16,16 +16,31 @@ $item = $folder;
             <div class="tab-pane active" id="edit-details" role="tabpanel">
                 <h4 class="font-w400">Add <?=$item?></h4>
                 <?php
-            if ($this->session->flashdata('message')) {
-            echo '
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>' . $this->session->flashdata("message") . '</strong>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                ';
-            }
+                        if (isset($_SESSION['error'])) {
+                            echo '
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                '.$_SESSION['error'].'
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            ';
+                            $this->session->unset_userdata('error');
+                            
+                        }elseif (isset($_SESSION['success'])) {
+                            echo '
+                            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                '.$_SESSION['success'].'
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            ';
+                            $this->session->unset_userdata('success');
+                            
+                        }
+                    ?>
+               
 
             //Select which page to display
             switch ($item) {

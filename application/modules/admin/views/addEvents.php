@@ -1,16 +1,32 @@
 <div class="block-content" style="margin-top: 70px;">
     <h2>Add Event</h2>
-    <?php
-if ($this->session->flashdata('message')) {
-    echo '
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>' . $this->session->flashdata("message") . '</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        ';
-}
+   
+ <?php
+ if (isset($_SESSION['error'])) {
+     echo '
+     <div class="alert alert-danger alert-dismissible fade show" role="alert">
+         '.$_SESSION['error'].'
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+     </button>
+     </div>
+     ';
+     $this->session->unset_userdata('error');
+     
+ }elseif (isset($_SESSION['success'])) {
+     echo '
+     <div class="alert alert-primary alert-dismissible fade show" role="alert">
+         '.$_SESSION['success'].'
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+     </button>
+     </div>
+     ';
+     $this->session->unset_userdata('success');
+     
+ }
+?>
+
 ?>
     <form action="<?=base_url();?>admin/addEvent" method="post">
         <div class="row">
