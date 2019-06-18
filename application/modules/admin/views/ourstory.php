@@ -62,21 +62,21 @@
         </div>
 
     </main>
-    <script src="<?=base_url();?>assets/admin/assets/js/codebase.core.min.js"></script>
+    <!-- <script src="<?=base_url();?>assets/admin/assets/js/codebase.core.min.js"></script>
 
 
-    <script src="<?=base_url();?>assets/admin/assets/js/codebase.app.min.js"></script>
+    <script src="<?=base_url();?>assets/admin/assets/js/codebase.app.min.js"></script> -->
 
     <!-- Page JS Plugins -->
-    <script src="<?=base_url();?>assets/admin/assets/js/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- <script src="<?=base_url();?>assets/admin/assets/js/plugins/summernote/summernote-bs4.min.js"></script>
     <script src="<?=base_url();?>assets/admin/assets/js/plugins/ckeditor/ckeditor.js"></script>
-    <script src="<?=base_url();?>assets/admin/assets/js/plugins/simplemde/simplemde.min.js"></script>
+    <script src="<?=base_url();?>assets/admin/assets/js/plugins/simplemde/simplemde.min.js"></script> -->
 
     <!-- Page JS Helpers (Summernote + CKEditor + SimpleMDE plugins) -->
-    <script>
+    <!-- <script>
     jQuery(function() {
         Codebase.helpers(['summernote', 'ckeditor', 'simplemde']);
     });
-    </script>
+    </script> -->
 
 </body>
