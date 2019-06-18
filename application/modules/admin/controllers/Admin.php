@@ -532,6 +532,10 @@ class Admin extends MY_Controller
             $email = $this->input->post('email');
             $newpassword = $this->input->post('newpassword');
             $confirmpassword = $this->input->post('confirmpassword');
+            if($newpassword!=$confirmpassword){
+                $this->session->set_userdata('error', 'Passwords do not match');
+                redirect('admin/profile');
+            }else{
 
             $query = $this->db->query("select * from user where email='$email'");
             //   die(print_r($query));
@@ -553,6 +557,7 @@ class Admin extends MY_Controller
                 $this->session->set_userdata('error', 'Update was Not successful');
                 redirect('admin/ourstory');
             }
+        }
 	}
 	
 	
