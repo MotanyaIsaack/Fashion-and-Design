@@ -170,6 +170,7 @@ class Admin extends MY_Controller
             'short_name' => $this->input->post('short_name'),
             'full_name' => $this->input->post('full_name'),
             'item_info' => $this->input->post('item_info'),
+            'item_summary' => $this->input->post('item_summary'),
             'overview_header' => implode(',', $this->input->post('overview_header')),
             'overview_content' => implode(',', $this->input->post('overview_content')),
         );

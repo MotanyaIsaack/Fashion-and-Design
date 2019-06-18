@@ -64,7 +64,7 @@ $overview_content = explode(",", $row['overview_content']);
             <div class="form-group row">
                 <div class="col-12">
                     <label for="item_summary">Event Summary</label>
-                    <textarea class="form-control form-control-lg" name="item_summary" required rows="10">
+                    <textarea class="form-control form-control-lg" name="item_summary" required rows="3">
                         <?=$row['item_summary']?>
                     </textarea>
                 </div>
