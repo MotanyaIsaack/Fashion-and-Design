@@ -166,7 +166,7 @@
 
                 <!-- Visible only in normal mode -->
                 <div class="sidebar-mini-hidden-b text-center">
-                    <a class="img-link" href="be_pages_generic_profile.html">
+                    <a class="img-link" href="">
                         <img class="img-avatar" src="<?=base_url();?>assets/admin/assets/media/avatars/avatar15.jpg"
                             alt="">
                     </a>
