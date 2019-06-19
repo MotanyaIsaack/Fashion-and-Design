@@ -349,7 +349,7 @@ class Admin extends MY_Controller
         $result = ($deleted) ? $this->admin_model->delete_event($data) : false;
 
         if ($result === true) {
-            $this->session->set_userdata("success", "Event Succesfully Deleted");
+            $this->session->set_userdataf("success", "Event Succesfully Deleted");
             redirect('admin/viewEvents');
         } else {
             $this->session->set_userdata("error", "Event Not Succesfully Deleted");
@@ -588,13 +588,15 @@ class Admin extends MY_Controller
     public function changePassword()
     {
             $email = $this->input->post('email');
-            $newpassword = $this->input->post('newpassword');
-            $confirmpassword = $this->input->post('confirmpassword');
+
+            $newpassword = password_hash($this->input->post('newpassword'),PASSWORD_BCRYPT);
+            $password = $this->input->post('newpassword');
+            $confirmpassword=$this->input->post('confirmpassword');
 
             $query = $this->db->query("select * from user where email='$email'");
             //   die(print_r($query));
             $row = $query->num_rows();
-            if ($row) {
+            if ($row && $password==$confirmpassword) {
                 $query1 = $this->db->query("UPDATE user SET password='$newpassword' WHERE email='$email'");
                 
                 if($query1){
@@ -608,7 +610,7 @@ class Admin extends MY_Controller
                 }
                
              } else {
-                $this->session->set_userdata('error', 'Update was not successful');
+                $this->session->set_userdata('error', 'Please enter correct details');
                 redirect('admin/awards');
             }
 	}
