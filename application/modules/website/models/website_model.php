@@ -64,7 +64,7 @@ class Website_Model extends CI_Model
         //Form data
         $name = $this->input->post('name');
         $from = $this->input->post('email');
-        $to = "jerrybenjamin007@gmail.com";
+        $to = "vchegetest@gmail.com";
         $subject = $this->input->post('subject');
         $message = $this->input->post('message');
         $website = $this->input->post('website');

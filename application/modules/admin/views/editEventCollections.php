@@ -39,9 +39,7 @@ $item = $folder;
                             $this->session->unset_userdata('success');
                             
                         }
-                    ?>
-               
-
+                    
             //Select which page to display
             switch ($item) {
                 case "event":
