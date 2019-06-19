@@ -33,7 +33,7 @@ class Admin_model extends CI_Model
         $this->db->trans_start();
         $this->db->set('password',$data['password']);
         $this->db->where('email',$data['email']);
-        $updateResponse = $this->db->update('users');
+        $updateResponse = $this->db->update('user');
         $this->db->trans_complete();
 
         if ($this->db->trans_status() === false) {
@@ -44,6 +44,19 @@ class Admin_model extends CI_Model
             return $updateResponse;
         }
     }
+
+    public function random_password() 
+	{
+		$alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+		$password = array(); 
+		$alpha_length = strlen($alphabet) - 1; 
+		for ($i = 0; $i < 8; $i++) 
+		{
+			$n = rand(0, $alpha_length);
+			$password[] = $alphabet[$n];
+		}
+		return implode($password); 
+	}
     //Function that fetches all the event id's
     public function get_event_ids()
     {
