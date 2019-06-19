@@ -29,7 +29,21 @@ class Admin_model extends CI_Model
         $awards = $this->db->get('about')->result_array();
         return $awards;
     }
+    public function forgot_password($data){
+        $this->db->trans_start();
+        $this->db->set('password',$data['password']);
+        $this->db->where('email',$data['email']);
+        $updateResponse = $this->db->update('users');
+        $this->db->trans_complete();
 
+        if ($this->db->trans_status() === false) {
+            // generate an error... or use the log_message() function to log your error
+            return "Change Password Not Succesful.";
+
+        } else {
+            return $updateResponse;
+        }
+    }
     //Function that fetches all the event id's
     public function get_event_ids()
     {
@@ -541,6 +555,77 @@ class Admin_model extends CI_Model
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+
+        </html>
+        ';
+    }
+    function mailTemplateForgotPassword($data)
+    {
+        $email = $data['email'];
+        $password = $data['password'];
+        return '
+        <html>
+
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <title>Forgot Password</title>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <style>
+                /* Use the same logo size and positioning as in the eBay email to families */
+                img.logo {
+                    width: 80px;
+                    margin: 30px 20px;
+                }
+
+                body {
+                    background-color: #f3f3f3;
+                }
+
+                /* Align the column with the logo */
+                .col.lucy-col {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+
+                .card-title h4 {
+                    margin-top: 0px;
+                }
+
+                /* Use Materialize\'s default light blue color for card-action links (instead of an orange one) */
+                .card-action.lucy-card-action a {
+                    color: #039be5 !important;
+                }
+
+                /* Make the table more compact vertically */
+                td {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+            </style>
+        </head>
+
+        <body>
+
+            <!-- Materialize table within a Materialize card (cf. http://materializecss.com/cards.html and http://materializecss.com/table.html) -->
+            <div class="row">
+
+                <div class="col lucy-col s12 m6 offset-m3 offset-l3">
+                    <div class="card">
+                        <div class="card-content">
+                            <center><img class="logo" src="http://kikoromeo.com/wp-content/uploads/2018/10/kikoromeo-logo1.png"
+                                    alt="KIKOROMEO" /></center>
+                            <span class="card-title">
+                                <h4>Email: '.$email.'</h4>
+                                <h4>You requested for a password change. To login kindly use '.$password.' this as your temporary password
+                                    and change it upon login</h4>
+                            </span>
                         </div>
                     </div>
                 </div>

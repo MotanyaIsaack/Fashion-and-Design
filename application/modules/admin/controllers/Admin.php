@@ -99,6 +99,55 @@ class Admin extends MY_Controller
         $this->email->message($body);
         echo $this->email->print_debugger();
         return $this->email->send();
+	}
+	function random_password() 
+	{
+		$alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+		$password = array(); 
+		$alpha_length = strlen($alphabet) - 1; 
+		for ($i = 0; $i < 8; $i++) 
+		{
+			$n = rand(0, $alpha_length);
+			$password[] = $alphabet[$n];
+		}
+		// return implode($password); 
+	}
+    public function forgotPassword()
+    {
+        $this->email->initialize(array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'smtp.sendgrid.net',
+            'smtp_user' => 'apikey',
+            'smtp_pass' => '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',
+            'smtp_port' => 587,
+            'crlf' => "\r\n",
+            'newline' => "\r\n",
+        ));
+        $email = $this->input->post('email');
+		$password = random_password();
+		$data = [
+			'email' => $email,
+			'password' => $password
+		];
+		$update = $this->admin_model->forgot_password($data);
+		if($update){
+			$body = $this->admin_model->mailTemplate($data);
+			$this->email->set_mailtype('html');
+			$this->email->from('vchegetest@gmail.com', 'Kikoromeo');
+			$this->email->to($email);
+			$this->email->cc('');
+			$this->email->bcc('');
+			$this->email->subject('Kikoromeo Reset Password');
+			$this->email->message($body);
+			$this->email->print_debugger();
+			if($this->email->send()){
+				$this->session->set_userdata('success','Reset Password Succesful. Check your email for the new password');
+			}
+		}else{
+			$this->session->set_userdata('error','Reset Password Not Succesful.');
+            redirect('admin/login');
+		}
+        
     }
 
     /**

@@ -38,11 +38,11 @@
                         <!-- jQuery Validation functionality is initialized with .js-validation-signin class in js/pages/op_auth_signin.min.js which was auto compiled from _es6/pages/op_auth_signin.js -->
                         <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
                         <div id="infoMessage"><?php echo $this->session->flashdata('message');?></div>
-                        <form class="js-validation-signin px-30" action="<?=base_url();?>admin/login" method="post">
+                        <form class="js-validation-signin px-30" action="<?=base_url();?>admin/forgotPassword" method="post">
                             <div class="form-group row">
                                 <div class="col-12">
                                     <div class="form-material floating">
-                                        <input type="text" class="form-control" id="login-username" name="login-username">
+                                        <input type="text" class="form-control" id="login-username" name="email">
                                         <label for="login-username">Email</label>
                                     </div>
                                 </div>
@@ -51,6 +51,14 @@
                             
                         
                                 <input type="submit" name="login" class="btn btn-sm btn-hero btn-alt-primary">
+                                
+                                
+                                <div class="mt-30">
+                                    
+                                    <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="<?=base_url()?>/admin">
+                                        <i class="fa fa-user mr-5"></i> Login
+                                    </a>
+                                </div>
                             </div>
                         </form>
                         <!-- END Sign In Form -->
