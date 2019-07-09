@@ -5,7 +5,9 @@
 	"homepage": "https://github.com/alzen8work/ci_hmvc",
 	"license": "MIT",
 	"require": {
-		"php": ">=5.2.4"
+		"php": ">=5.2.4",
+		"seunmatt/codeigniter-log-viewer": "^1.1",
+		"twilio/sdk": "^5.34"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
