@@ -102,7 +102,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
  */
-$config['enable_hooks'] = false;
+$config['enable_hooks'] = true;
 
 /*
 |--------------------------------------------------------------------------
@@ -225,7 +225,7 @@ $config['allow_get_array'] = true;
 | your log files will fill up very fast.
 |
  */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 2;
 
 /*
 |--------------------------------------------------------------------------
@@ -284,7 +284,7 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 | application/views/errors/ directory.  Use a full server path with trailing slash.
 |
  */
-$config['error_views_path'] = '';
+$config['error_views_path'] = '/error_logs/logfile';
 
 /*
 |--------------------------------------------------------------------------

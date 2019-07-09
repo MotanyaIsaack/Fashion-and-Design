@@ -101,6 +101,23 @@
                                         </div>
                                     </div>
                                 </div>
+                                <p>
+    <span id="image_captcha">
+        <?php echo $captchaImg; ?>
+    </span>
+    <a href="javascript:void(0);" class="captcha-refresh" >
+  <i class="si si-refresh fa-2x"></i>
+</a>
+</p>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                            <input type="text" class="form-control" id="captcha"
+                                                name="captcha">
+                                            <label for="signup-password-confirm">Input captcha</label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- <div class="form-group row">
                                         <div class="col-12">
                                             <div class="custom-control custom-checkbox">
@@ -109,6 +126,7 @@
                                             </div>
                                         </div>
                                     </div> -->
+                                   
                                 <div class="form-group">
                                     <button type="submit" name="email" class="btn btn-sm btn-hero btn-alt-success"
                                         onClick="<?=base_url();?>admin/sendMail">
@@ -125,6 +143,29 @@
                                     </div>
                                 </div>
                             </form>
+                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                            <script>
+                            function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+                            }
+  </script>
+
+
+                         
+
+
+
+
+
+
+
+</body>
+
+</html>
                             <!-- END Sign Up Form -->
                         </div>
                     </div>
@@ -208,7 +249,7 @@
             assets/js/core/js.cookie.min.js
         -->
     <script src="<?=base_url();?>assets/admin/assets/js/codebase.core.min.js"></script>
-
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!--
             Codebase JS
 
@@ -222,7 +263,25 @@
 
     <!-- Page JS Code -->
     <script src="<?=base_url();?>assets/admin/assets/js/pages/op_auth_signup.min.js"></script>
+    
+    <!-- TEST, REMOVE -->
+    <script>
 
+       $(document).ready(function(){
+
+           $('.captcha-refresh').on('click', function(){
+
+               $.get('<?php echo base_url().'admin/refresh'; ?>', function(data){
+
+                   $('#image_captcha').html(data);
+
+               });
+
+           });
+
+       });
+
+   </script>
 </body>
 
 </html>
