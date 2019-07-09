@@ -466,7 +466,8 @@ class Admin extends MY_Controller
                     redirect('admin/signup');
                 }
             } else {
-                echo 'Failure';
+                    $this->session->set_userdata('error', 'Wrong Captcha');
+                    redirect('admin/signup');
             }
         
        

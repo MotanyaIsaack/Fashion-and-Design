@@ -16,7 +16,7 @@ class Captcha extends CI_Controller
             if ($captcha_insert === $contain_sess_captcha) {
                 echo 'Success';
             } else {
-                echo 'Failure';
+                return redirect('admin/signup');
             }
         }
         $config = array(

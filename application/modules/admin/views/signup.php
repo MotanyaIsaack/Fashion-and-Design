@@ -143,7 +143,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                            <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div>
                             <script>
                             function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
@@ -153,7 +153,7 @@
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
                             }
   </script>
-
+ -->
 
                          
 
