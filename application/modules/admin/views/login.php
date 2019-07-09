@@ -84,7 +84,7 @@
                             <div class="form-group">
                             
                         
-                                <input type="submit" name="login" class="btn btn-sm btn-hero btn-alt-primary">
+                                <input type="submit" value="Submit" name="login" class="btn btn-sm btn-hero btn-alt-primary">
                                 
                                 
                                 <div class="mt-30">
